@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-link page-scroll" href="#page-top">Home</a></li>
-                        <li><a class="nav-link page-scroll" href="#features">Features</a></li>
+                        <li><a class="nav-link page-scroll" href="/register">Register</a></li>
                         <li><a class="nav-link page-scroll" href="#team">Team</a></li>
                         <li><a class="nav-link page-scroll" href="#testimonials">Testimonials</a></li>
                         <li><a class="nav-link page-scroll" href="#pricing">Pricing</a></li>
@@ -94,7 +94,7 @@
         </a>
     </div>
 
-    <!--
+
     <section id="features" class="container services">
         <div class="row">
             <div class="col-sm-3">
@@ -119,8 +119,7 @@
             </div>
         </div>
     </section>
-    -->
-    <!--
+    
     <section class="container features">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -177,8 +176,7 @@
             </div>
         </div>
     </section>
-    -->
-    <!--
+    
     <section id="team" class="gray-section team">
         <div class="container">
             <div class="row m-b-lg">
@@ -242,7 +240,7 @@
             </div>
         </div>
     </section>
-    <!--
+
 
     <section class="features">
         <div class="container">
@@ -273,9 +271,7 @@
         </div>
 
     </section>
--->
 
-    <!--
     <section class="timeline gray-section">
         <div class="container">
             <div class="row">
@@ -336,8 +332,7 @@
         </div>
 
     </section>
-    -->
-    <!--
+    
     <section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
 
         <div class="container">
@@ -358,8 +353,7 @@
         </div>
 
     </section>
-    -->
-    <!--
+    
     <section class="comments gray-section" style="margin-top: 0">
         <div class="container">
             <div class="row">
@@ -427,8 +421,7 @@
         </div>
 
     </section>
--->
-    <!--
+
     <section class="features">
         <div class="container">
             <div class="row">
@@ -470,9 +463,7 @@
 
     </section>
 
--->
 
-    <!--
     <section id="pricing" class="pricing">
         <div class="container">
             <div class="row m-b-lg">
@@ -590,7 +581,7 @@
         </div>
 
     </section>
--->
+
     <section id="contact" class="gray-section contact">
         <div class="container">
             <div class="row m-b-lg">

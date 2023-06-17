@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 
-class HomePageController extends Controller
+class Home extends Controller
 {
     public function __construct()
     {

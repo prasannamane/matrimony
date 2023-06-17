@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\HomePageController;
+use App\Http\Controllers\User\Home;
+use App\Http\Controllers\User\Register;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,8 @@ Route::get('/', function () {
 
 
  
-Route::get('/', [HomePageController::class, 'index']);
+Route::get('/', [Home::class, 'index']);
+Route::get('/register', [Register::class, 'index']);
+Route::post('/submitform', [Register::class, 'submitform']);
+
+
