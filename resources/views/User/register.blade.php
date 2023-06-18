@@ -36,6 +36,11 @@
                 </ul>
             </div>
             @endif
+            @if(session('failed'))
+            <div class="alert alert-danger">
+                {{ session('failed') }}
+            </div>
+            @endif
             <form class="m-t" role="form" action="/submitform" method="post">
                 @csrf
 
@@ -50,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" name="religion" required>
-                        <option  value="">Select Religion</option>
+                        <option value="">Select Religion</option>
                         @foreach ($religion as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach

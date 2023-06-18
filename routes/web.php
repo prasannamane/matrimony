@@ -25,7 +25,11 @@ Route::get('/', function () {
 
  
 Route::get('/', [Home::class, 'index']);
+
 Route::get('/register', [Register::class, 'index']);
 Route::post('/submitform', [Register::class, 'submitform']);
+
+Route::get('/login', [Register::class, 'login']);
+
 
 

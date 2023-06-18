@@ -31,26 +31,15 @@
             </p>
             <p>Login in. To see it in action.</p>
             <form class="m-t" role="form" action="index.html">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="first_name" placeholder="First Name" required="">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" required="">
-                </div>
+
                 <div class="form-group">
                     <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" required="">
                 </div>
-                <div class="form-group">
-                    <select class="form-control" name="religion" required="">
-                    <option>Select Religion</option>
-                        @foreach ($religion as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password" required="">
                 </div>
+                
                 <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
                 <a href="#"><small>Forgot password?</small></a>

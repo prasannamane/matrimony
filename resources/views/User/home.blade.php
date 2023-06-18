@@ -25,7 +25,7 @@
     <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="index.html">WEBAPPLAYERS</a>
+                <a class="navbar-brand" href="index.html">MATRIMONY</a>
                 <div class="navbar-header page-scroll">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                         <i class="fa fa-bars"></i>
@@ -35,10 +35,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-link page-scroll" href="#page-top">Home</a></li>
                         <li><a class="nav-link page-scroll" href="/register">Register</a></li>
-                        <li><a class="nav-link page-scroll" href="#team">Team</a></li>
-                        <li><a class="nav-link page-scroll" href="#testimonials">Testimonials</a></li>
-                        <li><a class="nav-link page-scroll" href="#pricing">Pricing</a></li>
-                        <li><a class="nav-link page-scroll" href="#contact">Contact</a></li>
+                        <li><a class="nav-link page-scroll" href="#team">Brides</a></li>
+                        <li><a class="nav-link page-scroll" href="#testimonials">Grooms</a></li>
+                        <li><a class="nav-link page-scroll" href="#pricing">Matching Search</a></li>
+                        <li><a class="nav-link page-scroll" href="#contact">Single ID Search</a></li>
                     </ul>
                 </div>
             </div>
@@ -54,14 +54,12 @@
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>We craft<br />
-                            brands, web apps,<br />
-                            and user interfaces<br />
-                            we are IN+ studio</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                        <h1>In Perfect Place,<br />
+                                Discover Your Perfect<br> Match,<br> Forever Starts Here!<br>
+                        <p>Love is only essence of our relationship.</p>
                         <p>
                             <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
-                            <a class="caption-link" href="#" role="button">Inspinia Theme</a>
+                            <a class="caption-link" href="#" role="button">PPM</a>
                         </p>
                     </div>
                     <div class="carousel-image wow zoomIn">
@@ -98,7 +96,7 @@
     <section id="features" class="container services">
         <div class="row">
             <div class="col-sm-3">
-                <h2>Full responsive</h2>
+                <h2>Popular Categories</h2>
                 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
                 <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
             </div>
@@ -124,7 +122,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
-                <h1>Over 40+ unique view<br /> <span class="navy"> with many custom components</span> </h1>
+                <h1> Welcome to perfect place matrimony <br /> <span class="navy"> with many custom components</span> </h1>
                 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
             </div>
         </div>
@@ -132,7 +130,7 @@
             <div class="col-md-3 text-center wow fadeInLeft">
                 <div>
                     <i class="fa fa-mobile features-icon"></i>
-                    <h2>Full responsive</h2>
+                    <h2>Popular Categories</h2>
                     <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
                 </div>
                 <div class="m-t-lg">
