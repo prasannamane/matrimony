@@ -30,6 +30,8 @@ Route::get('/register', [Register::class, 'index']);
 Route::post('/submitform', [Register::class, 'submitform']);
 
 Route::get('/login', [Register::class, 'login']);
+Route::post('/loginform', [Register::class, 'loginform']);
+
 
 
 

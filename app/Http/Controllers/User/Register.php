@@ -9,6 +9,7 @@ use App\Exceptions\DBError;
 use Illuminate\Support\Facades\Log;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class Register extends Controller
 {
@@ -22,30 +23,34 @@ class Register extends Controller
     {
         $religion = Religion::all();
         return view('User/register', ['religion' => $religion]);
-        
     }
 
 
     public function submitform(Request $request)
-    {   
+    {
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
             'mobile' => 'required',
             'password' => 'required',
-            'religion' => 'required', 
+            'religion' => 'required',
         ]);
 
-        try{
-            MdlRegister::insert($validatedData);
-            return redirect('/login')->with('success', 'Form submitted successfully.');
+        $condition['mobile'] =  $validatedData['mobile'];
+        $MdlRegister = MdlRegister::where($condition)->get();
+
+        if ($MdlRegister->count() > 0) {
+            return redirect('/register')->with('failed', 'This mobile number is already registered. Please use a different number OR Using same numner you can login now.');
         }
-        catch(Exception $e) {
+
+        try {
+            $validatedData['password'] = md5($validatedData['password']);
+            MdlRegister::insert($validatedData);
+            return redirect('/login')->with("success", "Thank You for Submitting Your Registration Form! Account Activation and Verification Underway. Expect Confirmation Within 24 Hours.");
+        } catch (Exception $e) {
             Log::error($e->getMessage());
-            return redirect('/register')->with('failed', 'Form submission failed.');
-            //print_r($e->getMessage());
-            //throw new DBError($e->getMessage());
-        }      
+            return redirect('/register')->with('failed', 'Registration Form submission failed. Somwthing went wrong!.');
+        }
     }
 
     public function login()
@@ -53,25 +58,49 @@ class Register extends Controller
         return view('User/login');
     }
 
-    public function insert($insertArray){
-        try{
-            SearchRequests::insert($insertArray);
+    public function loginform(Request $request)
+    {
+        $validatedData = $request->validate([
+            'mobile' => 'required',
+            'password' => 'required',
+        ]);
+
+        $validatedData['password'] = md5($validatedData['password']);
+        $MdlRegister = MdlRegister::where($validatedData)->get();
+
+        if ($MdlRegister->count() > 0) {
+            if ($MdlRegister[0]->active == 1) {
+                Session::start();
+                Session::put('user_session', $MdlRegister);
+                return redirect('/dashbord')->with('success', 'Welcome ' . $MdlRegister[0]->first_name);
+                
+            } else {
+                return redirect('/login')->with("failed", "Your Account is Not Activated!");
+            }
+        } else {
+            return redirect('/login')->with("failed", "Mobile number OR Password is Wrong!");
         }
-        catch(Exception $e) {
+    }
+
+    public function insert($insertArray)
+    {
+        try {
+            SearchRequests::insert($insertArray);
+        } catch (Exception $e) {
             throw new DBError($e->getMessage());
-        }   
+        }
     }
 
     public function religion_retrieve()
     {
         try {
-            print_r( Religion::all());
+            print_r(Religion::all());
         } catch (Exception $e) {
             Log::error($this->errorInstance . $e);
             throw new DBError($e->getMessage());
             // Within your code
-Log::info('This is an informational log message.');
-Log::error('An error occurred.');
+            Log::info('This is an informational log message.');
+            Log::error('An error occurred.');
         }
     }
 }
