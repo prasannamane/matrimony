@@ -11,7 +11,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class Register extends Controller
+class Dashbord extends Controller
 {
     public $errorInstance = 'DB error : ';
 
@@ -21,8 +21,16 @@ class Register extends Controller
 
     public function index()
     {
-        $religion = Religion::all();
-        return view('User/register', ['religion' => $religion]);
+        $user_session = Session::get('user_session');
+        print_r($user_session);
+        
+        $condition['gender'] = 0;
+        if($user_session == 0){
+            $condition['gender'] = 1;
+        }
+        
+        $MdlRegister = MdlRegister::where($condition)->get();
+        //return view('User/dashbord', ['religion' => $religion]);
     }
 
 
@@ -71,18 +79,7 @@ class Register extends Controller
         if ($MdlRegister->count() > 0) {
             if ($MdlRegister[0]->active == 1) {
                 Session::start();
-                //SELECT `id`, `first_name`, `last_name`, `mobile`, `password`, `religion`, `created_at`, `updated_at`, `active`, `role_id`, `gender` FROM `register` WHERE 1
-                
-                $user_session['id'] = $MdlRegister[0]->id;
-                $user_session['first_name'] = $MdlRegister[0]->first_name;
-                $user_session['last_name'] = $MdlRegister[0]->last_name;
-                $user_session['mobile'] = $MdlRegister[0]->mobile;
-                $user_session['religion'] = $MdlRegister[0]->religion;
-                $user_session['role_id'] = $MdlRegister[0]->role_id;
-                $user_session['gender'] = $MdlRegister[0]->gender;
-
-
-                Session::put('user_session', $user_session);
+                Session::put('user_session', $MdlRegister);
                 return redirect('/dashbord')->with('success', 'Welcome ' . $MdlRegister[0]->first_name);
                 
             } else {

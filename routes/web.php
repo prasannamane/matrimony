@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Home;
 use App\Http\Controllers\User\Register;
+use App\Http\Controllers\User\Dashbord;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,9 @@ Route::post('/submitform', [Register::class, 'submitform']);
 
 Route::get('/login', [Register::class, 'login']);
 Route::post('/loginform', [Register::class, 'loginform']);
+
+Route::get('/dashbord', [Dashbord::class, 'index']);
+
 
 
 
