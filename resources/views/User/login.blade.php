@@ -55,7 +55,7 @@
 
                 <a href="#"><small>Forgot password?</small></a>
                 <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
+                <a class="btn btn-sm btn-white btn-block" href="/matrimony/register">Create an account</a>
             </form>
             <p class="m-t"> <small>Perfect Place Transforming Brands for the Digital Age <br> &copy; 2023-24</small></p>
         </div>

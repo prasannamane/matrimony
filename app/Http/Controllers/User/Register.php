@@ -114,4 +114,9 @@ class Register extends Controller
             Log::error('An error occurred.');
         }
     }
+
+    public function logout(){
+        Session::flush();
+        return redirect('/login')->with('success', "Thank you for being a valued member of our community. We look forward to your return. Log in again to continue your amazing journey with us!");
+    }
 }
