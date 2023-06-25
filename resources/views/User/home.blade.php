@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <title>Matrimony | Landing Page</title>
-    <link rel="icon" type="image/x-icon" href="/web_img/fevic.png">
+    <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

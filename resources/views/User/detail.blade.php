@@ -2,21 +2,23 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Matrimony | Dashbord</title>
-    <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
+    <title>INSPINIA | E-commerce product detail</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="css/plugins/slick/slick-theme.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -30,22 +32,21 @@
                         <div class="dropdown profile-element">
                             <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
-                                <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
+                                <span class="block m-t-xs font-bold">David Williams</span>
+                                <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                                 <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                                 <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="login.html">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
-                            PPM+
+                            IN+
                         </div>
                     </li>
-                    <!--
                     <li>
                         <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -56,11 +57,9 @@
                             <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
                         </ul>
                     </li>
-                    -->
-                    <li class="active">
-                        <a href="/dashbord"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                    <li>
+                        <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
                     </li>
-                    <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -74,7 +73,6 @@
                             <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
                         </ul>
                     </li>
-                    
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning float-right">16/24</span></a>
                         <ul class="nav nav-second-level collapse">
@@ -207,10 +205,10 @@
                     <li class="active">
                         <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li class="active"><a href="ecommerce_products_grid.html">Products grid</a></li>
+                            <li><a href="ecommerce_products_grid.html">Products grid</a></li>
                             <li><a href="ecommerce_product_list.html">Products list</a></li>
                             <li><a href="ecommerce_product.html">Product edit</a></li>
-                            <li><a href="ecommerce_product_detail.html">Product detail</a></li>
+                            <li class="active"><a href="ecommerce_product_detail.html">Product detail</a></li>
                             <li><a href="ecommerce-cart.html">Cart</a></li>
                             <li><a href="ecommerce-orders.html">Orders</a></li>
                             <li><a href="ecommerce_payments.html">Credit Card form</a></li>
@@ -251,23 +249,17 @@
                                 <a href="#">Second Level Item</a>
                             </li>
                         </ul>
-                        
                     </li>
                     <li>
                         <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info float-right">62</span></a>
                     </li>
-                    -->
-
                     <li class="landing_link">
-                        <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
+                        <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning float-right">NEW</span></a>
                     </li>
-                    <!--
                     <li class="special_link">
                         <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                     </li>
-                    -->
                 </ul>
-
 
             </div>
         </nav>
@@ -285,15 +277,13 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
                         </li>
-                        <!--
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                                 <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                             </a>
                             <ul class="dropdown-menu dropdown-messages">
-                                
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
@@ -384,11 +374,10 @@
                                 </li>
                             </ul>
                         </li>
-                        -->
 
 
                         <li>
-                            <a href="/logout">
+                            <a href="login.html">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -398,126 +387,213 @@
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Profile grid</h2>
+                    <h2>E-commerce product detail</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="index.html">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a>Profile</a>
+                            <a>E-commerce</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Profile grid</strong>
+                            <strong>Product detail</strong>
                         </li>
                     </ol>
                 </div>
-                <div class="col-lg-2">
-
-                </div>
             </div>
-
-
 
             <div class="wrapper wrapper-content animated fadeInRight">
 
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row search-form">
-                        <form action="/dashbord" method="post">
-                            @csrf
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter From Age</label>
-                                    <input type="number" value="{{ $from_age }}" name="from_age" placeholder="From Age" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter To Age</label>
-                                    <input type="number" value="{{ $to_age }}" name="to_age" placeholder="To Age" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Religion</label>
-                                    <input type="text" name="religion" placeholder="Religion" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Cast</label>
-                                    <input type="text" name="religion" placeholder="Cast" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select State</label>
-                                    <input type="text" name="religion" placeholder="State" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-w-m btn-success">Search</button>
-                                </div>
-                            </div>
-                            <form>
-                    </div>
-                </div>
-
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row">
-                        <div class="pagination">
-                            {{ $register->links() }}
-                        </div>
-                    </div>
-                </div>
-
                 <div class="row">
-                    @foreach ($register as $item)
+                    <div class="col-lg-12">
+
+                        <div class="ibox product-detail">
+                            <div class="ibox-content">
+
+                                <div class="row">
+                                    <div class="col-md-5">
 
 
-                    <div class="col-md-3">
-                        <div class="ibox">
-                            <div class="ibox-content product-box">
+                                        <div class="product-images">
 
-                                <div class="product-imitation">
-                                    <img src="/img/profile/{{ $item->image }}">
-                                </div>
-                                <div class="product-desc">
-                                    <span class="product-price">
-                                        #{{ $item->id }}
-                                    </span>
+                                            <div>
+                                                <div class="image-imitation">
+                                                    [IMAGE 1]
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="image-imitation">
+                                                    [IMAGE 2]
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="image-imitation">
+                                                    [IMAGE 3]
+                                                </div>
+                                            </div>
 
-                                    <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}</a>
-                                    <small class="text-muted">Age: {{ $item->age }}</small>
-                                    <div class="small m-t-xs">
-                                        Religion: {{ $item->religion }}<br>
-                                        Cast: {{ $item->cast }}<br>
-                                        Country: India <br>
-                                        State: {{ $item->state }}<br>
+
+                                        </div>
+
                                     </div>
-                                    <div class="m-t text-righ">
+                                    <div class="col-md-7">
 
-                                        <a href="/detail/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
+                                        <h2 class="font-bold m-b-xs">
+                                            Desktop publishing software
+                                        </h2>
+                                        <small>Many desktop publishing packages and web page editors now.</small>
+                                        <div class="m-t-md">
+                                            <h2 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h2>
+                                        </div>
+                                        <hr>
+
+                                        <h4>Product description</h4>
+
+                                        <div class="small text-muted">
+                                            It is a long established fact that a reader will be distracted by the readable
+                                            content of a page when looking at its layout. The point of using Lorem Ipsum is
+
+                                            <br />
+                                            <br />
+                                            There are many variations of passages of Lorem Ipsum available, but the majority
+                                            have suffered alteration in some form, by injected humour, or randomised words
+                                            which don't look even slightly believable.
+                                        </div>
+                                        <dl class="small m-t-md">
+                                            <dt>Description lists</dt>
+                                            <dd>A description list is perfect for defining terms.</dd>
+                                            <dt>Euismod</dt>
+                                            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                                            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                                            <dt>Malesuada porta</dt>
+                                            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                                        </dl>
+                                        <hr>
+
+                                        <div>
+                                            <div class="btn-group">
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Add to cart</button>
+                                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                                 </div>
+
+                            </div>
+                            <div class="ibox-footer">
+                                <span class="float-right">
+                                    Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
+                                </span>
+                                The generated Lorem Ipsum is therefore always free
                             </div>
                         </div>
+
                     </div>
-                    @endforeach
                 </div>
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="ibox product-detail">
+                            <div class="ibox-content">
+
+                                <div class="row">
+                                    <div class="col-md-5">
+
+
+                                        <div class="product-images">
+
+                                            <div>
+                                                <div class="image-imitation">
+                                                    [IMAGE 1]
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="image-imitation">
+                                                    [IMAGE 2]
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="image-imitation">
+                                                    [IMAGE 3]
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-7">
+
+                                        <h2 class="font-bold m-b-xs">
+                                            Desktop publishing software
+                                        </h2>
+                                        <small>Many desktop publishing packages and web page editors now.</small>
+                                        <hr>
+                                        <div>
+                                            <button class="btn btn-primary float-right">Add to cart</button>
+                                            <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
+                                        </div>
+                                        <hr>
+                                        <h4>Product description</h4>
+
+                                        <div class="small text-muted">
+                                            It is a long established fact that a reader will be distracted by the readable
+                                            content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                            that it has a more-or-less normal distribution of letters, as opposed to using
+                                            'Content here, content here', making it look like readable English.
+                                            <br />
+                                            <br />
+                                            There are many variations of passages of Lorem Ipsum available, but the majority
+                                            have suffered alteration in some form, by injected humour, or randomised words
+                                            which don't look even slightly believable.
+                                        </div>
+                                        <dl class="row m-t-md small">
+                                            <dt class="col-md-4 text-right">Description lists</dt>
+                                            <dd class="col-md-8">A description list is perfect for defining terms.</dd>
+                                            <dt class="col-md-4 text-right">Euismod</dt>
+                                            <dd class="col-md-8">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<br />Donec id elit non mi porta gravida at eget metus.</dd>
+                                            <dt class="col-md-4 text-right">Malesuada porta</dt>
+                                            <dd class="col-md-8">Etiam porta sem malesuada magna mollis euismod.</dd>
+                                            <dt class="col-md-4 text-right">Felis euismod semper eget</dt>
+                                            <dd class="col-md-8">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                                        </dl>
+                                        <div class="text-right">
+                                            <div class="btn-group">
+                                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
+                                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="ibox-footer">
+                                <span class="float-right">
+                                    Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
+                                </span>
+                                The generated Lorem Ipsum is therefore always free
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
             </div>
             <div class="footer">
                 <div class="float-right">
-                    Have a <strong>Good</strong> Match.
+                    10GB of <strong>250GB</strong> Free.
                 </div>
                 <div>
-                    <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
+                    <strong>Copyright</strong> Example Company &copy; 2014-2018
                 </div>
             </div>
 
@@ -536,6 +612,20 @@
     <!-- Custom and plugin javascript -->
     <script src="js/inspinia.js"></script>
     <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- slick carousel-->
+    <script src="js/plugins/slick/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+
+            $('.product-images').slick({
+                dots: true
+            });
+
+        });
+    </script>
 
 </body>
 

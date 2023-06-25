@@ -11,5 +11,10 @@ class Register extends Model
     protected $table = 'register';
     protected $primaryKey = 'id';
     public $timestamps = true;
-    protected $fillable = [ 'first_name', 'last_name', 'mobile', 'password', 'religion'];
+    protected $fillable = [ 'first_name', 'last_name', 'mobile', 'password'];
+
+    public function parent()
+    {
+        return $this->belongsTo(Religion::class, 'religion_id', 'id');
+    }
 }

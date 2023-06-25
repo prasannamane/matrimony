@@ -13,6 +13,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class Register extends Controller
 {
@@ -46,20 +47,11 @@ class Register extends Controller
             'gender' => 'required',
             'dob' => 'required',
             'countries_id' => 'required',
-            'countries_id' => 'required',
+            'states_id' => 'required',
         ]);
 
-        //$path = $request->file('image')->store('public/images');
-
-        //Community
-        //Country
-        //lanugae
-
-        //$validatedData['image'] = $path;
-
+        $validatedData['age'] = $this->calculateAge($validatedData['dob']);
         $validatedData['dob'] = date("Y-m-d", strtotime($validatedData['dob']));
-
-
 
         $condition['mobile'] =  $validatedData['mobile'];
         $MdlRegister = MdlRegister::where($condition)->get();
@@ -143,5 +135,12 @@ class Register extends Controller
     {
         Session::flush();
         return redirect('/login')->with('success', "Thank you for being a valued member of our community. We look forward to your return. Log in again to continue your amazing journey with us!");
+    }
+
+    public function calculateAge($birthdate)
+    {
+        $now = Carbon::now();
+        $birthdate = Carbon::parse($birthdate);
+        return $birthdate->diffInYears($now);
     }
 }

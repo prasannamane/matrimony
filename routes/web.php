@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 
 
- 
+
 Route::get('/', [Home::class, 'index']);
 
 Route::get('/register', [Register::class, 'index']);
@@ -35,9 +35,6 @@ Route::post('/loginform', [Register::class, 'loginform']);
 Route::get('/logout', [Register::class, 'logout']);
 
 Route::get('/dashbord', [Dashbord::class, 'index']);
+Route::post('/dashbord', [Dashbord::class, 'index']);
 
-
-
-
-
-
+Route::get('/detail/{id}/{id2}', [Dashbord::class, 'detail']);

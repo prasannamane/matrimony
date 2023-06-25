@@ -10,3 +10,57 @@
     background-color: #fb7e3a;
     border-color: #fc5900;
 }
+
+.product-imitation img {
+    max-width: 100%;
+}
+
+.product-box .product-imitation {
+    padding: 0px;
+}
+
+.product-box {
+    border: 1px solid #0099ff;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    padding: 5px 10px;
+    background-color: #eee;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.pagination li.active a {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination li.disabled a {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.pagination svg:not(:root) {
+    overflow: hidden;
+    height: 15px;
+}
+
+.pagination .flex.flex-1.justify-between {
+    display: none;
+}
+
+.search-form form{
+    width: 100%;
+    display: flex;
+}

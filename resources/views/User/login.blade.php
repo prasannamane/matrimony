@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Matrimony | Login</title>
-    <link rel="icon" type="image/x-icon" href="/web_img/fevic.png">
+    <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
