@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Religion;
 use App\Models\Register as MdlRegister;
+use Illuminate\Support\Facades\Session;
+
+use App\Models\Religion;
 use App\Exceptions\DBError;
 use Illuminate\Support\Facades\Log;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+
 
 class Dashbord extends Controller
 {
@@ -28,6 +30,6 @@ class Dashbord extends Controller
             $condition['gender'] = 1;
         }
         $register = MdlRegister::where($condition)->get();
-        return view('User/dashbord', ['register' => $register]);
+        return view('User/dashbord', ['register' => $register, 'user_session' => $user_session]);
     }
 }

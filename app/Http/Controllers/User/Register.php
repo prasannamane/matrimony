@@ -4,12 +4,15 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Religion;
+use App\Models\Countries;
+use App\Models\States;
 use App\Models\Register as MdlRegister;
 use App\Exceptions\DBError;
 use Illuminate\Support\Facades\Log;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class Register extends Controller
 {
@@ -21,8 +24,14 @@ class Register extends Controller
 
     public function index()
     {
+        //$countries = Countries::all(); //, 'countries' => $countries
         $religion = Religion::all();
-        return view('User/register', ['religion' => $religion]);
+        //$states = States::all();
+
+        $condition['countries_id'] =  101;
+        $states = States::where($condition)->get();
+
+        return view('User/register', ['religion' => $religion, 'states' => $states]);
     }
 
 
@@ -34,7 +43,23 @@ class Register extends Controller
             'mobile' => 'required',
             'password' => 'required',
             'religion' => 'required',
+            'gender' => 'required',
+            'dob' => 'required',
+            'countries_id' => 'required',
+            'countries_id' => 'required',
         ]);
+
+        //$path = $request->file('image')->store('public/images');
+
+        //Community
+        //Country
+        //lanugae
+
+        //$validatedData['image'] = $path;
+
+        $validatedData['dob'] = date("Y-m-d", strtotime($validatedData['dob']));
+
+
 
         $condition['mobile'] =  $validatedData['mobile'];
         $MdlRegister = MdlRegister::where($condition)->get();
@@ -72,7 +97,7 @@ class Register extends Controller
             if ($MdlRegister[0]->active == 1) {
                 Session::start();
                 //SELECT `id`, `first_name`, `last_name`, `mobile`, `password`, `religion`, `created_at`, `updated_at`, `active`, `role_id`, `gender` FROM `register` WHERE 1
-                
+
                 $user_session['id'] = $MdlRegister[0]->id;
                 $user_session['first_name'] = $MdlRegister[0]->first_name;
                 $user_session['last_name'] = $MdlRegister[0]->last_name;
@@ -84,7 +109,6 @@ class Register extends Controller
 
                 Session::put('user_session', $user_session);
                 return redirect('/dashbord')->with('success', 'Welcome ' . $MdlRegister[0]->first_name);
-                
             } else {
                 return redirect('/login')->with("failed", "Your Account is Not Activated!");
             }
@@ -115,7 +139,8 @@ class Register extends Controller
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         Session::flush();
         return redirect('/login')->with('success', "Thank you for being a valued member of our community. We look forward to your return. Log in again to continue your amazing journey with us!");
     }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Matrimony | Login</title>
+    <link rel="icon" type="image/x-icon" href="/web_img/fevic.png">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -25,10 +26,8 @@
                 <h1 class="logo-name">PP+</h1>
 
             </div>
-            <h3>Welcome to PP Matrimony</h3>
-            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-                <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
-            </p>
+            <h3>Welcome to Our PP Matrimony Site</h3>
+            <p>Finding your perfect life partner is now easier than ever with our matrimonial site.</p>
             <p>Login in. To see it in action.</p>
             @if(session('failed'))
             <div class="alert alert-danger">

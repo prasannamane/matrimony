@@ -1,0 +1,12 @@
+.carousel-image.wow.zoomIn.animated img {
+    border: 6px solid #ff7474;
+}
+
+.container a.navbar-brand {
+    background: #fb7e3a !important;
+}
+
+.carousel-caption a.btn.btn-lg.btn-primary {
+    background-color: #fb7e3a;
+    border-color: #fc5900;
+}

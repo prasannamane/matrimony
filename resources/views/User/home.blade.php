@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Matrimony - Landing Page</title>
+    <title>Matrimony | Landing Page</title>
+    <link rel="icon" type="image/x-icon" href="/web_img/fevic.png">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,12 +19,14 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    
 </head>
 <body id="page-top" class="landing-page no-skin-config">
 <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="#">MATRIMONY</a>
+                <a class="navbar-brand" href="/matrimony/login">MATRIMONY</a>
                 <div class="navbar-header page-scroll">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                         <i class="fa fa-bars"></i>
@@ -57,7 +60,7 @@
                         we are PP+ studio</h1>
                     <p>Love is only essence of our relationship.</p>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
+                        <a class="btn btn-lg btn-primary" href="/matrimony/register" role="button">Register</a>
                         <a class="caption-link" href="#" role="button">Perfect Place Brand</a>
                     </p>
                 </div>
@@ -91,7 +94,7 @@
     </a>
 </div>
 
-
+<!--
 <section id="features" class="container services">
     <div class="row">
         <div class="col-sm-3">
@@ -458,6 +461,7 @@
     </div>
 
 </section>
+
 <section id="pricing" class="pricing">
     <div class="container">
         <div class="row m-b-lg">
@@ -575,34 +579,35 @@
     </div>
 
 </section>
-
+-->
 <section id="contact" class="gray-section contact">
     <div class="container">
         <div class="row m-b-lg">
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
                 <h1>Contact Us</h1>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                
             </div>
         </div>
         <div class="row m-b-lg justify-content-center">
             <div class="col-lg-3 ">
                 <address>
-                    <strong><span class="navy">Company name, Inc.</span></strong><br/>
-                    795 Folsom Ave, Suite 600<br/>
-                    San Francisco, CA 94107<br/>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                    <strong><span class="navy">Perfect Place.</span></strong><br/>
+                    Viman Nagar Pune,<br/>
+                    411014<br/>
+                    <abbr title="Phone">P:</abbr> +91 9834896987
                 </address>
             </div>
             <div class="col-lg-4">
-                <p class="text-color">
+                <!--<p class="text-color">
                     Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
-                </p>
+                </p> -->
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 text-center">
-                <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
+                <a href="mailto:info@perfectplace.in" class="btn btn-primary">Send us mail</a>
+                <!--
                 <p class="m-t-sm">
                     Or follow us on social platform
                 </p>
@@ -613,12 +618,14 @@
                     </li>
                     <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2015 Company Name</strong><br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                <p><strong>&copy; 2023-24 Perfect Place</strong>
+                <!-- <br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.-->
+            </p>
             </div>
         </div>
     </div>
