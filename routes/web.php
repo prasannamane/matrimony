@@ -38,3 +38,8 @@ Route::get('/dashbord', [Dashbord::class, 'index']);
 Route::post('/dashbord', [Dashbord::class, 'index']);
 
 Route::get('/detail/{id}/{id2}', [Dashbord::class, 'detail']);
+
+Route::get('/profile_update', [Dashbord::class, 'profile_update']);
+Route::post('/profile_update_save', [Dashbord::class, 'profile_update_save']);
+
+Route::get('/term_condition', [Register::class, 'term_condition']);

@@ -2,24 +2,27 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dashbord | Matrimony</title>
+    <title>Profile Update | Matrimony</title>
     <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+
+    <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="profile_update">
 
     <div id="wrapper">
 
@@ -57,10 +60,10 @@
                         </ul>
                     </li>
                     -->
-                    <li class="active">
+                    <li>
                         <a href="/dashbord"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/profile_update"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
                     <!--
@@ -400,10 +403,10 @@
 
                 </nav>
             </div>
-            
+
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Profile grid</h2>
+                    <h2>Profile Update</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="index.html">Home</a>
@@ -412,7 +415,7 @@
                             <a>Profile</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Profile grid</strong>
+                            <strong>Profile Update</strong>
                         </li>
                     </ol>
                 </div>
@@ -421,114 +424,159 @@
                 </div>
             </div>
 
-
-
             <div class="wrapper wrapper-content animated fadeInRight">
 
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row search-form">
-                        <form action="/dashbord" method="post">
-                            @csrf
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter From Age</label>
-                                    <input type="number" value="{{ $from_age }}" name="from_age" placeholder="From Age" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter To Age</label>
-                                    <input type="number" value="{{ $to_age }}" name="to_age" placeholder="To Age" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Religion</label>
-                                    <input type="text" name="religion" placeholder="Religion" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Cast</label>
-                                    <input type="text" name="religion" placeholder="Cast" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select State</label>
-                                    <input type="text" name="religion" placeholder="State" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-w-m btn-success">Search</button>
-                                </div>
-                            </div>
-                            <form>
-                    </div>
-                </div>
-
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row">
-                        <div class="pagination">
-                            {{ $register->links() }}
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row">
-                    @foreach ($register as $item)
-
-
-                    <div class="col-md-3">
-                        <div class="ibox">
-                            <div class="ibox-content product-box">
-
-                                <div class="product-imitation">
-                                    <img src="/img/profile/{{ $item->image }}">
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="#" class="dropdown-item">Config option 1</a>
+                                        </li>
+                                        <li><a href="#" class="dropdown-item">Config option 2</a>
+                                        </li>
+                                    </ul>
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
                                 </div>
-                                <div class="product-desc">
-                                    <span class="product-price">
-                                        #{{ $item->id }}
-                                    </span>
+                            </div>
+                            <div class="ibox-content">
 
-                                    <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}</a>
-                                    <small class="text-muted">Age: {{ $item->age }}</small>
-                                    <div class="small m-t-xs">
-                                        Religion: {{ $item->religion }}<br>
-                                        Cast: {{ $item->cast }}<br>
-                                        Country: India <br>
-                                        State: {{ $item->state }}<br>
-                                    </div>
-                                    <div class="m-t text-righ">
 
-                                        <a href="/detail/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
+
+                                <form method="post" enctype="multipart/form-data" action="/profile_update_save">
+                                    @csrf
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">First Name</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->first_name }}" disabled="" class="form-control"></div>
                                     </div>
-                                </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Last Name</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->last_name }}" disabled="" class="form-control"></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Mobile Number</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->mobile }}" disabled="" class="form-control"></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Country</label>
+                                        <div class="col-sm-10"><input type="text" value="India" disabled="" class="form-control"></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">State</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->state }}" disabled="" class="form-control"></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">District</label>
+                                        <div class="col-sm-10 select-flex">
+                                            <select name="districts_id" class="district form-control">
+                                                @foreach ($district as $item)
+                                                @if($register->districts_id == $item->id )
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">City</label>
+                                        <div class="col-sm-10 select-flex">
+                                            <select name="cities_id" class="city form-control">
+                                                @foreach ($city as $item)
+                                                @if($register->cities_id == $item->id )
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Religion</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->religion }}" disabled="" class="form-control"></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cast</label>
+                                        <div class="col-sm-10 select-flex">
+                                            <select name="cast_id" class="cast form-control">
+                                                @foreach ($cast as $item)
+                                                @if($register->cast_id == $item->id )
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Profile Picture</label>
+
+                                        <div class="col-sm-8">
+                                            <div class="custom-file">
+                                                <input name="image" id="logo" type="file" class="custom-file-input">
+                                                <label for="logo" class="custom-file-label">Choose file...</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 update_image">
+                                            <img src="img/profile/{{ $register->image }}">
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4 col-sm-offset-2">
+                                            <button class="btn btn-white btn-sm" type="submit">Cancel</button>
+                                            <button class="btn btn-primary btn-sm" type="submit">Save changes</button>
+                                        </div>
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
             </div>
             <div class="footer">
                 <div class="float-right">
-                    Have a <strong>Good</strong> Match.
+                    10GB of <strong>250GB</strong> Free.
                 </div>
                 <div>
-                    <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
+                    <strong>Copyright</strong> Example Company &copy; 2014-2018
                 </div>
             </div>
 
         </div>
     </div>
-
 
 
     <!-- Mainly scripts -->
@@ -542,6 +590,44 @@
     <script src="js/inspinia.js"></script>
     <script src="js/plugins/pace/pace.min.js"></script>
 
+    <!-- Select2 -->
+    <script src="js/plugins/select2/select2.full.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+            $(".select2_demo_3").select2({
+                placeholder: "Select a Cast",
+                allowClear: true
+            });
+
+            $(".cast").select2({
+                placeholder: "Select a Cast",
+                allowClear: true
+            });
+
+            $(".city").select2({
+                placeholder: "Select a City",
+                allowClear: true
+            });
+
+            $(".district").select2({
+                placeholder: "Select a City",
+                allowClear: true
+            });
+
+            $('.custom-file-input').on('change', function() {
+                let fileName = $(this).val().split('\\').pop();
+                $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            });
+        });
+    </script>
 </body>
 
 </html>

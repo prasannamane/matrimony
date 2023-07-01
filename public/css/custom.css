@@ -60,7 +60,33 @@
     display: none;
 }
 
-.search-form form{
+.search-form form {
     width: 100%;
     display: flex;
+}
+
+.slick-slide img {
+    width: 100% !important;
+}
+
+.image-imitation {
+    padding: 0px;
+}
+
+.profile_update span.select2.select2-container.select2-container--default.select2-container--above {
+    width: 100%;
+}
+
+.select-flex {
+    display: flex;
+}
+
+.update_image img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .update_image img {
+        margin: 32px 0px 0px 0px;
+    }
 }

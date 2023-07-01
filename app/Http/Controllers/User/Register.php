@@ -43,7 +43,7 @@ class Register extends Controller
             'last_name' => 'required',
             'mobile' => 'required',
             'password' => 'required',
-            'religion' => 'required',
+            'religion_id' => 'required',
             'gender' => 'required',
             'dob' => 'required',
             'countries_id' => 'required',
@@ -52,6 +52,12 @@ class Register extends Controller
 
         $validatedData['age'] = $this->calculateAge($validatedData['dob']);
         $validatedData['dob'] = date("Y-m-d", strtotime($validatedData['dob']));
+        
+        if($validatedData['gender'] == 0){
+            $validatedData['image'] = 'male_blur.png';
+        }else{
+            $validatedData['image'] = 'female_blur.png';
+        }
 
         $condition['mobile'] =  $validatedData['mobile'];
         $MdlRegister = MdlRegister::where($condition)->get();
@@ -97,6 +103,7 @@ class Register extends Controller
                 $user_session['religion'] = $MdlRegister[0]->religion;
                 $user_session['role_id'] = $MdlRegister[0]->role_id;
                 $user_session['gender'] = $MdlRegister[0]->gender;
+                $user_session['image'] = $MdlRegister[0]->image;
 
 
                 Session::put('user_session', $user_session);
@@ -142,5 +149,10 @@ class Register extends Controller
         $now = Carbon::now();
         $birthdate = Carbon::parse($birthdate);
         return $birthdate->diffInYears($now);
+    }
+
+    public function term_condition(){
+        return view('User/term_condition');
+
     }
 }

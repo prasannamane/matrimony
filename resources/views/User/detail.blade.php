@@ -6,18 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | E-commerce product detail</title>
+    <title>Profile Detail | Matrimony</title>
+    <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/../font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <link href="css/plugins/slick/slick.css" rel="stylesheet">
-    <link href="css/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="/../css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="/../css/plugins/slick/slick-theme.css" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-
+    <link href="/../css/animate.css" rel="stylesheet">
+    <link href="/../css/style.css" rel="stylesheet">
+    <link href="/../css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -25,28 +25,29 @@
 
     <div id="wrapper">
 
-        <nav class="navbar-default navbar-static-side" role="navigation">
+    <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
+                            <img alt="image" class="rounded-circle" src="/../img/profile_small.jpg" />
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="block m-t-xs font-bold">David Williams</span>
-                                <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                                <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
+                                <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                                 <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                                 <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
-                            IN+
+                            PPM+
                         </div>
                     </li>
+                    <!--
                     <li>
                         <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -57,9 +58,14 @@
                             <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
                         </ul>
                     </li>
+                    -->
                     <li>
-                        <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
+                        <a href="/dashbord"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
+                    <li class="active">
+                        <a href="/#"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Detail</span></a>
+                    </li>
+                    <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -73,6 +79,7 @@
                             <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
                         </ul>
                     </li>
+                    
                     <li>
                         <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning float-right">16/24</span></a>
                         <ul class="nav nav-second-level collapse">
@@ -205,10 +212,10 @@
                     <li class="active">
                         <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="ecommerce_products_grid.html">Products grid</a></li>
+                            <li class="active"><a href="ecommerce_products_grid.html">Products grid</a></li>
                             <li><a href="ecommerce_product_list.html">Products list</a></li>
                             <li><a href="ecommerce_product.html">Product edit</a></li>
-                            <li class="active"><a href="ecommerce_product_detail.html">Product detail</a></li>
+                            <li><a href="ecommerce_product_detail.html">Product detail</a></li>
                             <li><a href="ecommerce-cart.html">Cart</a></li>
                             <li><a href="ecommerce-orders.html">Orders</a></li>
                             <li><a href="ecommerce_payments.html">Credit Card form</a></li>
@@ -249,23 +256,30 @@
                                 <a href="#">Second Level Item</a>
                             </li>
                         </ul>
+                        
                     </li>
                     <li>
                         <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info float-right">62</span></a>
                     </li>
+                    -->
+
                     <li class="landing_link">
-                        <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning float-right">NEW</span></a>
+                        <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
                     </li>
+                    <!--
                     <li class="special_link">
                         <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                     </li>
+                    -->
                 </ul>
+
 
             </div>
         </nav>
 
         <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom">
+            
+        <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -277,13 +291,15 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
                         </li>
+                        <!--
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                                 <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                             </a>
                             <ul class="dropdown-menu dropdown-messages">
+                                
                                 <li>
                                     <div class="dropdown-messages-box">
                                         <a class="dropdown-item float-left" href="profile.html">
@@ -374,10 +390,11 @@
                                 </li>
                             </ul>
                         </li>
+                        -->
 
 
                         <li>
-                            <a href="login.html">
+                            <a href="/logout">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -385,25 +402,26 @@
 
                 </nav>
             </div>
+
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>E-commerce product detail</h2>
+                    <h2>Profile Detail</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="index.html">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a>E-commerce</a>
+                            <a>Profile</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Product detail</strong>
+                            <strong>Profile Detail</strong>
                         </li>
                     </ol>
                 </div>
             </div>
 
             <div class="wrapper wrapper-content animated fadeInRight">
-
+            @foreach ($register as $item)
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -418,7 +436,7 @@
 
                                             <div>
                                                 <div class="image-imitation">
-                                                    [IMAGE 1]
+                                                <img src="/../img/profile/{{ $item->image }}">
                                                 </div>
                                             </div>
                                             <div>
@@ -439,42 +457,30 @@
                                     <div class="col-md-7">
 
                                         <h2 class="font-bold m-b-xs">
-                                            Desktop publishing software
+                                        {{ $item->first_name }} {{ $item->last_name }} 
                                         </h2>
-                                        <small>Many desktop publishing packages and web page editors now.</small>
+                                        <!-- <small>Many desktop publishing packages and web page editors now.</small> -->
                                         <div class="m-t-md">
-                                            <h2 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h2>
+                                            <h2 class="product-main-price">Age: {{ $item->age }}  <small class="text-muted">{{ $item->dob }} </small> </h2>
                                         </div>
                                         <hr>
 
-                                        <h4>Product description</h4>
+                                        <h4>Religion: {{ $item->religion }}</h4>
+                                        <h4>Cast: {{ $item->cast }}</h4>
+                                        <h4>Country: India</h4>
+                                        <h4>State: {{ $item->state }}</h4>
 
-                                        <div class="small text-muted">
-                                            It is a long established fact that a reader will be distracted by the readable
-                                            content of a page when looking at its layout. The point of using Lorem Ipsum is
-
-                                            <br />
-                                            <br />
-                                            There are many variations of passages of Lorem Ipsum available, but the majority
-                                            have suffered alteration in some form, by injected humour, or randomised words
-                                            which don't look even slightly believable.
-                                        </div>
-                                        <dl class="small m-t-md">
-                                            <dt>Description lists</dt>
-                                            <dd>A description list is perfect for defining terms.</dd>
-                                            <dt>Euismod</dt>
-                                            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                                            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                                            <dt>Malesuada porta</dt>
-                                            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                                        </dl>
+                                       
+                                       
                                         <hr>
 
                                         <div>
                                             <div class="btn-group">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-cart-plus"></i> Add to cart</button>
-                                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
-                                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
+                                                <button class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-cart-plus"></i> Mobile Number: {{ $item->mobile }}  </button>
+                                                <button class="btn btn-white btn-sm">
+                                                    <i class="fa fa-star"></i> Show Intrest </button>
+                                         
                                             </div>
                                         </div>
 
@@ -494,99 +500,7 @@
 
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <div class="ibox product-detail">
-                            <div class="ibox-content">
-
-                                <div class="row">
-                                    <div class="col-md-5">
-
-
-                                        <div class="product-images">
-
-                                            <div>
-                                                <div class="image-imitation">
-                                                    [IMAGE 1]
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="image-imitation">
-                                                    [IMAGE 2]
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="image-imitation">
-                                                    [IMAGE 3]
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-7">
-
-                                        <h2 class="font-bold m-b-xs">
-                                            Desktop publishing software
-                                        </h2>
-                                        <small>Many desktop publishing packages and web page editors now.</small>
-                                        <hr>
-                                        <div>
-                                            <button class="btn btn-primary float-right">Add to cart</button>
-                                            <h1 class="product-main-price">$406,602 <small class="text-muted">Exclude Tax</small> </h1>
-                                        </div>
-                                        <hr>
-                                        <h4>Product description</h4>
-
-                                        <div class="small text-muted">
-                                            It is a long established fact that a reader will be distracted by the readable
-                                            content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                            that it has a more-or-less normal distribution of letters, as opposed to using
-                                            'Content here, content here', making it look like readable English.
-                                            <br />
-                                            <br />
-                                            There are many variations of passages of Lorem Ipsum available, but the majority
-                                            have suffered alteration in some form, by injected humour, or randomised words
-                                            which don't look even slightly believable.
-                                        </div>
-                                        <dl class="row m-t-md small">
-                                            <dt class="col-md-4 text-right">Description lists</dt>
-                                            <dd class="col-md-8">A description list is perfect for defining terms.</dd>
-                                            <dt class="col-md-4 text-right">Euismod</dt>
-                                            <dd class="col-md-8">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<br />Donec id elit non mi porta gravida at eget metus.</dd>
-                                            <dt class="col-md-4 text-right">Malesuada porta</dt>
-                                            <dd class="col-md-8">Etiam porta sem malesuada magna mollis euismod.</dd>
-                                            <dt class="col-md-4 text-right">Felis euismod semper eget</dt>
-                                            <dd class="col-md-8">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-                                        </dl>
-                                        <div class="text-right">
-                                            <div class="btn-group">
-                                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Add to wishlist </button>
-                                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Contact with author </button>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="ibox-footer">
-                                <span class="float-right">
-                                    Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
-                                </span>
-                                The generated Lorem Ipsum is therefore always free
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
+                @endforeach
             </div>
             <div class="footer">
                 <div class="float-right">
@@ -603,18 +517,18 @@
 
 
     <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/../js/jquery-3.1.1.min.js"></script>
+    <script src="/../js/popper.min.js"></script>
+    <script src="/../js/bootstrap.js"></script>
+    <script src="/../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
+    <script src="/../js/inspinia.js"></script>
+    <script src="/../js/plugins/pace/pace.min.js"></script>
 
     <!-- slick carousel-->
-    <script src="js/plugins/slick/slick.min.js"></script>
+    <script src="/../js/plugins/slick/slick.min.js"></script>
 
     <script>
         $(document).ready(function() {

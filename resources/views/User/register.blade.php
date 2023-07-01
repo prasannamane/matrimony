@@ -64,7 +64,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <select class="form-control" name="religion" required>
+                    <select class="form-control" name="religion_id" required>
                         <option value="">Select Religion</option>
                         @foreach ($religion as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -98,8 +98,11 @@
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
+
                 <div class="form-group">
-                    <div class="checkbox i-checks"><label> <input type="checkbox" required><i></i> Agree the terms and policy </label></div>
+                    <div class="checkbox i-checks">
+                        <label> <input type="checkbox" required><a href="/matrimony/term_condition" target="_blank"> Agree the terms and policy </a></label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
 

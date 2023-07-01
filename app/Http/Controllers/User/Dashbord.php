@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Register as MdlRegister;
 use Illuminate\Support\Facades\Session;
 use App\Models\Religion;
+use App\Models\Cast;
+use App\Models\Districts;
+use App\Models\City;
+
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -57,7 +62,65 @@ class Dashbord extends Controller
         return view('User/dashbord', ['register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age]);
     }
 
-    public function detail($id, $id2){
-        print_r($id);
+    public function detail($id, $id2)
+    {
+        $user_session = Session::get('user_session');
+
+        $condition['register.id'] = $id;
+        $condition['password'] = $id2;
+
+
+        $register = DB::table('register')
+            ->join('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
+            ->join('tbl_states', 'register.states_id', '=', 'tbl_states.id')
+
+            ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
+            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state')
+            ->where($condition)
+            ->get();
+        return view('User/detail', ['register' => $register, 'user_session' => $user_session]);
+    }
+
+    public function profile_update()
+    {
+
+
+
+
+        $user_session = Session::get('user_session');
+
+        $condition['register.id'] = $user_session['id'];
+        $register = DB::table('register')
+            ->join('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
+            ->join('tbl_states', 'register.states_id', '=', 'tbl_states.id')
+            ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
+            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state')
+            ->where($condition)
+            ->get();
+
+        $conditionRe['religion_id'] = $register[0]->religion_id;
+        $cast = Cast::where($conditionRe)->get();
+
+        $conditionDi['state_id'] = $register[0]->states_id;
+        $districts = Districts::where($conditionDi)->get();
+
+        $conditionCt['state_id'] = $register[0]->states_id;
+        $city = City::where($conditionCt)->get();
+
+        return view('User/profile_update', ['register' => $register[0], 'user_session' => $user_session, 'cast' => $cast, 'district' => $districts, 'city' => $city]);
+    }
+
+    public function profile_update_save(Request $request)
+    {
+        $validatedData = $request->validate([
+            'districts_is' => 'required',
+            'cities_id' => 'required',
+            'cast_id' => 'required',
+            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('img/profile'), $imageName);
+        return back()->with('success', 'Profile Updated Successfully!')->with('image', $imageName);
     }
 }
