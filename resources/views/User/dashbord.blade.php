@@ -28,7 +28,7 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
+                        <img alt="image" class="rounded-circle" src="{{ url('/img/profile') }}/{{ $user_session['image'] }}" />
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
                                 <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
@@ -38,7 +38,7 @@
                                 <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                                 <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -58,10 +58,10 @@
                     </li>
                     -->
                     <li class="active">
-                        <a href="/dashbord"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                        <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
                     <li>
-                        <a href="/profile_update"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
+                        <a href="{{ url('/profile_update') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
                     <!--
                     <li>
@@ -424,7 +424,7 @@
 
 
             <div class="wrapper wrapper-content animated fadeInRight">
-
+                <!--
                 <div class="ibox-content m-b-sm border-bottom">
                     <div class="row search-form">
                         <form action="/dashbord" method="post">
@@ -473,6 +473,7 @@
                             <form>
                     </div>
                 </div>
+                -->
 
                 <div class="ibox-content m-b-sm border-bottom">
                     <div class="row">
@@ -491,7 +492,7 @@
                             <div class="ibox-content product-box">
 
                                 <div class="product-imitation">
-                                    <img src="/img/profile/{{ $item->image }}">
+                                    <img src="{{ url('/img/profile') }}/{{ $item->image }}">
                                 </div>
                                 <div class="product-desc">
                                     <span class="product-price">
@@ -508,7 +509,7 @@
                                     </div>
                                     <div class="m-t text-righ">
 
-                                        <a href="/detail/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
+                                        <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
                                     </div>
                                 </div>
                             </div>

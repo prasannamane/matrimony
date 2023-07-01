@@ -26,7 +26,7 @@
 <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="/matrimony/login">MATRIMONY</a>
+                <a class="navbar-brand" href="{{ url('/login') }}">MATRIMONY</a>
                 <div class="navbar-header page-scroll">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                         <i class="fa fa-bars"></i>
@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-link page-scroll" href="#page-top">Home</a></li>
-                        <li><a class="nav-link page-scroll" href="/matrimony/register">Register</a></li>
+                        <li><a class="nav-link page-scroll" href="{{ url('/register') }}">Register</a></li>
                         <li><a class="nav-link page-scroll" href="#team">Brides</a></li>
                         <li><a class="nav-link page-scroll" href="#testimonials">Grooms</a></li>
                         <li><a class="nav-link page-scroll" href="#pricing">Pricing</a></li>
@@ -60,8 +60,8 @@
                         we are PP+ studio</h1>
                     <p>Love is only essence of our relationship.</p>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="/matrimony/register" role="button">Register</a>
-                        <a class="caption-link" href="#" role="button">Perfect Place Brand</a>
+                        <a class="btn btn-lg btn-primary" href="{{ url('/register') }}" role="button">Register</a>
+                        <a class="caption-link" href="perfectplace.in" role="button">Perfect Place Brand</a>
                     </p>
                 </div>
                 <div class="carousel-image wow zoomIn">

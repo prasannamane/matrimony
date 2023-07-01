@@ -55,7 +55,7 @@ class Dashbord extends Controller
             ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state')
             ->where($condition)
             ->whereBetween('age', [$from_age, $to_age])
-            ->paginate(4);
+            ->paginate(12);
 
         // dd($register);
 
@@ -112,15 +112,25 @@ class Dashbord extends Controller
 
     public function profile_update_save(Request $request)
     {
+       
+        $user_session = Session::get('user_session');
+        $condition['id'] = $user_session['id'];
+
         $validatedData = $request->validate([
-            'districts_is' => 'required',
+            'districts_id' => 'required',
             'cities_id' => 'required',
             'cast_id' => 'required',
             'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('img/profile'), $imageName);
-        return back()->with('success', 'Profile Updated Successfully!')->with('image', $imageName);
+
+        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        $request->file('image')->move(public_path('img/profile'), $imageName);
+        $request->except('image');
+
+        $validatedData['image'] = $imageName;
+
+        MdlRegister::where($condition)->update($validatedData);
+        return back()->with('success', 'Profile Updated Successfully!');
     }
 }

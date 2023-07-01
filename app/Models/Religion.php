@@ -14,9 +14,4 @@ class Religion extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = [ 'name', 'description'];
-
-    public function register()
-    {
-        return $this->hasMany(Register::class, 'religion_id', 'id');
-    }
 }

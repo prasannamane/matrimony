@@ -39,7 +39,7 @@
                 {{ session('success') }}
             </div>
             @endif
-            <form class="m-t" role="form" action="/loginform" method="post">
+            <form class="m-t" role="form" action="{{ url('/loginform') }}" method="post">
                 @csrf
 
                 <div class="form-group">
@@ -54,7 +54,7 @@
 
                 <a href="#"><small>Forgot password?</small></a>
                 <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="/matrimony/register">Create an account</a>
+                <a class="btn btn-sm btn-white btn-block" href="{{ url('/register') }}">Create an account</a>
             </form>
             <p class="m-t"> <small>Perfect Place Transforming Brands for the Digital Age <br> &copy; 2023-24</small></p>
         </div>

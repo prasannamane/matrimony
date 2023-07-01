@@ -31,7 +31,7 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="rounded-circle" src="img/profile_small.jpg" />
+                            <img alt="image" class="rounded-circle" src="{{ url('/img/profile') }}/{{ $user_session['image'] }}" />
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
                                 <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
@@ -41,7 +41,7 @@
                                 <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                                 <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -61,10 +61,10 @@
                     </li>
                     -->
                     <li>
-                        <a href="/dashbord"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                        <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
                     <li class="active">
-                        <a href="/profile_update"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
+                        <a href="{{ url('/profile_update') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
                     <!--
                     <li>
@@ -395,7 +395,7 @@
 
 
                         <li>
-                            <a href="/logout">
+                            <a href="{{ url('/logout') }}">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -424,14 +424,23 @@
                 </div>
             </div>
 
+
             <div class="wrapper wrapper-content animated fadeInRight">
 
 
                 <div class="row">
                     <div class="col-lg-12">
+                    <div class="ibox ">
+                            @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                            @endif
+                        </div>
                         <div class="ibox ">
                             <div class="ibox-title">
                                 <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
+
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
@@ -454,7 +463,7 @@
 
 
 
-                                <form method="post" enctype="multipart/form-data" action="/profile_update_save">
+                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_save') }}">
                                     @csrf
 
                                     <div class="hr-line-dashed"></div>
@@ -486,10 +495,10 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">District</label>
                                         <div class="col-sm-10 select-flex">
-                                            <select name="districts_id" class="district form-control">
+                                            <select name="districts_id" class="district form-control" required>
                                                 @foreach ($district as $item)
                                                 @if($register->districts_id == $item->id )
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -501,10 +510,10 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">City</label>
                                         <div class="col-sm-10 select-flex">
-                                            <select name="cities_id" class="city form-control">
+                                            <select name="cities_id" class="city form-control" required>
                                                 @foreach ($city as $item)
                                                 @if($register->cities_id == $item->id )
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -522,10 +531,10 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Cast</label>
                                         <div class="col-sm-10 select-flex">
-                                            <select name="cast_id" class="cast form-control">
+                                            <select name="cast_id" class="cast form-control" required>
                                                 @foreach ($cast as $item)
                                                 @if($register->cast_id == $item->id )
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -539,18 +548,14 @@
 
                                         <div class="col-sm-8">
                                             <div class="custom-file">
-                                                <input name="image" id="logo" type="file" class="custom-file-input">
-                                                <label for="logo" class="custom-file-label">Choose file...</label>
+                                                <input name="image" id="logo" type="file" class="custom-file-input" required>
+                                                <label for="logo" class="custom-file-label" accept=".png, .jpg, .jpeg">Choose profile picture...</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-2 update_image">
                                             <img src="img/profile/{{ $register->image }}">
                                         </div>
                                     </div>
-
-
-
-
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">

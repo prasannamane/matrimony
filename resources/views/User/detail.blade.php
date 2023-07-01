@@ -9,15 +9,15 @@
     <title>Profile Detail | Matrimony</title>
     <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
-    <link href="/../css/bootstrap.min.css" rel="stylesheet">
-    <link href="/../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="{{ url('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
-    <link href="/../css/plugins/slick/slick.css" rel="stylesheet">
-    <link href="/../css/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="{{ url('/css/plugins/slick/slick.css') }}" rel="stylesheet">
+    <link href="{{ url('/css/plugins/slick/slick-theme.css') }}" rel="stylesheet">
 
-    <link href="/../css/animate.css" rel="stylesheet">
-    <link href="/../css/style.css" rel="stylesheet">
-    <link href="/../css/custom.css" rel="stylesheet">
+    <link href="{{ url('/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ url('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url('/css/custom.css') }}" rel="stylesheet">
 
 </head>
 
@@ -30,7 +30,7 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="rounded-circle" src="/../img/profile_small.jpg" />
+                            <img alt="image" class="rounded-circle" src="{{ url('/img') }}/{{ $user_session['image'] }}" />
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
                                 <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
@@ -40,7 +40,7 @@
                                 <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                                 <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
                             </ul>
                         </div>
                         <div class="logo-element">
@@ -60,10 +60,13 @@
                     </li>
                     -->
                     <li>
-                        <a href="/dashbord"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                        <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/profile_update') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
                     <li class="active">
-                        <a href="/#"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Detail</span></a>
+                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Detail</span></a>
                     </li>
                     <!--
                     <li>
@@ -394,7 +397,7 @@
 
 
                         <li>
-                            <a href="/logout">
+                            <a href="{{ url('/logout') }}">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -436,7 +439,7 @@
 
                                             <div>
                                                 <div class="image-imitation">
-                                                <img src="/../img/profile/{{ $item->image }}">
+                                                <img src="{{ url('/img/profile') }}/{{ $item->image }}">
                                                 </div>
                                             </div>
                                             <div>
@@ -517,18 +520,18 @@
 
 
     <!-- Mainly scripts -->
-    <script src="/../js/jquery-3.1.1.min.js"></script>
-    <script src="/../js/popper.min.js"></script>
-    <script src="/../js/bootstrap.js"></script>
-    <script src="/../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="/../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="{{ url('/js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url('/js/popper.min.js') }}"></script>
+    <script src="{{ url('/js/bootstrap.js') }}"></script>
+    <script src="{{ url('/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script src="{{ url('/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="/../js/inspinia.js"></script>
-    <script src="/../js/plugins/pace/pace.min.js"></script>
+    <script src="{{ url('/js/inspinia.js') }}"></script>
+    <script src="{{ url('/js/plugins/pace/pace.min.js') }}"></script>
 
     <!-- slick carousel-->
-    <script src="/../js/plugins/slick/slick.min.js"></script>
+    <script src="{{ url('/js/plugins/slick/slick.min.js') }}"></script>
 
     <script>
         $(document).ready(function() {
