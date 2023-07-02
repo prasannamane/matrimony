@@ -698,6 +698,8 @@
 <script src="js/plugins/pace/pace.min.js"></script>
 <script src="js/plugins/wow/wow.min.js"></script>
 
+<script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
+
 
 <script>
 

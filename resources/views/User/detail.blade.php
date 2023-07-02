@@ -533,6 +533,8 @@
     <!-- slick carousel-->
     <script src="{{ url('/js/plugins/slick/slick.min.js') }}"></script>
 
+    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function() {
 

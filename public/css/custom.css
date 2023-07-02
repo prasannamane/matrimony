@@ -1,6 +1,9 @@
 .carousel-image.wow.zoomIn.animated img {
-    border: 6px solid #ff7474;
+    border: 1px solid #260c0c;
+    background: #0000004d;
+    border-radius: 30px;
 }
+
 
 .container a.navbar-brand {
     background: #fb7e3a !important;
@@ -91,6 +94,19 @@
     }
 }
 
-.profile-element img.rounded-circle{
+.profile-element img.rounded-circle {
     width: 50%;
+}
+
+.carousel-caption {
+    background: #00000070;
+    border: 2px solid #000000;
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .landing-page .carousel-caption,
+    .landing-page .carousel-caption.blank {
+        margin-right: 20px;
+    }
 }

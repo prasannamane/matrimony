@@ -128,6 +128,8 @@
     <!-- Date range picker -->
     <script src="js/plugins/daterangepicker/daterangepicker.js"></script>
 
+    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function() {
             $('.i-checks').iCheck({

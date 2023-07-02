@@ -22,8 +22,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body id="page-top" class="landing-page no-skin-config">
@@ -652,6 +650,7 @@
     <script src="js/plugins/wow/wow.min.js"></script>
 
     <script src="js/maxcdn.bootstrapcdn.com_bootstrap_4.5.2_js_bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
 
 
     <script>

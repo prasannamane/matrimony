@@ -600,6 +600,8 @@
 
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
             $('.i-checks').iCheck({
