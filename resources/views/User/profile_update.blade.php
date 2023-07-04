@@ -21,6 +21,21 @@
     <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
 </head>
+<!--
+Blood group
+Veg and non veg
+Height 
+Weight
+educatiom
+ocupation
+Marrige type
+Family type
+Mother toung
+address
+job location
+
+-->
+
 
 <body class="profile_update">
 
@@ -64,7 +79,7 @@
                         <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
                     <li class="active">
-                        <a href="{{ url('/profile_update') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
+                        <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
                     <!--
                     <li>
@@ -265,7 +280,7 @@
                     -->
 
                     <li class="landing_link">
-                        <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
+                        <a target="_blank" href="{{ url('') }}"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
                     </li>
                     <!--
                     <li class="special_link">
@@ -573,10 +588,10 @@
             </div>
             <div class="footer">
                 <div class="float-right">
-                    10GB of <strong>250GB</strong> Free.
+                    Have a <strong>Good</strong> Match.
                 </div>
                 <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2018
+                    <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
                 </div>
             </div>
 

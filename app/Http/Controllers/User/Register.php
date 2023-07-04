@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Religion;
 use App\Models\Countries;
 use App\Models\States;
+use App\Models\MarriageStatus;
 use App\Models\Register as MdlRegister;
 use App\Exceptions\DBError;
 use Illuminate\Support\Facades\Log;
@@ -32,7 +33,9 @@ class Register extends Controller
         $condition['countries_id'] =  101;
         $states = States::where($condition)->get();
 
-        return view('User/register', ['religion' => $religion, 'states' => $states]);
+        $marriage_status = MarriageStatus::all();
+
+        return view('User/register', ['religion' => $religion, 'states' => $states, 'marriage_status' => $marriage_status]);
     }
 
 
@@ -48,14 +51,15 @@ class Register extends Controller
             'dob' => 'required',
             'countries_id' => 'required',
             'states_id' => 'required',
+            'marriage_status_id' => 'required',
         ]);
 
         $validatedData['age'] = $this->calculateAge($validatedData['dob']);
         $validatedData['dob'] = date("Y-m-d", strtotime($validatedData['dob']));
-        
-        if($validatedData['gender'] == 0){
+
+        if ($validatedData['gender'] == 0) {
             $validatedData['image'] = 'male_blur.png';
-        }else{
+        } else {
             $validatedData['image'] = 'female_blur.png';
         }
 
@@ -151,8 +155,8 @@ class Register extends Controller
         return $birthdate->diffInYears($now);
     }
 
-    public function term_condition(){
+    public function term_condition()
+    {
         return view('User/term_condition');
-
     }
 }

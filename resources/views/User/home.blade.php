@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Perfect Place Matrimony is dedicated to helping you find your perfect life partner. Our matrimonial services connect individuals based on love, understanding, and compatibility. Join us today and start your journey to a lifelong partnership.">
+    
     <meta name="author" content="">
 
     <title>Matrimony | Landing Page</title>
@@ -706,6 +707,17 @@
 
         // Activate WOW.js plugin for animation on scrol
         new WOW().init();
+    </script>
+
+<script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": "Perfect Place Matrimony",
+            "description": "Perfect Place Matrimony is dedicated to helping you find your perfect life partner. Our matrimonial services connect individuals based on love, understanding, and compatibility.",
+            "url": "https://www.perfectplace.in/matrimony",
+            "logo": "https://www.perfectplace.in/matrimony/img/web/fevic.png"
+        }
     </script>
 
 </body>

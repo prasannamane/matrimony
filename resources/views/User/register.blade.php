@@ -58,7 +58,7 @@
 
                 <div class="form-group" id="data_1">
                     <div class="input-group date">
-                        <input placeholder="Date of Birth ex: MM/DD/YY" type="text" class="form-control" value="" name="dob" >
+                        <input placeholder="Date of Birth ex: MM/DD/YY" type="text" class="form-control" value="" name="dob" readonly>
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                 </div>
@@ -67,6 +67,15 @@
                     <select class="form-control" name="religion_id" required>
                         <option value="">Select Religion</option>
                         @foreach ($religion as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-control" name="marriage_status_id" required>
+                        <option value="">Select Marriage Status</option>
+                        @foreach ($marriage_status as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>

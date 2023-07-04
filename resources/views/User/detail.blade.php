@@ -63,10 +63,10 @@
                         <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
                     <li>
-                        <a href="{{ url('/profile_update') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Update</span></a>
+                        <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
                     <li class="active">
-                        <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Detail</span></a>
+                        <a href="#"><i class="fa fa-info"></i> <span class="nav-label">Profile Detail</span></a>
                     </li>
                     <!--
                     <li>
@@ -267,7 +267,7 @@
                     -->
 
                     <li class="landing_link">
-                        <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
+                        <a target="_blank" href="{{ url('') }}"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
                     </li>
                     <!--
                     <li class="special_link">
@@ -472,6 +472,9 @@
                                         <h4>Cast: {{ $item->cast }}</h4>
                                         <h4>Country: India</h4>
                                         <h4>State: {{ $item->state }}</h4>
+                                        <h4>Marriage Status: {{ $item->marriage_status }}</h4>
+                                        <h4>District</h4>
+                                        <h4>City</h4>
 
                                        
                                        
@@ -507,10 +510,10 @@
             </div>
             <div class="footer">
                 <div class="float-right">
-                    10GB of <strong>250GB</strong> Free.
+                    Have a <strong>Good</strong> Match.
                 </div>
                 <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2018
+                    <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
                 </div>
             </div>
 

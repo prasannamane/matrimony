@@ -9,6 +9,8 @@ use App\Models\Religion;
 use App\Models\Cast;
 use App\Models\Districts;
 use App\Models\City;
+use App\Models\MarriageStatus;
+
 
 
 use Illuminate\Support\Facades\DB;
@@ -48,18 +50,18 @@ class Dashbord extends Controller
         }
 
         $register = DB::table('register')
-            ->join('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
-            ->join('tbl_states', 'register.states_id', '=', 'tbl_states.id')
-
+            ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
+            ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state')
+            ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
+            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
             ->where($condition)
             ->whereBetween('age', [$from_age, $to_age])
             ->paginate(12);
 
-        // dd($register);
+        $title = 'Dashbord | Matrimony';
 
-        return view('User/dashbord', ['register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age]);
+        return view('User/dashbord', ['title' => $title, 'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age]);
     }
 
     public function detail($id, $id2)
@@ -71,21 +73,20 @@ class Dashbord extends Controller
 
 
         $register = DB::table('register')
-            ->join('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
-            ->join('tbl_states', 'register.states_id', '=', 'tbl_states.id')
-
+            ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
+            ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state')
+            ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
+            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
             ->where($condition)
             ->get();
-        return view('User/detail', ['register' => $register, 'user_session' => $user_session]);
+
+        $title = 'Profile Detail | Matrimony';
+        return view('User/detail', ['title' => $title, 'register' => $register, 'user_session' => $user_session]);
     }
 
     public function profile_update()
     {
-
-
-
 
         $user_session = Session::get('user_session');
 
@@ -112,7 +113,7 @@ class Dashbord extends Controller
 
     public function profile_update_save(Request $request)
     {
-       
+
         $user_session = Session::get('user_session');
         $condition['id'] = $user_session['id'];
 
@@ -132,5 +133,39 @@ class Dashbord extends Controller
 
         MdlRegister::where($condition)->update($validatedData);
         return back()->with('success', 'Profile Updated Successfully!');
+    }
+
+
+    public function send_otp()
+    {
+
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => "https://d7-verify.p.rapidapi.com/messages/v1/balance",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => [
+                "Token: <REQUIRED>",
+                "X-RapidAPI-Host: d7-verify.p.rapidapi.com",
+                "X-RapidAPI-Key: SIGN-UP-FOR-KEY"
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            echo $response;
+        }
     }
 }
