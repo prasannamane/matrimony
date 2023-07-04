@@ -47,10 +47,10 @@
                 @csrf
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                    <input type="text" class="form-control" name="first_name" placeholder="First Name" pattern="[A-Za-z]{15}" required >
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" pattern="[A-Za-z]{15}" required>
                 </div>
                 <div class="form-group">
                     <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" required>

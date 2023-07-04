@@ -121,6 +121,19 @@ class Dashbord extends Controller
             'districts_id' => 'required',
             'cities_id' => 'required',
             'cast_id' => 'required',
+        ]);
+
+        MdlRegister::where($condition)->update($validatedData);
+        return back()->with('success', 'Profile Updated Successfully!');
+    }
+
+    public function profile_update_photo_save(Request $request)
+    {
+
+        $user_session = Session::get('user_session');
+        $condition['id'] = $user_session['id'];
+
+        $validatedData = $request->validate([
             'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         ]);
 
@@ -132,7 +145,7 @@ class Dashbord extends Controller
         $validatedData['image'] = $imageName;
 
         MdlRegister::where($condition)->update($validatedData);
-        return back()->with('success', 'Profile Updated Successfully!');
+        return back()->with('success', 'Profile Photo Updated Successfully!');
     }
 
 

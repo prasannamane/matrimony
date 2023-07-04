@@ -478,84 +478,24 @@ job location
 
 
 
-                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_save') }}">
+                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_photo_save') }}">
                                     @csrf
 
                                     <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">First Name</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->first_name }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Last Name</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->last_name }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Mobile Number</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->mobile }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Country</label>
-                                        <div class="col-sm-10"><input type="text" value="India" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">State</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->state }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">District</label>
-                                        <div class="col-sm-10 select-flex">
-                                            <select name="districts_id" class="district form-control" required>
-                                                @foreach ($district as $item)
-                                                @if($register->districts_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
-                                                @endif
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
+                                        <label class="col-sm-2 col-form-label">Profile Picture</label>
+
+                                        <div class="col-sm-8">
+                                            <div class="custom-file">
+                                                <input name="image" id="logo" type="file" class="custom-file-input" required>
+                                                <label for="logo" class="custom-file-label" accept=".png, .jpg, .jpeg">Choose profile picture...</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 update_image">
+                                            <img src="img/profile/{{ $register->image }}">
                                         </div>
                                     </div>
 
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">City</label>
-                                        <div class="col-sm-10 select-flex">
-                                            <select name="cities_id" class="city form-control" required>
-                                                @foreach ($city as $item)
-                                                @if($register->cities_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
-                                                @endif
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Religion</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->religion }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Cast</label>
-                                        <div class="col-sm-10 select-flex">
-                                            <select name="cast_id" class="cast form-control" required>
-                                                @foreach ($cast as $item)
-                                                @if($register->cast_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
-                                                @endif
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-4 col-sm-offset-2">
