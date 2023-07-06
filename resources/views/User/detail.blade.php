@@ -25,7 +25,7 @@
 
     <div id="wrapper">
 
-    <nav class="navbar-default navbar-static-side" role="navigation">
+        <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
@@ -284,8 +284,8 @@
         </nav>
 
         <div id="page-wrapper" class="gray-bg">
-            
-        <div class="row border-bottom">
+
+            <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -427,7 +427,7 @@
             </div>
 
             <div class="wrapper wrapper-content animated fadeInRight">
-            @foreach ($register as $item)
+                @foreach ($register as $item)
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -442,7 +442,7 @@
 
                                             <div>
                                                 <div class="image-imitation">
-                                                <img src="{{ url('/img/profile') }}/{{ $item->image }}">
+                                                    <img src="{{ url('/img/profile') }}/{{ $item->image }}">
                                                 </div>
                                             </div>
                                             <div>
@@ -463,11 +463,11 @@
                                     <div class="col-md-7">
 
                                         <h2 class="font-bold m-b-xs">
-                                        {{ $item->first_name }} {{ $item->last_name }} 
+                                            {{ $item->first_name }} {{ $item->last_name }}
                                         </h2>
                                         <!-- <small>Many desktop publishing packages and web page editors now.</small> -->
                                         <div class="m-t-md">
-                                            <h2 class="product-main-price">Age: {{ $item->age }}  <small class="text-muted">{{ $item->dob }} </small> </h2>
+                                            <h2 class="product-main-price">Age: {{ $item->age }} <small class="text-muted">{{ $item->dob }} </small> </h2>
                                         </div>
                                         <hr>
 
@@ -476,34 +476,24 @@
                                         <h4>Country: India</h4>
                                         <h4>State: {{ $item->state }}</h4>
                                         <h4>Marriage Status: {{ $item->marriage_status }}</h4>
-                                        <h4>District</h4>
-                                        <h4>City</h4>
-
-                                       
-                                       
+                                        <h4>District: {{ $item->district }}</h4>
+                                        <h4>City: {{ $item->city }}</h4>
                                         <hr>
-
                                         <div>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-cart-plus"></i> Mobile Number: {{ $item->mobile }}  </button>
-                                                <button class="btn btn-white btn-sm">
-                                                    <i class="fa fa-star"></i> Show Intrest </button>
-                                         
+                                            <div class="btn-group contact">
+                                            <a class="btn btn-primary btn-sm" href="tel:{{ $item->mobile }}"><i class="fa fa-phone"></i> Call Us: {{ $item->mobile }}</a>
+                                            <a class="btn btn-success btn-sm" href="https://wa.me/{{ $item->mobile }}"><i class="fa fa-whatsapp"></i> WhatsApp Us: {{ $item->mobile }}</a>
                                             </div>
                                         </div>
-
-
-
                                     </div>
                                 </div>
-
+                                
                             </div>
                             <div class="ibox-footer">
                                 <span class="float-right">
                                     Perfect Place Brand
                                 </span>
-                                
+
                             </div>
                         </div>
 

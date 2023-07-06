@@ -128,3 +128,13 @@
     margin-left: 10px;
     line-height: 1.428571429;
 }
+
+.contact a.btn.btn-primary.btn-sm{
+    border-right: 4px solid white;
+    border-radius: 4px;
+}
+
+.contact a.btn.btn-success.btn-sm {
+    border-left: 4px solid white;
+    border-radius: 5px;
+}

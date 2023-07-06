@@ -72,13 +72,15 @@ class Dashbord extends Controller
         $condition['register.id'] = $id;
         $condition['password'] = $id2;
 
-
+        
         $register = DB::table('register')
             ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
             ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
+            ->leftJoin('tbl_districts', 'register.districts_id', '=', 'tbl_districts.id')
+            ->leftJoin('tbl_cities', 'register.cities_id', '=', 'tbl_cities.id')
+            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status', 'tbl_districts.name as district', 'tbl_cities.name as city')
             ->where($condition)
             ->get();
 
