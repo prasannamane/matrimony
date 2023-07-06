@@ -78,8 +78,11 @@ job location
                     <li>
                         <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
                     </li>
                     <!--
                     <li>

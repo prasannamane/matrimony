@@ -68,6 +68,9 @@
                     <li class="active">
                         <a href="#"><i class="fa fa-info"></i> <span class="nav-label">Profile Detail</span></a>
                     </li>
+                    <li>
+                        <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
+                    </li>
                     <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>

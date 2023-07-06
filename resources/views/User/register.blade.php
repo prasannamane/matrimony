@@ -8,7 +8,7 @@
 
     <title>Matrimony | Register</title>
     <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
-    
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
@@ -47,22 +47,22 @@
                 @csrf
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="first_name" placeholder="First Name" pattern="[A-Za-z]{15}" required >
+                    <input type="text" class="form-control" name="first_name" placeholder="First Name" pattern="[A-Za-z]{1,15}" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" pattern="[A-Za-z]{15}" required>
+                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" pattern="[A-Za-z]{1,15}" required>
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" name="mobile" placeholder="Mobile Number" required>
+                    <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
                 </div>
 
                 <div class="form-group" id="data_1">
                     <div class="input-group date">
-                        <input placeholder="Date of Birth ex: MM/DD/YY" type="text" class="form-control" value="" name="dob" readonly>
+                        <input placeholder="Date of Birth ex: MM/DD/YY" type="text" class="form-control" value="" name="dob" readonly required>
                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <select class="form-control" name="religion_id" required>
                         <option value="">Select Religion</option>
@@ -91,13 +91,13 @@
 
                 <div class="form-group">
                     <select class="form-control" name="countries_id" required>
-                    <option value="101">India</option>
+                        <option value="101">India</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <select class="form-control" name="states_id" required>
-                       <option value="">Select State</option>
+                        <option value="">Select State</option>
                         @foreach ($states as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
@@ -123,7 +123,7 @@
     </div>
 
     <!-- Mainly scripts -->
-    
+
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -131,9 +131,9 @@
     <!-- iCheck -->
     <script src="js/plugins/iCheck/icheck.min.js"></script>
 
-       <!-- Data picker -->
-   <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-    
+    <!-- Data picker -->
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
     <!-- Date range picker -->
     <script src="js/plugins/daterangepicker/daterangepicker.js"></script>
 
@@ -141,20 +141,34 @@
 
     <script>
         $(document).ready(function() {
+            
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
+
+            $('#mobile').on('input', function() {
+                var mobileNumber = $(this).val().trim();
+                var isValid = /^[6-9]\d{9}$/.test(mobileNumber);
+
+                if (!isValid) {
+                    $(this).get(0).setCustomValidity('Mobile number must be exactly 10 digits and not start with 0');
+                } else {
+                    $(this).get(0).setCustomValidity('');
+                }
+            });
         });
 
         var mem = $('#data_1 .input-group.date').datepicker({
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
-            });
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
     </script>
+
+
 </body>
 
 </html>
