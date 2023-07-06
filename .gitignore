@@ -17,3 +17,6 @@ yarn-error.log
 /.vscode
 /vendor
 .env
+composer.json
+composer.lock
+vendor

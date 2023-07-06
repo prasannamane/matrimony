@@ -45,9 +45,6 @@
                     <li>
                         <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
                     </li>
-                    <li>
-                        <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
-                    </li>
                     <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
@@ -409,56 +406,7 @@
 
 
             <div class="wrapper wrapper-content animated fadeInRight">
-                <!--
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row search-form">
-                        <form action="/dashbord" method="post">
-                            @csrf
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter From Age</label>
-                                    <input type="number" value="{{ $from_age }}" name="from_age" placeholder="From Age" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter To Age</label>
-                                    <input type="number" value="{{ $to_age }}" name="to_age" placeholder="To Age" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Religion</label>
-                                    <input type="text" name="religion" placeholder="Religion" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Cast</label>
-                                    <input type="text" name="religion" placeholder="Cast" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select State</label>
-                                    <input type="text" name="religion" placeholder="State" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-w-m btn-success">Search</button>
-                                </div>
-                            </div>
-                            <form>
-                    </div>
-                </div>
-                -->
+              
 
                 <div class="ibox-content m-b-sm border-bottom">
                     <div class="row">
@@ -484,11 +432,7 @@
                                         #{{ $item->id }}
                                     </span>
 
-                                    <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }} 
-                                    @if($item->verify == 1)
-                                    <button class="btn btn-info btn-circle" type="button"><i class="fa fa-check"></i></button>
-                                    @endif
-                                    </a>
+                                    <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}</a>
                                     <small class="text-muted">Age: {{ $item->age }}</small>
                                     <div class="small m-t-xs">
                                         Religion: {{ $item->religion }}<br>

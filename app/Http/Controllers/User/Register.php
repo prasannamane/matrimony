@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Twilio\Rest\Client;
 
 class Register extends Controller
 {
@@ -93,6 +94,7 @@ class Register extends Controller
         ]);
 
         $validatedData['password'] = md5($validatedData['password']);
+        $validatedData['role_id'] = 0;
         $MdlRegister = MdlRegister::where($validatedData)->get();
 
         if ($MdlRegister->count() > 0) {
@@ -158,5 +160,40 @@ class Register extends Controller
     public function term_condition()
     {
         return view('User/term_condition');
+    }
+
+    public function send_otp()
+    {
+        
+        // Your Twilio account SID and Auth Token
+        $accountSid = 'ACa544691a6149605a19ea6ddf69363360';
+        $authToken = '83b5cef6db0e70a0abb31a22b02fab3e';
+        
+        // Your Twilio phone number
+        $fromNumber = '+16183614215';
+        
+        // Recipient's phone number
+        $toNumber = '+919686673567';
+        
+        // Message content
+        $message = 'Hello, this is a test message!';
+        
+        // Initialize the Twilio client
+        $client = new Client($accountSid, $authToken);
+        
+        try {
+            // Send the SMS message
+            $client->messages->create(
+                $toNumber,
+                [
+                    'from' => $fromNumber,
+                    'body' => $message,
+                ]
+            );
+        
+            echo 'SMS sent successfully!';
+        } catch (Exception $e) {
+            echo 'Error sending SMS: ' . $e->getMessage();
+        }
     }
 }
