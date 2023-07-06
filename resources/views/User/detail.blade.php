@@ -501,9 +501,9 @@
                             </div>
                             <div class="ibox-footer">
                                 <span class="float-right">
-                                    Full stock - <i class="fa fa-clock-o"></i> 14.04.2016 10:04 pm
+                                    Perfect Place Brand
                                 </span>
-                                The generated Lorem Ipsum is therefore always free
+                                
                             </div>
                         </div>
 
