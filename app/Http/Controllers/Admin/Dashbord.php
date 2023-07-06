@@ -98,9 +98,12 @@ class Dashbord extends Controller
         return view('User/profile_update', ['register' => $register[0], 'user_session' => $user_session, 'cast' => $cast, 'district' => $districts, 'city' => $city]);
     }
 
-   
 
-   
-
-    
+    public function active($id)
+    {
+        $updateCon['active'] = 1;
+        $validatedData['id'] = $id;
+        MdlRegister::where($validatedData)->update($updateCon);
+        return back()->with('success', 'Profile Updated Activated!');
+    }
 }

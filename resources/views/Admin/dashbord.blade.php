@@ -1,33 +1,32 @@
-    
     @include('User.head')
 
-<body>
+    <body>
 
-    <div id="wrapper">
+        <div id="wrapper">
 
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="{{ url('/img/profile') }}/{{ $user_session['image'] }}" />
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
-                                <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
-                            </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                                <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
-                                <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-                                <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
-                            </ul>
-                        </div>
-                        <div class="logo-element">
-                            PPM+
-                        </div>
-                    </li>
-                    <!--
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+                                <img alt="image" class="rounded-circle" src="{{ url('/img/profile') }}/{{ $user_session['image'] }}" />
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                    <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
+                                    <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
+                                </a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                                    <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+                                    <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                                </ul>
+                            </div>
+                            <div class="logo-element">
+                                PPM+
+                            </div>
+                        </li>
+                        <!--
                     <li>
                         <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -39,13 +38,13 @@
                         </ul>
                     </li>
                     -->
-                    <li class="active">
-                        <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
-                    </li>
-                    <!--
+                        <li class="active">
+                            <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
+                        </li>
+                        <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -243,37 +242,37 @@
                     </li>
                     -->
 
-                    <li class="landing_link">
-                        <a target="_blank" href="{{ url('') }}"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
-                    </li>
-                    <!--
+                        <li class="landing_link">
+                            <a target="_blank" href="{{ url('') }}"><i class="fa fa-star"></i> <span class="nav-label">Home</span> <span class="label label-warning float-right">NEW</span></a>
+                        </li>
+                        <!--
                     <li class="special_link">
                         <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                     </li>
                     -->
-                </ul>
+                    </ul>
 
 
-            </div>
-        </nav>
+                </div>
+            </nav>
 
-        <div id="page-wrapper" class="gray-bg">
+            <div id="page-wrapper" class="gray-bg">
 
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                            </div>
-                        </form>
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
-                        </li>
-                        <!--
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                            <form role="search" class="navbar-form-custom" action="search_results.html">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                                </div>
+                            </form>
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
+                            </li>
+                            <!--
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                                 <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
@@ -373,113 +372,128 @@
                         -->
 
 
-                        <li>
-                            <a href="/logout">
-                                <i class="fa fa-sign-out"></i> Log out
-                            </a>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="/logout">
+                                    <i class="fa fa-sign-out"></i> Log out
+                                </a>
+                            </li>
+                        </ul>
 
-                </nav>
-            </div>
-            
-            <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-lg-10">
-                    <h2>Profile grid</h2>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a>Profile</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            <strong>Profile grid</strong>
-                        </li>
-                    </ol>
+                    </nav>
                 </div>
-                <div class="col-lg-2">
 
-                </div>
-            </div>
+                <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-lg-10">
+                        <h2>Profile grid</h2>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a>Profile</a>
+                            </li>
+                            <li class="breadcrumb-item active">
+                                <strong>Profile grid</strong>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-lg-2">
 
-
-
-            <div class="wrapper wrapper-content animated fadeInRight">
-              
-
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row">
-                        <div class="pagination">
-                            {{ $register->links() }}
-                        </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    @foreach ($register as $item)
+
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <div class="wrapper wrapper-content animated fadeInRight">
 
 
-                    <div class="col-md-3">
-                        <div class="ibox">
-                            <div class="ibox-content product-box">
+                    <div class="ibox-content m-b-sm border-bottom">
+                        <div class="row">
+                            <div class="pagination">
+                                {{ $register->links() }}
+                            </div>
+                        </div>
+                    </div>
 
-                                <div class="product-imitation">
-                                    <img src="{{ url('/img/profile') }}/{{ $item->image }}">
-                                </div>
-                                <div class="product-desc">
-                                    <span class="product-price">
-                                        #{{ $item->id }}
-                                    </span>
+                    <div class="row">
+                        @foreach ($register as $item)
 
-                                    <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}</a>
-                                    <small class="text-muted">Age: {{ $item->age }}</small>
-                                    <div class="small m-t-xs">
-                                        Religion: {{ $item->religion }}<br>
-                                        Cast: {{ $item->cast }}<br>
-                                        Country: India <br>
-                                        State: {{ $item->state }}<br>
-                                        Marriage Status: {{ $item->marriage_status }}
+
+                        <div class="col-md-3">
+                            <div class="ibox">
+                                <div class="ibox-content product-box">
+
+                                    <div class="product-imitation">
+                                        <img src="{{ url('/img/profile') }}/{{ $item->image }}">
                                     </div>
-                                    <div class="m-t text-righ">
+                                    <div class="product-desc">
+                                        <span class="product-price">
+                                            #{{ $item->id }}
+                                        </span>
 
-                                        <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
+                                        <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}</a>
+                                        <small class="text-muted">Age: {{ $item->age }}</small>
+                                        <div class="small m-t-xs">
+                                            Religion: {{ $item->religion }}<br>
+                                            Cast: {{ $item->cast }}<br>
+                                            Country: India <br>
+                                            State: {{ $item->state }}<br>
+                                            Marriage Status: {{ $item->marriage_status }}
+                                        </div>
+                                        <div class="m-t text-righ">
+
+                                            <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
+
+                                            @if($item->active == 0)
+                                            <a href="{{ url('/active') }}/{{ $item->id }}" class="btn btn-xs btn-outline btn-primary">Active <i class="fa fa-long-arrow-right"></i> </a>
+                                            @endif
+                                           
+
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-            </div>
-            
-            <div class="footer">
-                <div class="float-right">
-                    Have a <strong>Good</strong> Match.
-                </div>
-                <div>
-                    <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
-                </div>
-            </div>
 
+                <div class="footer">
+                    <div class="float-right">
+                        Have a <strong>Good</strong> Match.
+                    </div>
+                    <div>
+                        <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
 
 
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- Mainly scripts -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
+        <!-- Custom and plugin javascript -->
+        <script src="js/inspinia.js"></script>
+        <script src="js/plugins/pace/pace.min.js"></script>
 
-    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>
