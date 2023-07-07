@@ -21,21 +21,6 @@
     <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
 </head>
-<!--
-Blood group
-Veg and non veg
-Height 
-Weight
-educatiom
-ocupation
-Marrige type
-Family type
-Mother toung
-address
-job location
-
--->
-
 
 <body class="profile_update">
 
@@ -309,6 +294,13 @@ job location
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
+                        <li class="display-nav">
+                            <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
+                        </li>
                         <li>
                             <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
                         </li>
@@ -448,7 +440,7 @@ job location
 
                 <div class="row">
                     <div class="col-lg-12">
-                    <div class="ibox ">
+                        <div class="ibox ">
                             @if(session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
@@ -516,7 +508,7 @@ job location
                                             <select name="districts_id" class="district form-control" required>
                                                 @foreach ($district as $item)
                                                 @if($register->districts_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -531,7 +523,7 @@ job location
                                             <select name="cities_id" class="city form-control" required>
                                                 @foreach ($city as $item)
                                                 @if($register->cities_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -552,13 +544,19 @@ job location
                                             <select name="cast_id" class="cast form-control" required>
                                                 @foreach ($cast as $item)
                                                 @if($register->cast_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Address/ Landmark</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->adddress }}" name="adddress" class="form-control"></div>
+                                    </div>
+
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-4 col-sm-offset-2">

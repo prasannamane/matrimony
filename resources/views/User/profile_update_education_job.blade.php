@@ -22,8 +22,6 @@
 
 </head>
 
-
-
 <body class="profile_update">
 
     <div id="wrapper">

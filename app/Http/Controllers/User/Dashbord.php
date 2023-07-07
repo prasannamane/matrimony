@@ -124,6 +124,7 @@ class Dashbord extends Controller
             'districts_id' => 'required',
             'cities_id' => 'required',
             'cast_id' => 'required',
+            'adddress' => 'required',
         ]);
 
         MdlRegister::where($condition)->update($validatedData);

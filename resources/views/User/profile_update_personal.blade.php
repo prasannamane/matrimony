@@ -21,26 +21,6 @@
     <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
 </head>
-<!--
-Blood group
-Veg and non veg
-Height 
-Weight
-Mother toung
-
-educatiom
-ocupation
-job location
-
-Marrige type
-address
-Family type
-
-
-
-
--->
-
 
 <body class="profile_update">
 
