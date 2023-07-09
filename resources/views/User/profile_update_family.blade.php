@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Profile Update | Matrimony</title>
+    <title>Family Profile Update | Matrimony</title>
     <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -294,13 +294,6 @@
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
-                        <li class="display-nav">
-                            <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
-                        </li>
-
-                        <li>
-                            <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
-                        </li>
                         <li>
                             <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
                         </li>
@@ -440,7 +433,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="ibox ">
+                    <div class="ibox ">
                             @if(session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
@@ -506,13 +499,9 @@
                                         <label class="col-sm-2 col-form-label">District</label>
                                         <div class="col-sm-10 select-flex">
                                             <select name="districts_id" class="district form-control" required>
-                                                @if($register->districts_id == 0 )
-                                                <option selected="selected">Select District</option>
-                                                @endif
-
                                                 @foreach ($district as $item)
                                                 @if($register->districts_id == $item->id )
-                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -525,14 +514,9 @@
                                         <label class="col-sm-2 col-form-label">City</label>
                                         <div class="col-sm-10 select-flex">
                                             <select name="cities_id" class="city form-control" required>
-
-                                                @if($register->cities_id == 0 )
-                                                <option selected="selected">Select City</option>
-                                                @endif
-
                                                 @foreach ($city as $item)
                                                 @if($register->cities_id == $item->id )
-                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -551,13 +535,9 @@
                                         <label class="col-sm-2 col-form-label">Cast</label>
                                         <div class="col-sm-10 select-flex">
                                             <select name="cast_id" class="cast form-control" required>
-
-                                                @if($register->cast_id == 0 )
-                                                <option selected="selected">Select Cast</option>
-                                                @endif
                                                 @foreach ($cast as $item)
                                                 @if($register->cast_id == $item->id )
-                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -566,8 +546,18 @@
                                     </div>
 
                                     <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Address/ Landmark</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->adddress }}" name="adddress" class="form-control"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Profile Picture</label>
+
+                                        <div class="col-sm-8">
+                                            <div class="custom-file">
+                                                <input name="image" id="logo" type="file" class="custom-file-input" required>
+                                                <label for="logo" class="custom-file-label" accept=".png, .jpg, .jpeg">Choose profile picture...</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2 update_image">
+                                            <img src="img/profile/{{ $register->image }}">
+                                        </div>
                                     </div>
 
                                     <div class="hr-line-dashed"></div>

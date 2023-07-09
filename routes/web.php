@@ -49,6 +49,9 @@ Route::post('/profile_update_save', [Dashbord::class, 'profile_update_save']);
 Route::get('/profile_update_photo', [Dashbord::class, 'profile_update_photo']);
 Route::post('/profile_update_photo_save', [Dashbord::class, 'profile_update_photo_save']);
 
+Route::get('/profile_update_personal', [Dashbord::class, 'profile_update_personal']);
+Route::post('/profile_update_personal_save', [Dashbord::class, 'profile_update_personal_save']);
+
 
 
 Route::get('/term_condition', [Register::class, 'term_condition']);

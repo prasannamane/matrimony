@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\Register as MdlRegister;
-use Illuminate\Support\Facades\Session;
-use App\Models\Religion;
-use App\Models\Cast;
-use App\Models\Districts;
-use App\Models\City;
-use App\Models\MarriageStatus;
-use Illuminate\Support\Facades\DB;
 use App\Exceptions\DBError;
+use App\Http\Controllers\Controller;
+use App\Models\BloodGroup;
+use App\Models\Cast;
+use App\Models\City;
+use App\Models\Complexion;
+use App\Models\Districts;
+use App\Models\Register as MdlRegister;
+use App\Models\Religion;
+use App\Models\MarriageStatus;
+use App\Models\States;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Exception;
-use Illuminate\Http\Request;
-use App\Models\States;
-
 
 class Dashbord extends Controller
 {
@@ -32,19 +33,19 @@ class Dashbord extends Controller
         $user_session = Session::get('user_session');
         $condition['gender'] = 0;
         $condition['role_id'] = 0;
-        $condition['register.religion_id'] = $user_session['religion_id'];  
-        $condition['register.states_id'] = $user_session['states_id'];  
+        $condition['register.religion_id'] = $user_session['religion_id'];
+        $condition['register.states_id'] = $user_session['states_id'];
 
         if ($user_session['gender'] == 0) {
             $condition['gender'] = 1;
         }
 
 
-        if($request->input('religion_id') !== null){
+        if ($request->input('religion_id') !== null) {
             $condition['register.religion_id'] = $request->input('religion_id');
         }
 
-        if($request->input('states_id') !== null){
+        if ($request->input('states_id') !== null) {
             $condition['register.states_id'] = $request->input('states_id');
         }
 
@@ -68,8 +69,8 @@ class Dashbord extends Controller
             ->paginate(16);
 
         $title = 'Dashbord | Matrimony | Perfect Place';
-        
-       
+
+
 
 
 
@@ -78,11 +79,12 @@ class Dashbord extends Controller
         $religion = Religion::all();
         $states = States::all();
 
-        return view('User/dashbord', ['title' => $title, 'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age, 
-        'religion' => $religion, 'religion_select'=> $condition['register.religion_id'],
-        'state' => $states, 'state_select'=> $condition['register.states_id']
-    
-    ]);
+        return view('User/dashbord', [
+            'title' => $title, 'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age,
+            'religion' => $religion, 'religion_select' => $condition['register.religion_id'],
+            'state' => $states, 'state_select' => $condition['register.states_id']
+
+        ]);
     }
 
     public function detail($id, $id2)
@@ -92,7 +94,7 @@ class Dashbord extends Controller
         $condition['register.id'] = $id;
         $condition['password'] = $id2;
 
-        
+
         $register = DB::table('register')
             ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
             ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
@@ -176,5 +178,56 @@ class Dashbord extends Controller
 
         MdlRegister::where($condition)->update($validatedData);
         return back()->with('success', 'Profile Photo Updated Successfully!');
+    }
+
+    public function profile_update_personal()
+    {
+
+        $user_session = Session::get('user_session');
+        $condition['register.id'] = $user_session['id'];
+        $register = MdlRegister::where($condition)->get();
+        $blood_group = BloodGroup::all();
+        $complexion = Complexion::all();
+        return view('User/profile_update_personal', ['register' => $register[0], 'user_session' => $user_session, 'blood_group' => $blood_group, 'complexion' => $complexion]);
+    }
+
+    public function profile_update_personal_save(Request $request)
+    {
+        print_r($request->input());
+
+
+        $validatedData = $request->validate([
+            'blood_group_id' => 'required',
+            'complexion_id' => 'required',
+            'height' => 'required',
+            'weight' => 'required',
+            'birth_time' => 'required',
+            'birth_place' => 'required',
+        ]);
+
+    }
+
+    public function profile_update_family()
+    {
+        $user_session = Session::get('user_session');
+        $condition['register.id'] = $user_session['id'];
+        $register = MdlRegister::where($condition)->get();
+        return view('User/profile_update_family', ['register' => $register[0], 'user_session' => $user_session]);
+    }
+
+    public function profile_update_family_save()
+    {
+    }
+
+    public function profile_update_education()
+    {
+        $user_session = Session::get('user_session');
+        $condition['register.id'] = $user_session['id'];
+        $register = MdlRegister::where($condition)->get();
+        return view('User/profile_update_education_job', ['register' => $register[0], 'user_session' => $user_session]);
+    }
+
+    public function profile_update_education_save()
+    {
     }
 }

@@ -48,13 +48,13 @@
                             <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
                         </li>
                         <li>
-                            <a href="{{ url('/profile_update_personal') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Personal Information</span></a>
+                            <a href="{{ url('/profile_update_personal') }}"><i class="fa fa-user-o"></i> <span class="nav-label">Personal Information</span></a>
                         </li>
                         <li>
-                            <a href="{{ url('/profile_update_family') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Family Information</span></a>
+                            <a href="{{ url('/profile_update_family') }}"><i class="fa fa-group"></i> <span class="nav-label">Family Information</span></a>
                         </li>
                         <li>
-                            <a href="{{ url('/profile_update_education') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Education & Job</span></a>
+                            <a href="{{ url('/profile_update_education') }}"><i class="fa fa-book"></i> <span class="nav-label">Education & Job</span></a>
                         </li>
                         <!--
                     <li>
@@ -441,7 +441,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input" >
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
                                     <div class="form-group">
                                         <label class="col-form-label" for="product_name">To Age</label>
                                         <input type="number" value="{{ $to_age }}" name="to_age" placeholder="To Age" class="form-control" min="19" max="60">
@@ -454,8 +454,8 @@
                                         <select class="form-control" name="religion_id" required>
                                             @foreach ($religion as $item)
                                             @if($religion_select == $item->id )
-                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
-                                                @endif
+                                            <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                            @endif
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
@@ -468,8 +468,8 @@
                                         <select class="form-control" name="states_id" required>
                                             @foreach ($state as $item)
                                             @if($state_select == $item->id )
-                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
-                                                @endif
+                                            <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                            @endif
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
@@ -477,7 +477,7 @@
                                 </div>
 
                                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
-                                <label class="col-form-label" for="product_name">Action</label>
+                                    <label class="col-form-label" for="product_name">Action</label>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-w-m btn-success">Search</button>
                                     </div>

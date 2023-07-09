@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Profile Detail | Matrimony</title>
-    <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
-
-    <link href="{{ url('/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url('/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
-
-    <link href="{{ url('/css/plugins/slick/slick.css') }}" rel="stylesheet">
-    <link href="{{ url('/css/plugins/slick/slick-theme.css') }}" rel="stylesheet">
-
-    <link href="{{ url('/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ url('/css/style.css') }}" rel="stylesheet">
-    <link href="{{ url('/css/custom.css') }}" rel="stylesheet">
-
-</head>
+@include('User.head')
 
 <body>
 
@@ -30,7 +9,7 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="rounded-circle" src="{{ url('/img') }}/{{ $user_session['image'] }}" />
+                            <img alt="image" class="rounded-circle" src="{{ url('/img/profile') }}/{{ $user_session['image'] }}" />
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="block m-t-xs font-bold">{{ $user_session['first_name'] }} {{ $user_session['last_name'] }}</span>
                                 <span class="text-muted text-xs block">{{ $user_session['mobile'] }}</span>
@@ -455,24 +434,19 @@
                                                     [IMAGE 3]
                                                 </div>
                                             </div>
-
-
                                         </div>
-
                                     </div>
-                                    <div class="col-md-4 border-left">
+                                    <div class="col-md-4">
 
                                         <h2 class="font-bold m-b-xs">
                                             {{ $item->first_name }} {{ $item->last_name }}
                                         </h2>
-                                        
+
                                         <hr>
                                         <h5>Religion: {{ $item->religion }}</h5>
                                         <h5>Cast: {{ $item->cast }}</h5>
                                         <h5>Marriage Status: {{ $item->marriage_status }}</h5>
-                                       
-                                
-                                         
+
                                         <hr>
                                         <h4>Family</h4>
                                         <h5>Father: </h5>
@@ -496,23 +470,20 @@
                                         <h4>Contacts</h4>
                                         <div>
                                             <div class="btn-group contact">
-                                            <a class="btn btn-primary btn-sm" href="tel:{{ $item->mobile }}"><i class="fa fa-phone"></i> Call Us: {{ $item->mobile }}</a>
-                                            </div><div class="btn-group contact">
-                                            <a class="btn btn-success btn-sm" href="https://wa.me/{{ $item->mobile }}"><i class="fa fa-whatsapp"></i> WhatsApp Us: {{ $item->mobile }}</a>
+                                                <a class="btn btn-primary btn-sm" href="tel:{{ $item->mobile }}"><i class="fa fa-phone"></i> Call Us: {{ $item->mobile }}</a>
+                                            </div>
+                                            <div class="btn-group contact">
+                                                <a class="btn btn-success btn-sm" href="https://wa.me/{{ $item->mobile }}"><i class="fa fa-whatsapp"></i> WhatsApp Us: {{ $item->mobile }}</a>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 border-left">
 
-                                        
                                         <!-- <small>Many desktop publishing packages and web page editors now.</small> -->
                                         <div class="m-t-md">
                                             <h2 class="product-main-price">Age: {{ $item->age }} <small class="text-muted">{{ $item->dob }} </small> </h2>
                                         </div>
-
-                                     
-                                        
 
                                         <hr>
                                         <h4>Personal Information</h4>
@@ -522,7 +493,7 @@
                                         <h5>Complexion: </h5>
                                         <h5>Birth Time: </h5>
                                         <h5>Birth Place: </h5>
-                                        
+
                                         <hr>
                                         <h4>Education and Job</h4>
                                         <h5>Qualification: </h5>
@@ -531,44 +502,34 @@
                                         <h5>Salary (Per Year): </h5>
                                         <h5>Business: </h5>
                                         <h5>Business Income (Per Year): </h5>
-                                        
 
                                         <hr>
                                         <h5>Expectation: </h5>
                                     </div>
-
                                 </div>
-                                
                             </div>
-                        
+
                             <div class="ibox-footer">
                                 <span class="float-right">
-                                Have a <strong>Good</strong> Match.
+                                    Have a <strong>Good</strong> Match.
                                 </span>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
                 @endforeach
             </div>
             <div class="footer">
                 <div class="float-right">
-                    
                     <br><a href="tel:9834896987">Call Us: 98348 96987</a>
                     <br><a href="https://wa.me/9834896987">Whatsapp: 98348 96987 </a>
-                    
                 </div>
                 <div>
                     <strong>Copyright</strong> Perfect Place Company &copy; 2013-2024
                 </div>
             </div>
-
         </div>
     </div>
-
-
 
     <!-- Mainly scripts -->
     <script src="{{ url('/js/jquery-3.1.1.min.js') }}"></script>

@@ -20,3 +20,4 @@ yarn-error.log
 composer.json
 composer.lock
 vendor
+public/img/profile

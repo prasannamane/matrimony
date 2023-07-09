@@ -433,7 +433,7 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                    <div class="ibox ">
+                        <div class="ibox ">
                             @if(session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
@@ -466,42 +466,20 @@
 
 
 
-                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_save') }}">
+                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_personal_save') }}">
                                     @csrf
 
                                     <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">First Name</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->first_name }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Last Name</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->last_name }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Mobile Number</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->mobile }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Country</label>
-                                        <div class="col-sm-10"><input type="text" value="India" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">State</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->state }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">District</label>
+                                        <label class="col-sm-2 col-form-label">Blood Group</label>
                                         <div class="col-sm-10 select-flex">
-                                            <select name="districts_id" class="district form-control" required>
-                                                @foreach ($district as $item)
-                                                @if($register->districts_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
+                                            <select name="blood_group_id" class="blood_group form-control" required>
+                                                @if($register->blood_group_id == 0 )
+                                                <option value="" selected="selected">Select Blood Group</option>
+                                                @endif
+                                                @foreach ($blood_group as $item)
+                                                @if($register->blood_group_id == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -511,33 +489,16 @@
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">City</label>
+                                        <label class="col-sm-2 col-form-label">Complexion</label>
                                         <div class="col-sm-10 select-flex">
-                                            <select name="cities_id" class="city form-control" required>
-                                                @foreach ($city as $item)
-                                                @if($register->cities_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
+
+                                            <select name="complexion_id" class="complexion form-control" required>
+                                                @if($register->complexion_id === 0 )
+                                                <option value="" selected="selected">Select Complexion</option>
                                                 @endif
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Religion</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->religion }}" disabled="" class="form-control"></div>
-                                    </div>
-
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Cast</label>
-                                        <div class="col-sm-10 select-flex">
-                                            <select name="cast_id" class="cast form-control" required>
-                                                @foreach ($cast as $item)
-                                                @if($register->cast_id == $item->id )
-                                                <option value="{{ $item->id }}"  selected="selected">{{ $item->name }}</option>
+                                                @foreach ($complexion as $item)
+                                                @if($register->complexion_id == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -547,17 +508,28 @@
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Profile Picture</label>
+                                        <label class="col-sm-2 col-form-label">Enter Height in Feet</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" min="4" max="8" value="{{ $register->height }}" name="height" class="form-control" required>
+                                        </div>
+                                    </div>
 
-                                        <div class="col-sm-8">
-                                            <div class="custom-file">
-                                                <input name="image" id="logo" type="file" class="custom-file-input" required>
-                                                <label for="logo" class="custom-file-label" accept=".png, .jpg, .jpeg">Choose profile picture...</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2 update_image">
-                                            <img src="img/profile/{{ $register->image }}">
-                                        </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Enter Weight in KG</label>
+                                        <div class="col-sm-10"><input min="30" max="200" type="number" value="{{ $register->weight }}" name="weight" class="form-control" required>
+                                    </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Select Birth Time</label>
+                                        <div class="col-sm-10"><input type="time" value="{{ $register->birth_time }}" name="birth_time" class="form-control" required>
+                                    </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Enter Birth Place</label>
+                                        <div class="col-sm-10"><input type="text" value="{{ $register->birth_place }}" name="birth_place" class="form-control" required>
+                                    </div>
                                     </div>
 
                                     <div class="hr-line-dashed"></div>
@@ -622,13 +594,13 @@
                 allowClear: true
             });
 
-            $(".city").select2({
-                placeholder: "Select a City",
+            $(".complexion_id").select2({
+                placeholder: "Select a Complexion",
                 allowClear: true
             });
 
-            $(".district").select2({
-                placeholder: "Select a City",
+            $(".blood_group").select2({
+                placeholder: "Select a Blood Group",
                 allowClear: true
             });
 
