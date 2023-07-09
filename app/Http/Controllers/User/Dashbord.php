@@ -10,17 +10,12 @@ use App\Models\Cast;
 use App\Models\Districts;
 use App\Models\City;
 use App\Models\MarriageStatus;
-
-
-
-
 use Illuminate\Support\Facades\DB;
-
-
 use App\Exceptions\DBError;
 use Illuminate\Support\Facades\Log;
 use Exception;
 use Illuminate\Http\Request;
+use App\Models\States;
 
 
 class Dashbord extends Controller
@@ -37,19 +32,31 @@ class Dashbord extends Controller
         $user_session = Session::get('user_session');
         $condition['gender'] = 0;
         $condition['role_id'] = 0;
+        $condition['register.religion_id'] = $user_session['religion_id'];  
+        $condition['register.states_id'] = $user_session['states_id'];  
+
         if ($user_session['gender'] == 0) {
             $condition['gender'] = 1;
+        }
+
+
+        if($request->input('religion_id') !== null){
+            $condition['register.religion_id'] = $request->input('religion_id');
+        }
+
+        if($request->input('states_id') !== null){
+            $condition['register.states_id'] = $request->input('states_id');
         }
 
         $from_age = $request->input('from_age');
         $to_age = $request->input('to_age');
 
-        if ($from_age > 17 && $to_age < 60) {
+        if ($from_age > 17 && $to_age < 61) {
         } else {
             $from_age = 18;
             $to_age = 60;
         }
-
+        //DB::enableQueryLog(); 
         $register = DB::table('register')
             ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
             ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
@@ -60,9 +67,22 @@ class Dashbord extends Controller
             ->whereBetween('age', [$from_age, $to_age])
             ->paginate(16);
 
-        $title = 'Dashbord | Matrimony';
+        $title = 'Dashbord | Matrimony | Perfect Place';
+        
+       
 
-        return view('User/dashbord', ['title' => $title, 'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age]);
+
+
+        //dd(DB::getQueryLog());
+
+        $religion = Religion::all();
+        $states = States::all();
+
+        return view('User/dashbord', ['title' => $title, 'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age, 
+        'religion' => $religion, 'religion_select'=> $condition['register.religion_id'],
+        'state' => $states, 'state_select'=> $condition['register.states_id']
+    
+    ]);
     }
 
     public function detail($id, $id2)
@@ -84,7 +104,7 @@ class Dashbord extends Controller
             ->where($condition)
             ->get();
 
-        $title = 'Profile Detail | Matrimony';
+        $title = 'Profile Detail | Matrimony | Perfect Place';
         return view('User/detail', ['title' => $title, 'register' => $register, 'user_session' => $user_session]);
     }
 

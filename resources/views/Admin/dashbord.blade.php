@@ -439,7 +439,11 @@
                                             #{{ $item->id }}
                                         </span>
 
-                                        <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}</a>
+                                        <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}
+                                            @if($item->verify == 1)
+                                            <button class="btn btn-info btn-circle" type="button"><i class="fa fa-check"></i></button>
+                                            @endif
+                                        </a>
                                         <small class="text-muted">Age: {{ $item->age }}</small>
                                         <div class="small m-t-xs">
                                             Religion: {{ $item->religion }}<br>

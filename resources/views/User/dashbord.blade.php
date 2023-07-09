@@ -47,6 +47,15 @@
                         <li>
                             <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
                         </li>
+                        <li>
+                            <a href="{{ url('/profile_update_personal') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Personal Information</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/profile_update_family') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Family Information</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/profile_update_education') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Education & Job</span></a>
+                        </li>
                         <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
@@ -273,7 +282,7 @@
                         </div>
 
                         <ul class="nav navbar-top-links navbar-right">
-                             <li class="display-nav">
+                            <li class="display-nav">
                                 <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
                             </li>
                             <!--<li>
@@ -419,56 +428,64 @@
 
 
                 <div class="wrapper wrapper-content animated fadeInRight">
-                    <!--
-                <div class="ibox-content m-b-sm border-bottom">
-                    <div class="row search-form">
-                        <form action="/dashbord" method="post">
-                            @csrf
 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter From Age</label>
-                                    <input type="number" value="{{ $from_age }}" name="from_age" placeholder="From Age" class="form-control">
-                                </div>
-                            </div>
+                    <div class="matrimony ibox-content m-b-sm border-bottom">
+                        <div class="matrimony search-form">
+                            <form action="/dashbord" method="post" class="row m-serch">
+                                @csrf
 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Enter To Age</label>
-                                    <input type="number" value="{{ $to_age }}" name="to_age" placeholder="To Age" class="form-control">
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="product_name">From Age</label>
+                                        <input type="number" value="{{ $from_age }}" name="from_age" placeholder="From Age" class="form-control" min="18" max="59">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Religion</label>
-                                    <input type="text" name="religion" placeholder="Religion" class="form-control">
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input" >
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="product_name">To Age</label>
+                                        <input type="number" value="{{ $to_age }}" name="to_age" placeholder="To Age" class="form-control" min="19" max="60">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select Cast</label>
-                                    <input type="text" name="religion" placeholder="Cast" class="form-control">
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="product_name">Religion</label>
+                                        <select class="form-control" name="religion_id" required>
+                                            @foreach ($religion as $item)
+                                            @if($religion_select == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                @endif
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <label class="col-form-label" for="product_name">Select State</label>
-                                    <input type="text" name="religion" placeholder="State" class="form-control">
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="product_name">State</label>
+                                        <select class="form-control" name="states_id" required>
+                                            @foreach ($state as $item)
+                                            @if($state_select == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                @endif
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-sm-2">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-w-m btn-success">Search</button>
+                                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
+                                <label class="col-form-label" for="product_name">Action</label>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-w-m btn-success">Search</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <form>
+                                <form>
+                        </div>
                     </div>
-                </div>
-                -->
+
 
                     <div class="ibox-content m-b-sm border-bottom">
                         <div class="row">
@@ -494,7 +511,7 @@
                                             #{{ $item->id }}
                                         </span>
 
-                                        <a href="#" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}
+                                        <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="product-name">{{ $item->first_name }} {{ substr($item->last_name, 0, 1) }}
                                             @if($item->verify == 1)
                                             <button class="btn btn-info btn-circle" type="button"><i class="fa fa-check"></i></button>
                                             @endif

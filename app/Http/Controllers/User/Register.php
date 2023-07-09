@@ -106,10 +106,11 @@ class Register extends Controller
                 $user_session['first_name'] = $MdlRegister[0]->first_name;
                 $user_session['last_name'] = $MdlRegister[0]->last_name;
                 $user_session['mobile'] = $MdlRegister[0]->mobile;
-                $user_session['religion'] = $MdlRegister[0]->religion;
+                $user_session['religion_id'] = $MdlRegister[0]->religion_id;
                 $user_session['role_id'] = $MdlRegister[0]->role_id;
                 $user_session['gender'] = $MdlRegister[0]->gender;
                 $user_session['image'] = $MdlRegister[0]->image;
+                $user_session['states_id'] = $MdlRegister[0]->states_id;
 
 
                 Session::put('user_session', $user_session);
