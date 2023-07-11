@@ -22,6 +22,7 @@ use Exception;
 class Dashbord extends Controller
 {
     public $errorInstance = 'DB error : ';
+    public $user_session;
 
     public function __construct()
     {
@@ -39,7 +40,6 @@ class Dashbord extends Controller
         if ($user_session['gender'] == 0) {
             $condition['gender'] = 1;
         }
-
 
         if ($request->input('religion_id') !== null) {
             $condition['register.religion_id'] = $request->input('religion_id');
@@ -68,22 +68,23 @@ class Dashbord extends Controller
             ->whereBetween('age', [$from_age, $to_age])
             ->paginate(16);
 
-        $title = 'Dashbord | Matrimony | Perfect Place';
-
-
-
-
-
         //dd(DB::getQueryLog());
 
         $religion = Religion::all();
         $states = States::all();
 
         return view('User/dashbord', [
-            'title' => $title, 'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age,
+            'title' => 'Dashbord | Matrimony | Perfect Place',
+            'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age,
             'religion' => $religion, 'religion_select' => $condition['register.religion_id'],
-            'state' => $states, 'state_select' => $condition['register.states_id']
-
+            'state' => $states, 'state_select' => $condition['register.states_id'],
+            'dashbord' => 'active',
+            'detail' => '',
+            'profile' => '',
+            'photo' => '',
+            'personal' => '',
+            'family' => '',
+            'education' => '',
         ]);
     }
 
@@ -107,7 +108,19 @@ class Dashbord extends Controller
             ->get();
 
         $title = 'Profile Detail | Matrimony | Perfect Place';
-        return view('User/detail', ['title' => $title, 'register' => $register, 'user_session' => $user_session]);
+        return view('User/detail', [
+            'title' => $title, 'register' => $register, 'user_session' => $user_session,
+            'dashbord' => '',
+            'detail' => 'active',
+
+            'profile' => '',
+            'dashbord' => '',
+            'detail' => '',
+            'photo' => '',
+            'personal' => 'active',
+            'family' => '',
+            'education' => ''
+        ]);
     }
 
     public function profile_update()
@@ -133,7 +146,16 @@ class Dashbord extends Controller
         $conditionCt['state_id'] = $register[0]->states_id;
         $city = City::where($conditionCt)->get();
 
-        return view('User/profile_update', ['register' => $register[0], 'user_session' => $user_session, 'cast' => $cast, 'district' => $districts, 'city' => $city]);
+        return view('User/profile_update', [
+            'register' => $register[0], 'user_session' => $user_session, 'cast' => $cast, 'district' => $districts, 'city' => $city,
+            'detail' => '',
+            'profile' => 'active',
+            'photo' => '',
+            'personal' => '',
+            'family' => '',
+            'education' => '',
+            'dashbord' => ''
+        ]);
     }
 
     public function profile_update_save(Request $request)
@@ -158,7 +180,18 @@ class Dashbord extends Controller
         $user_session = Session::get('user_session');
         $condition['register.id'] = $user_session['id'];
         $register = MdlRegister::where($condition)->get();
-        return view('User/profile_update_photo', ['register' => $register[0], 'user_session' => $user_session]);
+        return view('User/profile_update_photo', [
+            'register' => $register[0], 'user_session' => $user_session,
+            'profile' => '',
+            'dashbord' => '',
+            'detail' => '',
+            'detail' => '',
+            'photo' => 'active',
+            'personal' => '',
+            'family' => '',
+            'education' => '',
+
+        ]);
     }
 
     public function profile_update_photo_save(Request $request)
@@ -188,14 +221,21 @@ class Dashbord extends Controller
         $register = MdlRegister::where($condition)->get();
         $blood_group = BloodGroup::all();
         $complexion = Complexion::all();
-        return view('User/profile_update_personal', ['register' => $register[0], 'user_session' => $user_session, 'blood_group' => $blood_group, 'complexion' => $complexion]);
+        return view('User/profile_update_personal', [
+            'register' => $register[0], 'user_session' => $user_session, 'blood_group' => $blood_group,
+            'complexion' => $complexion,
+            'profile' => '',
+            'dashbord' => '',
+            'detail' => '',
+            'photo' => '',
+            'personal' => 'active',
+            'family' => '',
+            'education' => ''
+        ]);
     }
 
     public function profile_update_personal_save(Request $request)
     {
-        print_r($request->input());
-
-
         $validatedData = $request->validate([
             'blood_group_id' => 'required',
             'complexion_id' => 'required',
@@ -204,7 +244,11 @@ class Dashbord extends Controller
             'birth_time' => 'required',
             'birth_place' => 'required',
         ]);
+        $user_session = Session::get('user_session');
+        $condition['id'] = $user_session['id'];
 
+        MdlRegister::where($condition)->update($validatedData);
+        return back()->with('success', 'Profile Personal Information Updated Successfully!');
     }
 
     public function profile_update_family()
@@ -212,11 +256,39 @@ class Dashbord extends Controller
         $user_session = Session::get('user_session');
         $condition['register.id'] = $user_session['id'];
         $register = MdlRegister::where($condition)->get();
-        return view('User/profile_update_family', ['register' => $register[0], 'user_session' => $user_session]);
+        return view('User/profile_update_family', [
+            'register' => $register[0],
+            'user_session' => $user_session,
+            'profile' => '',
+            'dashbord' => '',
+            'detail' => '',
+            'photo' => '',
+            'personal' => '',
+            'family' => 'active',
+            'education' => ''
+        ]);
     }
 
-    public function profile_update_family_save()
+    public function profile_update_family_save(Request $request)
     {
+        $validatedData = $request->validate([
+            'father_name' => 'required',
+            'father_job' => 'required',
+            'father_mobile' => 'required',
+            'mother_name' => 'required',
+            'mother_job' => 'required',
+            'mother_mobile' => 'required',
+            'brother_name' => 'required',
+            'brother_count' => 'required',
+            'sister_name' => 'required',
+            'sister_count' => 'required',
+        ]);
+
+        $user_session = Session::get('user_session');
+        $condition['id'] = $user_session['id'];
+
+        MdlRegister::where($condition)->update($validatedData);
+        return back()->with('success', 'Profile Family Information Updated Successfully!');
     }
 
     public function profile_update_education()
@@ -224,7 +296,15 @@ class Dashbord extends Controller
         $user_session = Session::get('user_session');
         $condition['register.id'] = $user_session['id'];
         $register = MdlRegister::where($condition)->get();
-        return view('User/profile_update_education_job', ['register' => $register[0], 'user_session' => $user_session]);
+        return view('User/profile_update_education_job', ['register' => $register[0], 'user_session' => $user_session,
+        'profile' => '',
+        'dashbord' => '',
+        'detail' => '',
+        'photo' => '',
+        'personal' => '',
+        'family' => '',
+        'education' => 'active'
+    ]);
     }
 
     public function profile_update_education_save()

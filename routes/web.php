@@ -52,6 +52,13 @@ Route::post('/profile_update_photo_save', [Dashbord::class, 'profile_update_phot
 Route::get('/profile_update_personal', [Dashbord::class, 'profile_update_personal']);
 Route::post('/profile_update_personal_save', [Dashbord::class, 'profile_update_personal_save']);
 
+Route::get('/profile_update_family', [Dashbord::class, 'profile_update_family']);
+Route::post('/profile_update_family_save', [Dashbord::class, 'profile_update_family_save']);
+
+Route::get('/profile_update_education', [Dashbord::class, 'profile_update_education']);
+Route::post('/profile_update_education_save', [Dashbord::class, 'profile_update_education_save']);
+
+
 
 
 Route::get('/term_condition', [Register::class, 'term_condition']);
