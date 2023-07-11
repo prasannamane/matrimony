@@ -29,129 +29,7 @@
         @include('User.navbar-default')
         <div id="page-wrapper" class="gray-bg">
 
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                            </div>
-                        </form>
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to Perfect Place+ Matrimony Dashbord.</span>
-                        </li>
-                        <!--
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-messages">
-                                
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/a7.jpg">
-                                        </a>
-                                        <div class="media-body">
-                                            <small class="float-right">46h ago</small>
-                                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/a4.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="float-right text-navy">5h ago</small>
-                                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
-                                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="dropdown-messages-box">
-                                        <a class="dropdown-item float-left" href="profile.html">
-                                            <img alt="image" class="rounded-circle" src="img/profile.jpg">
-                                        </a>
-                                        <div class="media-body ">
-                                            <small class="float-right">23h ago</small>
-                                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
-                                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="mailbox.html" class="dropdown-item">
-                                            <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-alerts">
-                                <li>
-                                    <a href="mailbox.html" class="dropdown-item">
-                                        <div>
-                                            <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                            <span class="float-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <a href="profile.html" class="dropdown-item">
-                                        <div>
-                                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                            <span class="float-right text-muted small">12 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <a href="grid_options.html" class="dropdown-item">
-                                        <div>
-                                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                            <span class="float-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="notifications.html" class="dropdown-item">
-                                            <strong>See All Alerts</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        -->
-
-
-                        <li>
-                            <a href="{{ url('/logout') }}">
-                                <i class="fa fa-sign-out"></i> Log out
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav>
-            </div>
+            @include('User.search-bar')
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
@@ -212,16 +90,86 @@
 
 
 
-                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_save') }}">
+                                <form method="post" enctype="multipart/form-data" action="{{ url('/profile_update_education_save') }}">
                                     @csrf
 
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Qualification</label>
+                                        <div class="col-sm-10 select-flex">
 
-Qualification:
-Job Profile:
-Job Location:
-Salary (Per Year):
-Business:
-Business Income (Per Year):
+                                            <select name="qualification_id" class="qualification form-control" required>
+                                                @if($register->qualification_id === 0 )
+                                                <option value="" selected="selected">Select Complexion</option>
+                                                @endif
+                                                @foreach ($qualifications as $item)
+                                                @if($register->qualification_id == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Job Profile</label>
+                                        <div class="col-sm-10 select-flex">
+
+                                            <select name="job_profile_id" class="job_profile form-control" required>
+                                                @if($register->job_profile_id === 0 )
+                                                <option value="" selected="selected">Select Complexion</option>
+                                                @endif
+                                                @foreach ($job_profile as $item)
+                                                @if($register->job_profile_id == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Job Location</label>
+                                        <div class="col-sm-10"><input type="text" pattern="[A-Za-z]{1,20}" placeholder="Enter Job Location" name="job_location" value="{{ $register->job_location }}" class="form-control" required></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Company Name</label>
+                                        <div class="col-sm-10"><input type="text" pattern="[A-Za-z]{1,20}" placeholder="Enter Company Name" name="company_name" value="{{ $register->company_name }}" class="form-control" required></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Salary (Per Year)</label>
+                                        <div class="col-sm-10"><input type="number" placeholder="Enter Salary (Per Year)" name="salary" value="{{ $register->salary }}" class="form-control" required></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Business</label>
+                                        <div class="col-sm-10 select-flex">
+
+                                            <select name="business_id" class="business form-control" required>
+                                                @if($register->business_id === 0 )
+                                                <option value="" selected="selected">Select Business</option>
+                                                @endif
+                                                @foreach ($business as $item)
+                                                @if($register->business_id == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Business Erning (Per Year)</label>
+                                        <div class="col-sm-10"><input type="number" placeholder="Enter Business Erning (Per Year)" name="erning" value="{{ $register->erning }}" class="form-control" required></div>
+                                    </div>
+
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-4 col-sm-offset-2">
@@ -274,25 +222,23 @@ Business Income (Per Year):
                 radioClass: 'iradio_square-green',
             });
 
-            $(".select2_demo_3").select2({
-                placeholder: "Select a Cast",
+            $(".qualification").select2({
+                placeholder: "Select a Qualification",
                 allowClear: true
             });
 
-            $(".cast").select2({
-                placeholder: "Select a Cast",
+            $(".job_profile").select2({
+                placeholder: "Select a Job Profile",
                 allowClear: true
             });
 
-            $(".city").select2({
-                placeholder: "Select a City",
+            $(".business").select2({
+                placeholder: "Select a Business",
                 allowClear: true
             });
 
-            $(".district").select2({
-                placeholder: "Select a City",
-                allowClear: true
-            });
+
+
 
             $('.custom-file-input').on('change', function() {
                 let fileName = $(this).val().split('\\').pop();

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,10 +21,11 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    
+
 </head>
+
 <body id="page-top" class="landing-page no-skin-config">
-<div class="navbar-wrapper">
+    <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/login') }}">MATRIMONY</a>
@@ -44,8 +46,8 @@
                 </div>
             </div>
         </nav>
-</div>
-<!--
+    </div>
+    <!--
 <div id="inSlider" class="carousel slide" data-ride="carousel" >
     <ol class="carousel-indicators">
         <li data-target="#inSlider" data-slide-to="0" class="active"></li>
@@ -96,7 +98,7 @@
 </div>
 -->
 
-<!--
+    <!--
 <section id="features" class="container services">
     <div class="row">
         <div class="col-sm-3">
@@ -423,100 +425,100 @@
 
 </section>
 -->
-<section class="features">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1> Terms and Conditions and Privacy Policy</h1>
-                
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1> Terms and Conditions and Privacy Policy</h1>
+
+                </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <small>Perfect Place</small>
+                    <h2>Introduction</h2>
+                    <i class="fa fa-bar-chart big-icon float-right"></i>
+                    <p>These terms and conditions govern the use of the Perfect Place Matrimony website and services (referred to as "the platform" or "the website"). By accessing or using our platform, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, please refrain from using the platform.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <small>Perfect Place</small>
+                    <h2>Eligibility</h2>
+                    <i class="fa fa-bolt big-icon float-right"></i>
+                    <p>To use our platform, you must be at least 18 years old and have the legal capacity to enter into a contract. By accessing or using the platform, you represent and warrant that you meet these eligibility requirements.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <small>User Accounts</small>
+                    <h2>Registration</h2>
+                    <i class="fa fa-clock-o big-icon float-right"></i>
+                    <p>In order to use certain features of the platform, you may be required to create a user account. When registering, you agree to provide accurate and complete information. You are solely responsible for maintaining the confidentiality of your account credentials and for any activity that occurs under your account.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <small>User Accounts</small>
+                    <h2>Account Termination </h2>
+                    <i class="fa fa-users big-icon float-right"></i>
+                    <p>We reserve the right to suspend or terminate your account at any time and for any reason, including but not limited to violation of these terms and conditions or misuse of the platform.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <small>User Responsibilities</small>
+                    <h2>User Content</h2>
+
+                    <p>You are solely responsible for the content you post or submit on the platform, including but not limited to personal information, profiles, messages, and any other material. You agree not to post or transmit any content that is unlawful, offensive, discriminatory, or violates the rights of others.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <small>User Responsibilities</small>
+                    <h2>Code of Conduct </h2>
+
+                    <p>You agree to use the platform in a responsible and respectful manner. You shall not engage in any behavior that disrupts the platform's functionality or harms other users. This includes but is not limited to spamming, harassment, or any form of fraudulent or malicious activity.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <h2>Intellectual Property</h2>
+                    <p>The platform and its original content, features, and functionality are owned by Perfect Place Matrimony and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <h2>Limitation of Liability</h2>
+                    <p>In no event shall Perfect Place Matrimony be liable for any direct, indirect, incidental, consequential, or exemplary damages arising out of or in connection with your use of the platform.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <br><br>Governing Law
+                <br>These terms and conditions shall be governed by and construed in accordance with the laws of [Your jurisdiction]. Any disputes arising out of or relating to these terms shall be subject to the exclusive jurisdiction of the courts in [Your jurisdiction].
+
+                <br><br><br>Privacy Policy
+
+                <br><br>At Perfect Place Matrimony, we are committed to protecting your privacy. This privacy policy outlines the types of personal information we collect, how we use it, and the measures we take to safeguard your information.
+
+                <br><br>Information We Collect
+                <br>We collect personal information when you register an account, complete your profile, or communicate with other users. This may include your name, email address, contact details, date of birth, and other relevant information.
+
+                <br><br>Use of Personal Information
+                <br>We use your personal information to provide and improve our services, personalize your experience, communicate with you, and facilitate connections with other users. We may also use your information for marketing purposes, but you can opt out of receiving promotional materials at any time.
+
+                <br><br>Information Sharing
+                <br>We do not sell or rent your personal information to third parties. However, we may share your information with trusted service providers who assist us in operating our platform, as well as with other users to facilitate matches and connections.
+
+                <br><br>Security Measures
+                <br>We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no data transmission or storage system can be guaranteed to be 100% secure.
+
+                <br><br>Cookies and Tracking Technologies
+                <br>We use cookies and similar
+            </div>
+
+
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-lg-offset-1 features-text">
-                <small>Perfect Place</small>
-                <h2>Introduction</h2>
-                <i class="fa fa-bar-chart big-icon float-right"></i>
-                <p>These terms and conditions govern the use of the Perfect Place Matrimony website and services (referred to as "the platform" or "the website"). By accessing or using our platform, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, please refrain from using the platform.</p>
-            </div>
-            <div class="col-lg-5 features-text">
-                <small>Perfect Place</small>
-                <h2>Eligibility</h2>
-                <i class="fa fa-bolt big-icon float-right"></i>
-                <p>To use our platform, you must be at least 18 years old and have the legal capacity to enter into a contract. By accessing or using the platform, you represent and warrant that you meet these eligibility requirements.</p>
-            </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-lg-offset-1 features-text">
-                <small>User Accounts</small>
-                <h2>Registration</h2>
-                <i class="fa fa-clock-o big-icon float-right"></i>
-                <p>In order to use certain features of the platform, you may be required to create a user account. When registering, you agree to provide accurate and complete information. You are solely responsible for maintaining the confidentiality of your account credentials and for any activity that occurs under your account.</p>
-            </div>
-            <div class="col-lg-5 features-text">
-                <small>User Accounts</small>
-                <h2>Account Termination </h2>
-                <i class="fa fa-users big-icon float-right"></i>
-                <p>We reserve the right to suspend or terminate your account at any time and for any reason, including but not limited to violation of these terms and conditions or misuse of the platform.</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-lg-offset-1 features-text">
-                <small>User Responsibilities</small>
-                <h2>User Content</h2>
-               
-                <p>You are solely responsible for the content you post or submit on the platform, including but not limited to personal information, profiles, messages, and any other material. You agree not to post or transmit any content that is unlawful, offensive, discriminatory, or violates the rights of others.</p>
-            </div>
-            <div class="col-lg-5 features-text">
-                <small>User Responsibilities</small>
-                <h2>Code of Conduct </h2>
-                
-                <p>You agree to use the platform in a responsible and respectful manner. You shall not engage in any behavior that disrupts the platform's functionality or harms other users. This includes but is not limited to spamming, harassment, or any form of fraudulent or malicious activity.</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-5 col-lg-offset-1 features-text">
-                <h2>Intellectual Property</h2>
-                <p>The platform and its original content, features, and functionality are owned by Perfect Place Matrimony and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
-            </div>
-            <div class="col-lg-5 features-text">
-                <h2>Limitation of Liability</h2>
-                <p>In no event shall Perfect Place Matrimony be liable for any direct, indirect, incidental, consequential, or exemplary damages arising out of or in connection with your use of the platform.</p>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-        <br><br>Governing Law
-        <br>These terms and conditions shall be governed by and construed in accordance with the laws of [Your jurisdiction]. Any disputes arising out of or relating to these terms shall be subject to the exclusive jurisdiction of the courts in [Your jurisdiction].
-
-        <br><br><br>Privacy Policy
-
-        <br><br>At Perfect Place Matrimony, we are committed to protecting your privacy. This privacy policy outlines the types of personal information we collect, how we use it, and the measures we take to safeguard your information.
-
-        <br><br>Information We Collect
-        <br>We collect personal information when you register an account, complete your profile, or communicate with other users. This may include your name, email address, contact details, date of birth, and other relevant information.
-
-        <br><br>Use of Personal Information
-        <br>We use your personal information to provide and improve our services, personalize your experience, communicate with you, and facilitate connections with other users. We may also use your information for marketing purposes, but you can opt out of receiving promotional materials at any time.
-
-        <br><br>Information Sharing
-        <br>We do not sell or rent your personal information to third parties. However, we may share your information with trusted service providers who assist us in operating our platform, as well as with other users to facilitate matches and connections.
-
-        <br><br>Security Measures
-        <br>We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no data transmission or storage system can be guaranteed to be 100% secure.
-
-        <br><br>Cookies and Tracking Technologies
-        <br>We use cookies and similar
-        </div>
-
-
-    </div>
-
-</section>
-<!--
+    </section>
+    <!--
 <section id="pricing" class="pricing">
     <div class="container">
         <div class="row m-b-lg">
@@ -635,34 +637,34 @@
 
 </section>
 -->
-<section id="contact" class="gray-section contact">
-    <div class="container">
-        <div class="row m-b-lg">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Contact Us</h1>
-                
+    <section id="contact" class="gray-section contact">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Contact Us</h1>
+
+                </div>
             </div>
-        </div>
-        <div class="row m-b-lg justify-content-center">
-            <div class="col-lg-3 ">
-                <address>
-                    <strong><span class="navy">Perfect Place.</span></strong><br/>
-                    Viman Nagar Pune,<br/>
-                    411014<br/>
-                    <abbr title="Phone">P:</abbr> +91 9834896987
-                </address>
-            </div>
-            <div class="col-lg-4">
-                <!--<p class="text-color">
+            <div class="row m-b-lg justify-content-center">
+                <div class="col-lg-3 ">
+                    <address>
+                        <strong><span class="navy">Perfect Place.</span></strong><br />
+                        Viman Nagar Pune,<br />
+                        411014<br />
+                        <abbr title="Phone">P:</abbr> +91 9834896987
+                    </address>
+                </div>
+                <div class="col-lg-4">
+                    <!--<p class="text-color">
                     Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
                 </p> -->
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="mailto:info@perfectplace.in" class="btn btn-primary">Send us mail</a>
-                <!--
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="mailto:info@perfectplace.in" class="btn btn-primary">Send us mail</a>
+                    <!--
                 <p class="m-t-sm">
                     Or follow us on social platform
                 </p>
@@ -674,87 +676,88 @@
                     <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
                     </li>
                 </ul> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center m-t-lg m-b-lg">
+                    <p><strong>&copy; 2023-24 Perfect Place</strong>
+                        <!-- <br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.-->
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 text-center m-t-lg m-b-lg">
-                <p><strong>&copy; 2023-24 Perfect Place</strong>
-                <!-- <br/> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.-->
-            </p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Mainly scripts -->
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-<!-- Custom and plugin javascript -->
-<script src="js/inspinia.js"></script>
-<script src="js/plugins/pace/pace.min.js"></script>
-<script src="js/plugins/wow/wow.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+    <script src="js/plugins/wow/wow.min.js"></script>
 
-<script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
 
 
-<script>
+    <script>
+        $(document).ready(function() {
 
-    $(document).ready(function () {
+            $('body').scrollspy({
+                target: '#navbar',
+                offset: 80
+            });
 
-        $('body').scrollspy({
-            target: '#navbar',
-            offset: 80
+            // Page scrolling feature
+            $('a.page-scroll').bind('click', function(event) {
+                var link = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $(link.attr('href')).offset().top - 50
+                }, 500);
+                event.preventDefault();
+                $("#navbar").collapse('hide');
+            });
         });
 
-        // Page scrolling feature
-        $('a.page-scroll').bind('click', function(event) {
-            var link = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $(link.attr('href')).offset().top - 50
-            }, 500);
-            event.preventDefault();
-            $("#navbar").collapse('hide');
-        });
-    });
-
-    var cbpAnimatedHeader = (function() {
-        var docElem = document.documentElement,
-                header = document.querySelector( '.navbar-default' ),
+        var cbpAnimatedHeader = (function() {
+            var docElem = document.documentElement,
+                header = document.querySelector('.navbar-default'),
                 didScroll = false,
                 changeHeaderOn = 200;
-        function init() {
-            window.addEventListener( 'scroll', function( event ) {
-                if( !didScroll ) {
-                    didScroll = true;
-                    setTimeout( scrollPage, 250 );
+
+            function init() {
+                window.addEventListener('scroll', function(event) {
+                    if (!didScroll) {
+                        didScroll = true;
+                        setTimeout(scrollPage, 250);
+                    }
+                }, false);
+            }
+
+            function scrollPage() {
+                var sy = scrollY();
+                if (sy >= changeHeaderOn) {
+                    $(header).addClass('navbar-scroll')
+                } else {
+                    $(header).removeClass('navbar-scroll')
                 }
-            }, false );
-        }
-        function scrollPage() {
-            var sy = scrollY();
-            if ( sy >= changeHeaderOn ) {
-                $(header).addClass('navbar-scroll')
+                didScroll = false;
             }
-            else {
-                $(header).removeClass('navbar-scroll')
+
+            function scrollY() {
+                return window.pageYOffset || docElem.scrollTop;
             }
-            didScroll = false;
-        }
-        function scrollY() {
-            return window.pageYOffset || docElem.scrollTop;
-        }
-        init();
+            init();
 
-    })();
+        })();
 
-    // Activate WOW.js plugin for animation on scrol
-    new WOW().init();
-
-</script>
+        // Activate WOW.js plugin for animation on scrol
+        new WOW().init();
+    </script>
 
 </body>
+
 </html>

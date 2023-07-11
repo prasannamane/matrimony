@@ -5,10 +5,13 @@ namespace App\Http\Controllers\User;
 use App\Exceptions\DBError;
 use App\Http\Controllers\Controller;
 use App\Models\BloodGroup;
+use App\Models\BusinessTypes;
 use App\Models\Cast;
 use App\Models\City;
 use App\Models\Complexion;
 use App\Models\Districts;
+use App\Models\JobProfiles;
+use App\Models\Qualifications;
 use App\Models\Register as MdlRegister;
 use App\Models\Religion;
 use App\Models\MarriageStatus;
@@ -18,6 +21,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Exception;
+
 
 class Dashbord extends Controller
 {
@@ -271,6 +275,7 @@ class Dashbord extends Controller
 
     public function profile_update_family_save(Request $request)
     {
+
         $validatedData = $request->validate([
             'father_name' => 'required',
             'father_job' => 'required',
@@ -293,21 +298,44 @@ class Dashbord extends Controller
 
     public function profile_update_education()
     {
+        $qualifications = Qualifications::all();
+        $job_profile = JobProfiles::all();
+        $business = BusinessTypes::all();
+
         $user_session = Session::get('user_session');
         $condition['register.id'] = $user_session['id'];
         $register = MdlRegister::where($condition)->get();
-        return view('User/profile_update_education_job', ['register' => $register[0], 'user_session' => $user_session,
-        'profile' => '',
-        'dashbord' => '',
-        'detail' => '',
-        'photo' => '',
-        'personal' => '',
-        'family' => '',
-        'education' => 'active'
-    ]);
+        return view('User/profile_update_education_job', [
+            'register' => $register[0], 'user_session' => $user_session,
+            'profile' => '',
+            'dashbord' => '',
+            'detail' => '',
+            'photo' => '',
+            'personal' => '',
+            'family' => '',
+            'education' => 'active',
+            'qualifications' => $qualifications,
+            'job_profile' => $job_profile,
+            'business' => $business
+        ]);
     }
 
-    public function profile_update_education_save()
+    public function profile_update_education_save(Request $request)
     {
+        $validatedData = $request->validate([
+            'qualification_id' => 'required',
+            'job_profile_id' => 'required',
+            'job_location' => 'required',
+            'company_name' => 'required',
+            'salary' => 'required',
+            'business_id' => 'required',
+            'erning' => 'required',
+        ]);
+
+        $user_session = Session::get('user_session');
+        $condition['id'] = $user_session['id'];
+
+        MdlRegister::where($condition)->update($validatedData);
+        return back()->with('success', 'Profile Education and Job Information Updated Successfully!');
     }
 }
