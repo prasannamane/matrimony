@@ -58,11 +58,11 @@ Route::post('/profile_update_family_save', [Dashbord::class, 'profile_update_fam
 Route::get('/profile_update_education', [Dashbord::class, 'profile_update_education']);
 Route::post('/profile_update_education_save', [Dashbord::class, 'profile_update_education_save']);
 
-
-
-
 Route::get('/term_condition', [Register::class, 'term_condition']);
 Route::get('/send_otp', [Register::class, 'send_otp']);
+
+Route::get('/profile_update_deactivate', [Dashbord::class, 'profile_update_deactivate']);
+Route::post('/profile_update_deactivate_save', [Dashbord::class, 'profile_update_deactivate_save']);
 
 /** User End */
 

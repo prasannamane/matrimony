@@ -45,6 +45,12 @@
             </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
+
+        <li class="display-nav">
+                <a href="{{ url('/profile_update_deactivate') }}"><i class="fa fa-wrench"></i> <span class="nav-label">Account Deactivate</span></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-top-links navbar-right">
             <!--<li>
                                 <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> Profile Grid</a>
                             </li>

@@ -89,6 +89,7 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => '',
             'education' => '',
+            'deactivated' => ''
         ]);
     }
 
@@ -116,14 +117,16 @@ class Dashbord extends Controller
             'title' => $title, 'register' => $register, 'user_session' => $user_session,
             'dashbord' => '',
             'detail' => 'active',
-
+            'deactivate' => '',
             'profile' => '',
             'dashbord' => '',
             'detail' => '',
             'photo' => '',
             'personal' => 'active',
             'family' => '',
-            'education' => ''
+            'education' => '',
+            'deactivated' => ''
+
         ]);
     }
 
@@ -158,7 +161,8 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => '',
             'education' => '',
-            'dashbord' => ''
+            'dashbord' => '',
+            'deactivated' => ''
         ]);
     }
 
@@ -173,6 +177,7 @@ class Dashbord extends Controller
             'cities_id' => 'required',
             'cast_id' => 'required',
             'adddress' => 'required',
+            'expectations' => 'required'
         ]);
 
         MdlRegister::where($condition)->update($validatedData);
@@ -194,7 +199,7 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => '',
             'education' => '',
-
+            'deactivated' => ''
         ]);
     }
 
@@ -234,7 +239,8 @@ class Dashbord extends Controller
             'photo' => '',
             'personal' => 'active',
             'family' => '',
-            'education' => ''
+            'education' => '',
+            'deactivated' => ''
         ]);
     }
 
@@ -269,7 +275,8 @@ class Dashbord extends Controller
             'photo' => '',
             'personal' => '',
             'family' => 'active',
-            'education' => ''
+            'education' => '',
+            'deactivated' => ''
         ]);
     }
 
@@ -316,7 +323,8 @@ class Dashbord extends Controller
             'education' => 'active',
             'qualifications' => $qualifications,
             'job_profile' => $job_profile,
-            'business' => $business
+            'business' => $business,
+            'deactivated' => ''
         ]);
     }
 
@@ -337,5 +345,32 @@ class Dashbord extends Controller
 
         MdlRegister::where($condition)->update($validatedData);
         return back()->with('success', 'Profile Education and Job Information Updated Successfully!');
+    }
+
+    public function profile_update_deactivate()
+    {
+        $user_session = Session::get('user_session');
+        $condition['register.id'] = $user_session['id'];
+        $register = MdlRegister::where($condition)->get();
+        return view('User/profile_update_deactivate', [
+            'register' => $register[0], 'user_session' => $user_session,
+            'profile' => '',
+            'dashbord' => '',
+            'detail' => '',
+            'photo' => '',
+            'personal' => '',
+            'family' => '',
+            'education' => '',
+            'deactivated' => 'active'
+        ]);
+    }
+
+    public function profile_update_deactivate_save(Request $request)
+    {
+        $validatedData['active']  = 0;
+        $user_session = Session::get('user_session');
+        $condition['id'] = $user_session['id'];
+        MdlRegister::where($condition)->update($validatedData);
+        return back()->with('success', 'Your Profile Deactivated Successfully Updated Successfully!');
     }
 }

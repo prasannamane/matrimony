@@ -50,6 +50,9 @@
             <li class="{{ $education }}">
                 <a href="{{ url('/profile_update_education') }}"><i class="fa fa-book"></i> <span class="nav-label">Education & Job</span></a>
             </li>
+            <li class="{{ $deactivated }}">
+                <a href="{{ url('/profile_update_deactivate') }}"><i class="fa fa-wrench"></i> <span class="nav-label">Account Deactivate</span></a>
+            </li>
             <!--
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
