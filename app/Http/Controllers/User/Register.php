@@ -39,6 +39,13 @@ class Register extends Controller
         return view('User/register', ['religion' => $religion, 'states' => $states, 'marriage_status' => $marriage_status]);
     }
 
+    public function generateRandomNumber()
+    {
+        $min = 1000; // Minimum 4-digit number
+        $max = 9999; // Maximum 4-digit number
+        return mt_rand($min, $max);
+    }
+
 
     public function submitform(Request $request)
     {
@@ -46,13 +53,13 @@ class Register extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'mobile' => 'required',
-            'password' => 'required',
             'religion_id' => 'required',
             'gender' => 'required',
             'dob' => 'required',
             'countries_id' => 'required',
             'states_id' => 'required',
             'marriage_status_id' => 'required',
+            'active' => 1,
         ]);
 
         $validatedData['age'] = $this->calculateAge($validatedData['dob']);
@@ -72,9 +79,10 @@ class Register extends Controller
         }
 
         try {
-            $validatedData['password'] = md5($validatedData['password']);
+            $validatedData['plain_password'] = $this->generateRandomNumber();
+            $validatedData['password'] = md5($validatedData['plain_password']);
             MdlRegister::insert($validatedData);
-            return redirect('/login')->with("success", "Thank You for Submitting Your Registration Form! Account Activation and Verification Underway. Expect Confirmation Within 24 Hours.");
+            return redirect('/login')->with("success", "Thank You for Submitting Your Registration Form! Account Activation and Verification Underway. Expect Confirmation Within 24 Hours. We will share you Username & Password.");
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return redirect('/register')->with('failed', 'Registration Form submission failed. Somwthing went wrong!.');
@@ -165,23 +173,23 @@ class Register extends Controller
 
     public function send_otp()
     {
-        
+
         // Your Twilio account SID and Auth Token
         $accountSid = 'ACa544691a6149605a19ea6ddf69363360';
         $authToken = '83b5cef6db0e70a0abb31a22b02fab3e';
-        
+
         // Your Twilio phone number
         $fromNumber = '+16183614215';
-        
+
         // Recipient's phone number
         $toNumber = '+919686673567';
-        
+
         // Message content
         $message = 'Hello, this is a test message!';
-        
+
         // Initialize the Twilio client
         $client = new Client($accountSid, $authToken);
-        
+
         try {
             // Send the SMS message
             $client->messages->create(
@@ -191,7 +199,7 @@ class Register extends Controller
                     'body' => $message,
                 ]
             );
-        
+
             echo 'SMS sent successfully!';
         } catch (Exception $e) {
             echo 'Error sending SMS: ' . $e->getMessage();

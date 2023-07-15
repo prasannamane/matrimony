@@ -16,6 +16,7 @@ use App\Models\Register as MdlRegister;
 use App\Models\Religion;
 use App\Models\MarriageStatus;
 use App\Models\States;
+use App\Models\ViewProfile;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -96,10 +97,25 @@ class Dashbord extends Controller
     public function detail($id, $id2)
     {
         $user_session = Session::get('user_session');
+        $insert['register_id'] = $user_session['id'];
+        $insert['profile_id'] = $id;
+
+        $view_profile = ViewProfile::where($insert)->get();
+
+       // if($user_session['active'] == 0){
+            
+       // }
+
+        if ($view_profile->count() > 0) {
+            // Data is present
+            // Perform your desired actions here
+        } else {
+            // Data is not present
+            // Handle the case where no data is found
+        }
 
         $condition['register.id'] = $id;
         $condition['password'] = $id2;
-
 
         $register = DB::table('register')
             ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
@@ -112,9 +128,10 @@ class Dashbord extends Controller
             ->where($condition)
             ->get();
 
-        $title = 'Profile Detail | Matrimony | Perfect Place';
         return view('User/detail', [
-            'title' => $title, 'register' => $register, 'user_session' => $user_session,
+            'title' => 'Profile Detail | Matrimony | Perfect Place', 
+            'register' => $register, 
+            'user_session' => $user_session,
             'dashbord' => '',
             'detail' => 'active',
             'deactivate' => '',

@@ -90,6 +90,25 @@
 
                                         <hr>
                                         <h4>Contacts</h4>
+
+                                        @if($user_session['role_id'] == 1)
+                                        <div class="container">
+                                            <h2>Copy Text</h2>
+                                            <input type="text" id="text-to-copy" value="
+                                            You can login now, Account has been activated free.
+
+                                            Login URL: https://perfectplace.in/matrimony/login 
+                                            Username: {{ $item->mobile }} 
+                                            Password: {{ $item->plain_password }} 
+                                            
+                                            Website is free but, 
+                                            Please Pay 100 Rupees as maintaince charge. 
+                                            Phone Pay | Gpay | Paytm | UPI 9686673567" readonly>
+                                            <button onclick="copyText()">Copy</button>
+                                            <div id="copy-message"></div>
+                                        </div>
+                                        @endif
+
                                         <div>
                                             <div class="btn-group contact">
                                                 <a class="btn btn-primary btn-sm" href="tel:{{ $item->mobile }}"><i class="fa fa-phone"></i> Call Us: {{ $item->mobile }}</a>
@@ -99,6 +118,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
 
                                     <div class="col-md-4 border-left">
 
@@ -178,6 +198,22 @@
             });
 
         });
+
+        function copyText() {
+            /* Get the text input field */
+            var copyText = document.getElementById("text-to-copy");
+
+            /* Select the text within the input field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+            /* Copy the text to the clipboard */
+            document.execCommand("copy");
+
+            /* Display a message indicating the text has been copied */
+            var copyMessage = document.getElementById("copy-message");
+            copyMessage.innerHTML = "Text copied!";
+        }
     </script>
 
 </body>
