@@ -37,7 +37,7 @@
 
                     <div class="matrimony ibox-content m-b-sm border-bottom">
                         <div class="matrimony search-form">
-                            <form action="/dashbord" method="post" class="row m-serch">
+                            <form action="{{ url('/dashbord') }}" method="post" class="row m-serch">
                                 @csrf
 
                                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
@@ -139,6 +139,14 @@
                             </div>
                         </div>
                         @endforeach
+                    </div>
+
+                    <div class="ibox-content m-b-sm border-bottom">
+                        <div class="row">
+                            <div class="pagination">
+                                {{ $register->links() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
 

@@ -97,21 +97,17 @@ class Dashbord extends Controller
     public function detail($id, $id2)
     {
         $user_session = Session::get('user_session');
-        $insert['register_id'] = $user_session['id'];
-        $insert['profile_id'] = $id;
+        $insertCon['register_id'] = $user_session['id'];
+        $insertCon['profile_id'] = $id;
 
-        $view_profile = ViewProfile::where($insert)->get();
-
-       // if($user_session['active'] == 0){
-            
-       // }
+        $view_profile = ViewProfile::where($insertCon)->get();
 
         if ($view_profile->count() > 0) {
-            // Data is present
-            // Perform your desired actions here
+            $updateCon['attempt'] = $view_profile[0]->attempt + 1;
+            ViewProfile::where($insertCon)->update($updateCon);
         } else {
-            // Data is not present
-            // Handle the case where no data is found
+            $insertCon['attempt'] = 1;
+            ViewProfile::insert($insertCon);
         }
 
         $condition['register.id'] = $id;
@@ -143,7 +139,6 @@ class Dashbord extends Controller
             'family' => '',
             'education' => '',
             'deactivated' => ''
-
         ]);
     }
 

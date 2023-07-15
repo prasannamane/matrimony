@@ -469,6 +469,14 @@
                         </div>
                         @endforeach
                     </div>
+
+                    <div class="ibox-content m-b-sm border-bottom">
+                        <div class="row">
+                            <div class="pagination">
+                                {{ $register->links() }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="footer">
