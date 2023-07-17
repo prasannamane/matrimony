@@ -130,6 +130,24 @@
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Physical Disabilities OR Handicaps</label>
+                                        <div class="col-sm-10 select-flex">
+                                            <select name="physical_dh_id" class="physical_dh form-control" required>
+                                                @if($register->physical_dh_id == 0 )
+                                                <option selected="selected">Select Physical Disabilities OR Handicaps</option>
+                                                @endif
+                                                @foreach ($physical_dh as $item)
+                                                @if($register->cast_id == $item->id )
+                                                <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
+                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Enter Height in Feet</label>
                                         <div class="col-sm-10">
                                             <input type="number" min="4" max="8" value="{{ $register->height }}" name="height" class="form-control" required>
@@ -204,6 +222,11 @@
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
+            });
+
+            $(".physical_dh").select2({
+                placeholder: "Select a Physical Disabilities OR Handicaps",
+                allowClear: true
             });
 
 

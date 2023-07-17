@@ -11,6 +11,7 @@ use App\Models\City;
 use App\Models\Complexion;
 use App\Models\Districts;
 use App\Models\JobProfiles;
+use App\Models\PhysicalDisabilitiesHandicaps as PhysicalDH;
 use App\Models\Qualifications;
 use App\Models\Register as MdlRegister;
 use App\Models\Religion;
@@ -98,23 +99,24 @@ class Dashbord extends Controller
     {
         $user_session = Session::get('user_session');
         $insertCon['register_id'] = $user_session['id'];
-        $insertCon['profile_id'] = $id;
-
         $view_profile = ViewProfile::where($insertCon)->get();
 
-        if ($view_profile->count() > 0) {
-            $updateCon['attempt'] = $view_profile[0]->attempt + 1;
-            ViewProfile::where($insertCon)->update($updateCon);
-        } else {
-            $insertCon['attempt'] = 1;
-            ViewProfile::insert($insertCon);
-        }
-
-        if ($view_profile->count() > 15 && $user_session['gender'] == 0 && $user_session['verify']) {
-
+        if ($view_profile->count() > 10 && $user_session['gender'] == 0 && $user_session['verify'] == 0) {
             $page = 'payment';
         } else {
             $page = 'detail';
+
+            $insertCon['profile_id'] = $id;
+
+            $view_profile = ViewProfile::where($insertCon)->get();
+
+            if ($view_profile->count() > 0) {
+                $updateCon['attempt'] = $view_profile[0]->attempt + 1;
+                ViewProfile::where($insertCon)->update($updateCon);
+            } else {
+                $insertCon['attempt'] = 1;
+                ViewProfile::insert($insertCon);
+            }
         }
 
         $condition['register.id'] = $id;
@@ -196,7 +198,8 @@ class Dashbord extends Controller
             'cities_id' => 'required',
             'cast_id' => 'required',
             'adddress' => 'required',
-            'expectations' => 'required'
+            'expectations' => 'required',
+            'about_me' => 'required'
         ]);
 
         MdlRegister::where($condition)->update($validatedData);
@@ -243,7 +246,7 @@ class Dashbord extends Controller
 
     public function profile_update_personal()
     {
-
+        $physical_dh = PhysicalDH::all();
         $user_session = Session::get('user_session');
         $condition['register.id'] = $user_session['id'];
         $register = MdlRegister::where($condition)->get();
@@ -259,7 +262,8 @@ class Dashbord extends Controller
             'personal' => 'active',
             'family' => '',
             'education' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'physical_dh' => $physical_dh
         ]);
     }
 
@@ -272,6 +276,7 @@ class Dashbord extends Controller
             'weight' => 'required',
             'birth_time' => 'required',
             'birth_place' => 'required',
+            'physical_dh_id' =>  'required'
         ]);
         $user_session = Session::get('user_session');
         $condition['id'] = $user_session['id'];

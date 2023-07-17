@@ -157,6 +157,11 @@
                                         </div>
                                     </div>
 
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Address/ Landmark</label>
+                                        <div class="col-sm-10"><input placeholder="Write in detail about Address/ Landmark..." type="textarea" value="{{ $register->adddress }}" name="adddress" class="form-control textarea-height" required></div>
+                                    </div>
+
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Religion</label>
@@ -168,7 +173,6 @@
                                         <label class="col-sm-2 col-form-label">Cast</label>
                                         <div class="col-sm-10 select-flex">
                                             <select name="cast_id" class="cast form-control" required>
-
                                                 @if($register->cast_id == 0 )
                                                 <option selected="selected">Select Cast</option>
                                                 @endif
@@ -182,14 +186,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="hr-line-dashed"></div>
-                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Address/ Landmark</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->adddress }}" name="adddress" class="form-control"></div>
-                                    </div>
+                                  
+
+
 
                                     <div class="hr-line-dashed"></div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Expectations</label>
-                                        <div class="col-sm-10"><input type="text" value="{{ $register->expectations }}" name="expectations" class="form-control"></div>
+                                        <div class="col-sm-10"><input placeholder="Write in detail about your expectations..." type="textarea" value="{{ $register->expectations }}" name="expectations" class="form-control textarea-height" required></div>
+                                    </div>
+
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">About Me</label>
+                                        <div class="col-sm-10"><input placeholder="Write in detail about candidate information..." type="textarea" value="{{ $register->about_me }}" name="about_me" class="form-control textarea-height" required></div>
                                     </div>
 
                                     <div class="hr-line-dashed"></div>
@@ -244,10 +252,7 @@
                 radioClass: 'iradio_square-green',
             });
 
-            $(".select2_demo_3").select2({
-                placeholder: "Select a Cast",
-                allowClear: true
-            });
+
 
             $(".cast").select2({
                 placeholder: "Select a Cast",

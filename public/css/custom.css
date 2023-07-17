@@ -178,3 +178,12 @@ form.row.m-serch {
     font-size: 19px;
     color: #005700;
 }
+
+.limit-view{
+    color: #d20000;
+    font-size: unset;
+}
+
+.textarea-height{
+    height: 100px;
+}

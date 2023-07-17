@@ -129,6 +129,7 @@ class Register extends Controller
                 $user_session['gender'] = $MdlRegister[0]->gender;
                 $user_session['image'] = $MdlRegister[0]->image;
                 $user_session['states_id'] = $MdlRegister[0]->states_id;
+                $user_session['verify'] = $MdlRegister[0]->verify;
 
 
                 Session::put('user_session', $user_session);
