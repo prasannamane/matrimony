@@ -52,20 +52,25 @@ class Register extends Controller
     public function submitform(Request $request)
     {
         $validatedData = $request->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'mobile' => 'required',
-            'religion_id' => 'required',
-            'gender' => 'required',
-            'dob' => 'required',
-            'countries_id' => 'required',
-            'states_id' => 'required',
-            'marriage_status_id' => 'required',
+            'first_name' => 'required|alpha',
+            'last_name' => 'required|alpha',
+            'mobile' => 'required|numeric',
+            'religion_id' => 'required|numeric',
+            'gender' => 'required|numeric',
+            'year_id' => 'required|numeric',
+            'month_id' => 'required|numeric',
+            'day_id' => 'required|numeric',
+            'countries_id' => 'required|numeric',
+            'states_id' => 'required|numeric',
+            'marriage_status_id' => 'required|numeric',
             'password' => 'required',
         ]);
 
+        $validatedData['dob'] = $validatedData['year_id'] . '-' . $validatedData['month_id'] . '-' . $validatedData['day_id'];
+        unset($validatedData["year_id"]);
+        unset($validatedData["month_id"]);
+        unset($validatedData["day_id"]);
         $validatedData['age'] = $this->calculateAge($validatedData['dob']);
-        $validatedData['dob'] = date("Y-m-d", strtotime($validatedData['dob']));
 
         if ($validatedData['gender'] == 0) {
             $validatedData['image'] = 'male_blur.png';

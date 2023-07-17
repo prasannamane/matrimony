@@ -110,36 +110,45 @@ class Dashbord extends Controller
             ViewProfile::insert($insertCon);
         }
 
-        $condition['register.id'] = $id;
-        $condition['password'] = $id2;
+        if ($view_profile->count() > 15 && $user_session['gender'] == 0 && $user_session['verify']) {
+           
+            $page = 'detail';
+        } else {
 
-        $register = DB::table('register')
-            ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
-            ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
-            ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
-            ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
-            ->leftJoin('tbl_districts', 'register.districts_id', '=', 'tbl_districts.id')
-            ->leftJoin('tbl_cities', 'register.cities_id', '=', 'tbl_cities.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status', 'tbl_districts.name as district', 'tbl_cities.name as city')
-            ->where($condition)
-            ->get();
+            $page = 'payment';
+        }
 
-        return view('User/detail', [
-            'title' => 'Profile Detail | Matrimony | Perfect Place', 
-            'register' => $register, 
-            'user_session' => $user_session,
-            'dashbord' => '',
-            'detail' => 'active',
-            'deactivate' => '',
-            'profile' => '',
-            'dashbord' => '',
-            'detail' => '',
-            'photo' => '',
-            'personal' => 'active',
-            'family' => '',
-            'education' => '',
-            'deactivated' => ''
-        ]);
+            $condition['register.id'] = $id;
+            $condition['password'] = $id2;
+
+            $register = DB::table('register')
+                ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
+                ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
+                ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
+                ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
+                ->leftJoin('tbl_districts', 'register.districts_id', '=', 'tbl_districts.id')
+                ->leftJoin('tbl_cities', 'register.cities_id', '=', 'tbl_cities.id')
+                ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status', 'tbl_districts.name as district', 'tbl_cities.name as city')
+                ->where($condition)
+                ->get();
+
+            return view('User/'.$page, [
+                'title' => 'Profile Detail | Matrimony | Perfect Place',
+                'register' => $register,
+                'user_session' => $user_session,
+                'dashbord' => '',
+                'detail' => 'active',
+                'deactivate' => '',
+                'profile' => '',
+                'dashbord' => '',
+                'detail' => '',
+                'photo' => '',
+                'personal' => 'active',
+                'family' => '',
+                'education' => '',
+                'deactivated' => ''
+            ]);
+        
     }
 
     public function profile_update()

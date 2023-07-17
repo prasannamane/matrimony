@@ -166,4 +166,15 @@ form.row.m-serch {
     border-left: 1px solid #e5e5e5;
 }
 
+.ibox-content.payment {
+    text-align: center;
+}
 
+.ibox-content.payment img{
+    width: 100%;
+}
+
+.ibox-content.payment p{
+    font-size: 19px;
+    color: #005700;
+}

@@ -56,12 +56,60 @@
                     <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
                 </div>
 
-                <div class="form-group" id="data_1">
-                    <div class="input-group date">
-                        <input placeholder="Date of Birth ex: MM/DD/YY" type="text" class="form-control" value="" name="dob" readonly required>
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    </div>
+                <div class="form-group">
+                    <select class="form-control" name="year_id" required>
+                        <option value="">Select Year of Birth</option>
+                        <script>
+                            var startYear = 2005;
+                            var endYear = 1960;
+                            for (var year = startYear; year >= endYear; year--) {
+                                document.write('<option value="' + year + '">' + year + '</option>');
+                            }
+                        </script>
+                    </select>
                 </div>
+
+                <div class="form-group">
+                    <select class="form-control" name="month_id" id="monthSelect" required>
+                        <option value="">Select Month of Birth</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <select class="form-control" name="day_id" id="daySelect" required>
+                        <option value="">Select Day of Birth</option>
+                    </select>
+                </div>
+
+                <script>
+                    var monthSelect = document.getElementById("monthSelect");
+                    var daySelect = document.getElementById("daySelect");
+
+                    monthSelect.addEventListener("change", updateDays);
+
+                    function updateDays() {
+                        var selectedMonth = parseInt(monthSelect.value);
+                        var daysInMonth = new Date(new Date().getFullYear(), selectedMonth, 0).getDate();
+
+                        daySelect.innerHTML = '<option value="">Select Day</option>';
+
+                        for (var day = 1; day <= daysInMonth; day++) {
+                            daySelect.innerHTML += '<option value="' + day + '">' + day + '</option>';
+                        }
+                    }
+                </script>
 
                 <div class="form-group">
                     <select class="form-control" name="religion_id" required>
@@ -141,7 +189,7 @@
 
     <script>
         $(document).ready(function() {
-            
+
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
@@ -164,7 +212,8 @@
             keyboardNavigation: false,
             forceParse: false,
             calendarWeeks: true,
-            autoclose: true
+            autoclose: true,
+            dateFormat: "dd/mm/yy"
         });
     </script>
 
