@@ -31,17 +31,14 @@
                 <div class="row">
                     <div class="col-lg-3"></div>
                     <div class="col-lg-6">
-
                         <div class="ibox product-detail">
                             <div class="ibox-content payment">
                                 <p>"Enjoy our services at no cost! Experience hassle-free usage with our maintenance package for just 100 Rupees, covering an entire year."</p>
                                 <div>Contacts: 98348 96987</div>
-                                <img src="/img/upi.png">
+                                <img src="{{ url('/img/upi.png') }}">
                                 <h2>9686673567@ybl <br>
                                     9686673567@axl<br><br></h2>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="col-lg-3"></div>
