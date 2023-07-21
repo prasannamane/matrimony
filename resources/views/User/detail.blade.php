@@ -71,14 +71,16 @@
 
                                         <hr>
                                         <h4>Family</h4>
-                                        <h5>Father: </h5>
-                                        <h5>Father Work/ Job: </h5>
-                                        <h5>Father Mobiler Number: </h5>
-                                        <h5>Mother: </h5>
-                                        <h5>Mother Work/ Job: </h5>
-                                        <h5>Mother Mobile Number: </h5>
-                                        <h5>Brother: </h5>
-                                        <h5>Sister: </h5>
+                                        <h5>Father: {{ $item->father_name }}</h5>
+                                        <h5>Father Work/ Job: {{ $item->father_job }}</h5>
+                                        <h5>Father Mobiler Number: {{ $item->father_mobile }}</h5>
+                                        <h5>Mother: {{ $item->mother_name }}</h5>
+                                        <h5>Mother Work/ Job: {{ $item->mother_job }}</h5>
+                                        <h5>Mother Mobile Number: {{ $item->mother_mobile }}</h5>
+                                        <h5>Brother: {{ $item->brother_name }}</h5>
+                                        <h5>Number of Brother: {{ $item->brother_count }}</h5>
+                                        <h5>Brother: {{ $item->brother_name }}</h5>
+                                        <h5>Number of Sister: {{ $item->sister_count }}</h5>
 
                                         <hr>
                                         <h4>Address</h4>
@@ -110,24 +112,27 @@
 
                                         <hr>
                                         <h4>Personal Information</h4>
-                                        <h5>Blood Group: </h5>
-                                        <h5>Height: </h5>
-                                        <h5>Weight: </h5>
-                                        <h5>Complexion: </h5>
-                                        <h5>Birth Time: </h5>
-                                        <h5>Birth Place: </h5>
+                                        <h5>Blood Group: {{ $item->blood_group }} </h5>
+                                        <h5>Height in Feet: {{ $item->height }}</h5>
+                                        <h5>Weight in KG: {{ $item->weight }}</h5>
+                                        <h5>Complexion: {{ $item->complexion }}</h5>
+                                        <h5>Birth Time: {{ $item->birth_time }}</h5>
+                                        <h5>Birth Place: {{ $item->birth_place }}</h5>
 
                                         <hr>
                                         <h4>Education and Job</h4>
-                                        <h5>Qualification: </h5>
-                                        <h5>Job Profile: </h5>
-                                        <h5>Job Location: </h5>
-                                        <h5>Salary (Per Year): </h5>
-                                        <h5>Business: </h5>
-                                        <h5>Business Income (Per Year): </h5>
+                                        <h5>Qualification: {{ $item->qualifications }}</h5>
+                                        <h5>Job Profile: {{ $item->job_profiles }}</h5>
+                                        <h5>Company Name: {{ $item->company_name }}
+                                        <h5>Job Location: {{ $item->job_location }}</h5>
+                                        <h5>Salary (Per Year): {{ $item->salary }}</h5>
+                                        <h5>Business: {{ $item->business_types }}</h5>
+                                        <h5>Business Income (Per Year): {{ $item->erning }}</h5>
 
                                         <hr>
-                                        <h5>Expectation: </h5>
+                                        <h5>About Me: {{ $item->about_me }}</h5>
+                                        <h5>Expectation: {{ $item->expectations }}</h5>
+                                        <h5>Physical Disabilities OR Handicaps: {{ $item->physical_dh }}</h5>
                                     </div>
                                 </div>
                             </div>

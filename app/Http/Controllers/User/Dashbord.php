@@ -69,7 +69,13 @@ class Dashbord extends Controller
             ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
+            ->select(
+                'register.*',
+                'tbl_religion.name as religion',
+                'tbl_cast.name as cast',
+                'tbl_states.name as state',
+                'tbl_marriage_status.name as marriage_status'
+            )
             ->where($condition)
             ->orderBy('register.id', 'DESC')
             ->whereBetween('age', [$from_age, $to_age])
@@ -79,12 +85,12 @@ class Dashbord extends Controller
 
         if (isset($condition['register.religion_id']) == 0) {
             $condition['register.religion_id'] = 0;
-        } 
+        }
 
         if (isset($condition['register.states_id']) == 0) {
             $condition['register.states_id'] = 0;
-        } 
-        
+        }
+
         $religion = Religion::all();
         $states = States::all();
 
@@ -148,7 +154,27 @@ class Dashbord extends Controller
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
             ->leftJoin('tbl_districts', 'register.districts_id', '=', 'tbl_districts.id')
             ->leftJoin('tbl_cities', 'register.cities_id', '=', 'tbl_cities.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status', 'tbl_districts.name as district', 'tbl_cities.name as city')
+            ->leftJoin('tbl_blood_group', 'register.blood_group_id', '=', 'tbl_blood_group.id')
+            ->leftJoin('tbl_complexion', 'register.complexion_id', '=', 'tbl_complexion.id')
+            ->leftJoin('tbl_qualifications', 'register.qualification_id', '=', 'tbl_qualifications.id')
+            ->leftJoin('tbl_job_profiles', 'register.job_profile_id', '=', 'tbl_job_profiles.id')
+            ->leftJoin('tbl_business_types', 'register.business_id', '=', 'tbl_business_types.id')
+            ->leftJoin('tbl_physical_disabilities_handicaps', 'register.physical_dh_id', '=', 'tbl_physical_disabilities_handicaps.id')
+            ->select(
+                'register.*',
+                'tbl_religion.name as religion',
+                'tbl_cast.name as cast',
+                'tbl_states.name as state',
+                'tbl_marriage_status.name as marriage_status',
+                'tbl_districts.name as district',
+                'tbl_cities.name as city',
+                'tbl_blood_group.name as blood_group',
+                'tbl_complexion.name as complexion',
+                'tbl_qualifications.name as qualifications',
+                'tbl_job_profiles.name as job_profiles',
+                'tbl_business_types.name as business_types',
+                'tbl_physical_disabilities_handicaps.name as physical_dh',
+            )
             ->where($condition)
             ->get();
 
