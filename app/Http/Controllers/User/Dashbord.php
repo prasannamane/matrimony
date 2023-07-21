@@ -40,8 +40,8 @@ class Dashbord extends Controller
         $user_session = Session::get('user_session');
         $condition['gender'] = 0;
         $condition['role_id'] = 0;
-        $condition['register.religion_id'] = $user_session['religion_id'];
-        $condition['register.states_id'] = $user_session['states_id'];
+        //$condition['register.religion_id'] = $user_session['religion_id'];
+        //$condition['register.states_id'] = $user_session['states_id'];
 
         if ($user_session['gender'] == 0) {
             $condition['gender'] = 1;
@@ -71,19 +71,30 @@ class Dashbord extends Controller
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
             ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
             ->where($condition)
+            ->orderBy('register.id', 'DESC')
             ->whereBetween('age', [$from_age, $to_age])
-            ->paginate(16);
+            ->paginate(12);
 
         //dd(DB::getQueryLog());
 
+        if (isset($condition['register.religion_id']) == 0) {
+            $condition['register.religion_id'] = 0;
+        } 
+
+        if (isset($condition['register.states_id']) == 0) {
+            $condition['register.states_id'] = 0;
+        } 
+        
         $religion = Religion::all();
         $states = States::all();
 
         return view('User/dashbord', [
             'title' => 'Dashbord | Matrimony | Perfect Place',
             'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age,
-            'religion' => $religion, 'religion_select' => $condition['register.religion_id'],
-            'state' => $states, 'state_select' => $condition['register.states_id'],
+            'religion' => $religion,
+            'religion_select' => $condition['register.religion_id'],
+            'state' => $states,
+            'state_select' => $condition['register.states_id'],
             'dashbord' => 'active',
             'detail' => '',
             'profile' => '',
@@ -101,8 +112,16 @@ class Dashbord extends Controller
         $insertCon['register_id'] = $user_session['id'];
         $view_profile = ViewProfile::where($insertCon)->get();
 
-        if ($view_profile->count() > 10 && $user_session['gender'] == 0 && $user_session['verify'] == 0) {
+        /** Daily */
+        $date = date('Y-m-d', time());
+        $dateFrom =  $date . ' 00:00:00';
+        $dateTo =  $date . ' 23:59:59';
+        $date_view_profile = ViewProfile::whereBetween('created_at', [$dateFrom, $dateTo])->where($insertCon)->get();
+
+        if (($view_profile->count() > 10 && $user_session['gender'] == 0 && $user_session['verify'] == 0) || ($view_profile->count() > 100 && $user_session['gender'] == 1 && $user_session['verify'] == 0)) {
             $page = 'payment';
+        } else if ($date_view_profile->count() > 15) {
+            $page = 'limit_reached';
         } else {
             $page = 'detail';
 

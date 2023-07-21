@@ -137,7 +137,7 @@
                                                 <option selected="selected">Select Physical Disabilities OR Handicaps</option>
                                                 @endif
                                                 @foreach ($physical_dh as $item)
-                                                @if($register->cast_id == $item->id )
+                                                @if($register->physical_dh_id == $item->id )
                                                 <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                                 @endif
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>

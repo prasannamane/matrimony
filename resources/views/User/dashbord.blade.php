@@ -4,12 +4,12 @@
 
         <div id="wrapper">
 
-        @include('User.navbar-default')
+            @include('User.navbar-default')
 
 
             <div id="page-wrapper" class="gray-bg">
 
-            @include('User.search-bar')
+                @include('User.search-bar')
 
                 <div class="row wrapper border-bottom white-bg page-heading">
                     <div class="col-lg-10">
@@ -33,7 +33,7 @@
 
 
 
-                <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="wrapper wrapper-content animated fadeInRight search">
 
                     <div class="matrimony ibox-content m-b-sm border-bottom">
                         <div class="matrimony search-form">
@@ -57,7 +57,8 @@
                                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
                                     <div class="form-group">
                                         <label class="col-form-label" for="product_name">Religion</label>
-                                        <select class="form-control" name="religion_id" required>
+                                        <select class="form-control" name="religion_id">
+                                            <option value="">ALL</option>
                                             @foreach ($religion as $item)
                                             @if($religion_select == $item->id )
                                             <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
@@ -71,11 +72,13 @@
                                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 search-input">
                                     <div class="form-group">
                                         <label class="col-form-label" for="product_name">State</label>
-                                        <select class="form-control" name="states_id" required>
+                                        <select class="form-control" name="states_id">
+                                            <option value="">ALL</option>
                                             @foreach ($state as $item)
                                             @if($state_select == $item->id )
                                             <option value="{{ $item->id }}" selected="selected">{{ $item->name }}</option>
                                             @endif
+
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
@@ -101,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row profile-grid">
                         @foreach ($register as $item)
 
 
@@ -141,13 +144,6 @@
                         @endforeach
                     </div>
 
-                    <div class="ibox-content m-b-sm border-bottom">
-                        <div class="row">
-                            <div class="pagination">
-                                {{ $register->links() }}
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="footer">
@@ -174,6 +170,9 @@
         <!-- Custom and plugin javascript -->
         <script src="js/inspinia.js"></script>
         <script src="js/plugins/pace/pace.min.js"></script>
+
+        <!-- Select2 -->
+        <script src="js/plugins/select2/select2.full.min.js"></script>
 
         <script src="https://kit.fontawesome.com/36366bcda2.js" crossorigin="anonymous"></script>
 

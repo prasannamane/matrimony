@@ -1,4 +1,4 @@
-<div class="row border-bottom">
+<div class="row border-bottom search-bar">
     <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -25,18 +25,18 @@
         </ul>
         <ul class="nav navbar-top-links navbar-right">
             <li class="display-nav">
-                <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Profile Photo</span></a>
+                <a href="{{ url('/profile_update_photo') }}"><i class="fa fa-file-photo-o"></i> <span class="nav-label">Photo</span></a>
             </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
 
             <li class="display-nav">
-                <a href="{{ url('/profile_update_personal') }}"><i class="fa fa-user-o"></i> <span class="nav-label">Personal Information</span></a>
+                <a href="{{ url('/profile_update_personal') }}"><i class="fa fa-user-o"></i> <span class="nav-label">Personal</span></a>
             </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
             <li class="display-nav">
-                <a href="{{ url('/profile_update_family') }}"><i class="fa fa-group"></i> <span class="nav-label">Family Information</span></a>
+                <a href="{{ url('/profile_update_family') }}"><i class="fa fa-group"></i> <span class="nav-label">Family</span></a>
             </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
@@ -47,7 +47,7 @@
         <ul class="nav navbar-top-links navbar-right">
 
         <li class="display-nav">
-                <a href="{{ url('/profile_update_deactivate') }}"><i class="fa fa-wrench"></i> <span class="nav-label">Account Deactivate</span></a>
+                <a href="{{ url('/profile_update_deactivate') }}"><i class="fa fa-wrench"></i> <span class="nav-label">Deactivate</span></a>
             </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
