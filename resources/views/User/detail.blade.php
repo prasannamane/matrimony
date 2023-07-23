@@ -94,10 +94,10 @@
                                         <h4>Contacts</h4>
                                         <div>
                                             <div class="btn-group contact">
-                                                <a class="btn btn-primary btn-sm" href="tel:{{ $item->mobile }}"><i class="fa fa-phone"></i> Call Us: {{ $item->mobile }}</a>
+                                                <a class="btn btn-primary btn-sm" href="tel:+91{{ $item->mobile }}"><i class="fa fa-phone"></i> Call Us: +91{{ $item->mobile }}</a>
                                             </div>
                                             <div class="btn-group contact">
-                                                <a class="btn btn-success btn-sm" href="https://wa.me/{{ $item->mobile }}"><i class="fa fa-whatsapp"></i> WhatsApp Us: {{ $item->mobile }}</a>
+                                                <a class="btn btn-success btn-sm" href="https://wa.me/+91{{ $item->mobile }}"><i class="fa fa-whatsapp"></i> WhatsApp Us: +91{{ $item->mobile }}</a>
                                             </div>
                                         </div>
                                     </div>

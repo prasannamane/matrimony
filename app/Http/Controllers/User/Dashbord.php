@@ -124,24 +124,28 @@ class Dashbord extends Controller
         $dateTo =  $date . ' 23:59:59';
         $date_view_profile = ViewProfile::whereBetween('created_at', [$dateFrom, $dateTo])->where($insertCon)->get();
 
-        if (($view_profile->count() > 10 && $user_session['gender'] == 0 && $user_session['verify'] == 0) || ($view_profile->count() > 100 && $user_session['gender'] == 1 && $user_session['verify'] == 0)) {
-            $page = 'payment';
-        } else if ($date_view_profile->count() > 15) {
-            $page = 'limit_reached';
-        } else {
-            $page = 'detail';
-
-            $insertCon['profile_id'] = $id;
-
-            $view_profile = ViewProfile::where($insertCon)->get();
-
-            if ($view_profile->count() > 0) {
-                $updateCon['attempt'] = $view_profile[0]->attempt + 1;
-                ViewProfile::where($insertCon)->update($updateCon);
+        if ($user_session['role_id'] == 0) {
+            if (($view_profile->count() > 10 && $user_session['gender'] == 0 && $user_session['verify'] == 0) || ($view_profile->count() > 100 && $user_session['gender'] == 1 && $user_session['verify'] == 0)) {
+                $page = 'payment';
+            } else if ($date_view_profile->count() > 15) {
+                $page = 'limit_reached';
             } else {
-                $insertCon['attempt'] = 1;
-                ViewProfile::insert($insertCon);
+                $page = 'detail';
+
+                $insertCon['profile_id'] = $id;
+
+                $view_profile = ViewProfile::where($insertCon)->get();
+
+                if ($view_profile->count() > 0) {
+                    $updateCon['attempt'] = $view_profile[0]->attempt + 1;
+                    ViewProfile::where($insertCon)->update($updateCon);
+                } else {
+                    $insertCon['attempt'] = 1;
+                    ViewProfile::insert($insertCon);
+                }
             }
+        }else{
+            $page = 'detail';
         }
 
         $condition['register.id'] = $id;

@@ -76,6 +76,8 @@ Route::get('/logout_admin', [Login::class, 'logout']);
 Route::get('/dashbord_admin', [DashbordAdmin::class, 'index']);
 Route::post('/dashbord_admin', [Dashbord::class, 'index']);
 
+Route::get('/non_active', [DashbordAdmin::class, 'non_active']);
+
 Route::get('/active/{id}', [DashbordAdmin::class, 'active']);
 
 

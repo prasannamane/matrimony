@@ -43,6 +43,7 @@ class Dashbord extends Controller
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
             ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
+            ->orderBy('register.id', 'DESC')
             ->where($condition)
             ->paginate(16);
 
@@ -51,13 +52,13 @@ class Dashbord extends Controller
         return view('Admin/dashbord', ['title' => $title, 'register' => $register, 'user_session' => $user_session]);
     }
 
-    public function detail($id, $id2)
+    public function non_active(Request $request)
     {
         $user_session = Session::get('user_session');
-
-        $condition['register.id'] = $id;
-        $condition['password'] = $id2;
-
+        $condition['role_id'] = 0;
+        $condition['active'] = 1;
+        $condition['verify'] = 0;        
+        $condition['gender'] = 0;
 
         $register = DB::table('register')
             ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
@@ -65,39 +66,14 @@ class Dashbord extends Controller
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
             ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state', 'tbl_marriage_status.name as marriage_status')
+            ->orderBy('register.id', 'DESC')
             ->where($condition)
-            ->get();
+            ->paginate(12);
 
-        $title = 'Profile Detail | Matrimony';
-        return view('User/detail', ['title' => $title, 'register' => $register, 'user_session' => $user_session]);
+        $title = 'Dashbord | Matrimony';
+
+        return view('Admin/dashbord', ['title' => $title, 'register' => $register, 'user_session' => $user_session]);
     }
-
-    public function profile_update()
-    {
-
-        $user_session = Session::get('user_session');
-
-        $condition['register.id'] = $user_session['id'];
-        $register = DB::table('register')
-            ->join('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
-            ->join('tbl_states', 'register.states_id', '=', 'tbl_states.id')
-            ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
-            ->select('register.*', 'tbl_religion.name as religion', 'tbl_cast.name as cast', 'tbl_states.name as state')
-            ->where($condition)
-            ->get();
-
-        $conditionRe['religion_id'] = $register[0]->religion_id;
-        $cast = Cast::where($conditionRe)->get();
-
-        $conditionDi['state_id'] = $register[0]->states_id;
-        $districts = Districts::where($conditionDi)->get();
-
-        $conditionCt['state_id'] = $register[0]->states_id;
-        $city = City::where($conditionCt)->get();
-
-        return view('User/profile_update', ['register' => $register[0], 'user_session' => $user_session, 'cast' => $cast, 'district' => $districts, 'city' => $city]);
-    }
-
 
     public function active($id)
     {
