@@ -63,12 +63,22 @@ class Dashbord extends Controller
             $from_age = 18;
             $to_age = 60;
         }
+
+        $preCondition['register_id'] =  $user_session['id'];
+        //$preCondition['action'] =  1;
+
+        $restrictedAges = DB::table('interest')
+        ->where($preCondition)
+        ->pluck('profile_id')
+        ->toArray();
+
         //DB::enableQueryLog(); 
         $register = DB::table('register')
             ->leftJoin('tbl_religion', 'register.religion_id', '=', 'tbl_religion.id')
             ->leftJoin('tbl_states', 'register.states_id', '=', 'tbl_states.id')
             ->leftJoin('tbl_cast', 'register.cast_id', '=', 'tbl_cast.id')
             ->leftJoin('tbl_marriage_status', 'register.marriage_status_id', '=', 'tbl_marriage_status.id')
+            //->leftJoin('interest', 'register.id', '=', 'interest.profile_id')
             ->select(
                 'register.*',
                 'tbl_religion.name as religion',
@@ -77,9 +87,13 @@ class Dashbord extends Controller
                 'tbl_marriage_status.name as marriage_status'
             )
             ->where($condition)
+            ->whereNotIn('register.id', $restrictedAges)
             ->orderBy('register.id', 'DESC')
             ->whereBetween('age', [$from_age, $to_age])
             ->paginate(12);
+
+            /*SELECT * FROM `interest` 
+            WHERE register_id = 128;*/
 
         //dd(DB::getQueryLog());
 

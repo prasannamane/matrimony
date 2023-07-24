@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\Home;
 use App\Http\Controllers\User\Register;
 use App\Http\Controllers\User\Dashbord;
+use App\Http\Controllers\User\Interest;
+use App\Http\Controllers\User\Ignore;
 
 
 use App\Http\Controllers\Admin\Login;
@@ -42,6 +44,11 @@ Route::get('/dashbord', [Dashbord::class, 'index']);
 Route::post('/dashbord', [Dashbord::class, 'index']);
 
 Route::get('/detail/{id}/{id2}', [Dashbord::class, 'detail']);
+Route::get('/interest/{id}/{id2}', [Interest::class, 'index']);
+Route::get('/interest', [Interest::class, 'display']);
+
+Route::get('/ignore/{id}/{id2}', [Ignore::class, 'index']);
+Route::get('/ignore', [Ignore::class, 'display']);
 
 Route::get('/profile_update', [Dashbord::class, 'profile_update']);
 Route::post('/profile_update_save', [Dashbord::class, 'profile_update_save']);
@@ -63,6 +70,8 @@ Route::get('/send_otp', [Register::class, 'send_otp']);
 
 Route::get('/profile_update_deactivate', [Dashbord::class, 'profile_update_deactivate']);
 Route::post('/profile_update_deactivate_save', [Dashbord::class, 'profile_update_deactivate_save']);
+
+
 
 /** User End */
 

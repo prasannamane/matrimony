@@ -34,6 +34,19 @@
 
 
                 <div class="wrapper wrapper-content animated fadeInRight search">
+                    @if(session('success'))
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox ">
+
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    @endif
 
                     <div class="matrimony ibox-content m-b-sm border-bottom">
                         <div class="matrimony search-form">
@@ -133,9 +146,10 @@
                                             State: {{ $item->state }}<br>
                                             Marriage Status: {{ $item->marriage_status }}
                                         </div>
-                                        <div class="m-t text-righ">
-
-                                            <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-xs btn-outline btn-primary">More Info <i class="fa fa-long-arrow-right"></i> </a>
+                                        <div class="m-t text-center">
+                                            <a href="{{ url('/interest') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-success" type="button"><i class="fa fa-check"></i> Interest</a>
+                                            <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-outline btn-primary" type="button">More Info</a>
+                                            <a href="{{ url('/ignore') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-danger" type="button">Ignore <i class="fa fa-warning"></i> </a>
                                         </div>
                                     </div>
                                 </div>
