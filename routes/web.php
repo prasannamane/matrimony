@@ -44,6 +44,7 @@ Route::get('/dashbord', [Dashbord::class, 'index']);
 Route::post('/dashbord', [Dashbord::class, 'index']);
 
 Route::get('/detail/{id}/{id2}', [Dashbord::class, 'detail']);
+
 Route::get('/interest/{id}/{id2}', [Interest::class, 'index']);
 Route::get('/interest', [Interest::class, 'display']);
 
