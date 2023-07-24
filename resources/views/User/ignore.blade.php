@@ -13,16 +13,16 @@
 
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Interest grid</h2>
+                    <h2>Ignore grid</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="index.html">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a>Interest</a>
+                            <a>Ignore</a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Interest grid</strong>
+                            <strong>Ignore grid</strong>
                         </li>
                     </ol>
                 </div>
@@ -86,8 +86,8 @@
                                         Marriage Status: {{ $item->marriage_status }}
                                     </div>
                                     <div class="m-t text-center">
+                                        <a href="{{ url('/interest') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-success" type="button"><i class="fa fa-check"></i> Interest</a>
                                         <a href="{{ url('/detail') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-outline btn-primary" type="button">More Info</a>
-                                        <a href="{{ url('/ignore') }}/{{ $item->id }}/{{ $item->password }}" class="btn btn-danger" type="button">Ignore <i class="fa fa-warning"></i> </a>
                                     </div>
                                 </div>
                             </div>

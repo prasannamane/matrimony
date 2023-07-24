@@ -68,9 +68,9 @@ class Dashbord extends Controller
         //$preCondition['action'] =  1;
 
         $restrictedAges = DB::table('interest')
-        ->where($preCondition)
-        ->pluck('profile_id')
-        ->toArray();
+            ->where($preCondition)
+            ->pluck('profile_id')
+            ->toArray();
 
         //DB::enableQueryLog(); 
         $register = DB::table('register')
@@ -92,7 +92,7 @@ class Dashbord extends Controller
             ->whereBetween('age', [$from_age, $to_age])
             ->paginate(12);
 
-            /*SELECT * FROM `interest` 
+        /*SELECT * FROM `interest` 
             WHERE register_id = 128;*/
 
         //dd(DB::getQueryLog());
@@ -122,7 +122,9 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => '',
             'education' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -158,7 +160,7 @@ class Dashbord extends Controller
                     ViewProfile::insert($insertCon);
                 }
             }
-        }else{
+        } else {
             $page = 'detail';
         }
 

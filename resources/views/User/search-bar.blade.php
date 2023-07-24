@@ -10,12 +10,19 @@
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
-
-
             <li class="display-nav">
                 <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
             </li>
-
+        </ul>
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="display-nav">
+                <a href="{{ url('/interest') }}"><i class="fa fa-check"></i> <span class="nav-label">Interest</span></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="display-nav">
+                <a href="{{ url('/ignore') }}"><i class="fa fa-warning"></i> <span class="nav-label">Ignore</span></a>
+            </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
             <li class="display-nav">

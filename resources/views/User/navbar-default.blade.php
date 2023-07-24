@@ -35,6 +35,12 @@
             <li class="{{ $dashbord }}">
                 <a href="{{ url('/dashbord') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Profile Grid</span></a>
             </li>
+            <li class="{{ $interest }}">
+                <a href="{{ url('/interest') }}"><i class="fa fa-check"></i> <span class="nav-label">Interest</span></a>
+            </li>
+            <li class="{{ $ignore }}">
+                <a href="{{ url('/ignore') }}"><i class="fa fa-warning"></i> <span class="nav-label">Ignore</span></a>
+            </li>
             <li class="{{ $profile }}">
                 <a href="{{ url('/profile_update') }}"><i class="fa fa-edit"></i> <span class="nav-label">Profile Update</span></a>
             </li>

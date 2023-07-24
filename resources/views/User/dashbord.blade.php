@@ -12,7 +12,7 @@
                 @include('User.search-bar')
 
                 <div class="row wrapper border-bottom white-bg page-heading">
-                    <div class="col-lg-10">
+                    <div class="col-lg-6">
                         <h2>Profile grid</h2>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -26,8 +26,8 @@
                             </li>
                         </ol>
                     </div>
-                    <div class="col-lg-2">
-
+                    <div class="col-lg-6 warning-update">
+                    <h1>"Please update your profile to enhance visibility and receive more views and calls."</h1>
                     </div>
                 </div>
 

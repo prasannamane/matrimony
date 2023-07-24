@@ -23,8 +23,19 @@ class Interest extends Controller
         $user_session = Session::get('user_session');
         $insertCon['register_id'] = $user_session['id'];
         $insertCon['profile_id'] = $id;
-        $insertCon['action'] = 1;
-        MdlInterest::insert($insertCon);
+        
+
+        $intrest = MdlInterest::where($insertCon);
+        
+        if ($intrest->count() > 0) {
+            $insertUpdate['action'] = 1;
+            MdlInterest::where($insertCon)->update($insertUpdate);
+        } else {
+            $insertCon['action'] = 1;
+            MdlInterest::insert($insertCon);
+        }
+
+
         return back()->with('success', 'Profile in Interested List Added Successfully!');
     }
 
@@ -66,21 +77,20 @@ class Interest extends Controller
             $condition['register.states_id'] = 0;
         }
 
-
-
         return view('User/interest', [
             'title' => 'Dashbord | Matrimony | Perfect Place',
-            'register' => $register, 'user_session' => $user_session,
-
-
-            'dashbord' => 'active',
+            'register' => $register,
+            'user_session' => $user_session,
+            'dashbord' => '',
             'detail' => '',
             'profile' => '',
             'photo' => '',
             'personal' => '',
             'family' => '',
             'education' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => 'active',
+            'ignore' => ''
         ]);
     }
 }

@@ -109,7 +109,7 @@
 @media (max-width: 768px) {
 
     .search-bar .navbar-top-links li a {
-        padding: 15px 5px 10px 0px;
+        padding: 20px 0px 10px 10px
     }
 
     .row.border-bottom.search-bar {
@@ -209,6 +209,10 @@ form.row.m-serch {
 
 @media (max-width: 600px) {
 
+    nav.navbar.navbar-static-top {
+        justify-content: flex-start;
+    }
+
     .matrimony.search-form .form-control {
         font-size: 0.7rem;
     }
@@ -216,4 +220,11 @@ form.row.m-serch {
     .wrapper.wrapper-content.animated.fadeInRight.search {
         padding: 5px 0px 0px 0px;
     }
+}
+
+
+.warning-update h1 {
+    font-size: 30px;
+    color: red;
+    font-style: italic;
 }
