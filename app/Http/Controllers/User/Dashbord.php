@@ -212,7 +212,9 @@ class Dashbord extends Controller
             'personal' => 'active',
             'family' => '',
             'education' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -240,7 +242,11 @@ class Dashbord extends Controller
         $city = City::where($conditionCt)->get();
 
         return view('User/profile_update', [
-            'register' => $register[0], 'user_session' => $user_session, 'cast' => $cast, 'district' => $districts, 'city' => $city,
+            'register' => $register[0],
+            'user_session' => $user_session,
+            'cast' => $cast,
+            'district' => $districts,
+            'city' => $city,
             'detail' => '',
             'profile' => 'active',
             'photo' => '',
@@ -248,7 +254,9 @@ class Dashbord extends Controller
             'family' => '',
             'education' => '',
             'dashbord' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -277,7 +285,8 @@ class Dashbord extends Controller
         $condition['register.id'] = $user_session['id'];
         $register = MdlRegister::where($condition)->get();
         return view('User/profile_update_photo', [
-            'register' => $register[0], 'user_session' => $user_session,
+            'register' => $register[0],
+            'user_session' => $user_session,
             'profile' => '',
             'dashbord' => '',
             'detail' => '',
@@ -286,7 +295,9 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => '',
             'education' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -328,7 +339,9 @@ class Dashbord extends Controller
             'family' => '',
             'education' => '',
             'deactivated' => '',
-            'physical_dh' => $physical_dh
+            'physical_dh' => $physical_dh,
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -365,7 +378,9 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => 'active',
             'education' => '',
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -413,7 +428,9 @@ class Dashbord extends Controller
             'qualifications' => $qualifications,
             'job_profile' => $job_profile,
             'business' => $business,
-            'deactivated' => ''
+            'deactivated' => '',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 
@@ -450,7 +467,9 @@ class Dashbord extends Controller
             'personal' => '',
             'family' => '',
             'education' => '',
-            'deactivated' => 'active'
+            'deactivated' => 'active',
+            'interest' => '',
+            'ignore' => ''
         ]);
     }
 

@@ -150,7 +150,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Enter Height in Feet</label>
                                         <div class="col-sm-10">
-                                            <input type="number" min="4" max="8" value="{{ $register->height }}" name="height" class="form-control" required>
+                                            <input  type="text" pattern="\b[4-9](\.[1-9])?\b" value="{{ $register->height }}" name="height" class="form-control" required>
                                         </div>
                                     </div>
 

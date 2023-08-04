@@ -158,7 +158,7 @@
 
                 <div class="form-group">
                     <div class="checkbox i-checks">
-                        <label> <input type="checkbox" required><a href="{{ url('/term_condition') }}" target="_blank"> Agree the terms and policy </a></label>
+                        <label> <input type="checkbox" required checked="true"><a href="{{ url('/term_condition') }}" target="_blank"> Agree the terms and policy </a></label>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Register</button>

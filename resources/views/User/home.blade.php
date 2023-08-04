@@ -8,8 +8,7 @@
     <meta name="description" content="Perfect Place Matrimony is dedicated to helping you find your perfect life partner. Our matrimonial services connect individuals based on love, understanding, and compatibility. Join us today and start your journey to a lifelong partnership.">
     
     <meta name="author" content="">
-
-    <title>Matrimony | Landing Page</title>
+    <title>Matrimony | Perfect Place</title>
     <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
     <!-- Bootstrap core CSS -->
