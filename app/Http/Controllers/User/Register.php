@@ -63,8 +63,7 @@ class Register extends Controller
             'countries_id' => 'required|numeric',
             'states_id' => 'required|numeric',
             'marriage_status_id' => 'required|numeric',
-            'active' => 1,
-            //'password' => 'required',
+  
         ]);
 
         $validatedData['dob'] = $validatedData['year_id'] . '-' . $validatedData['month_id'] . '-' . $validatedData['day_id'];
@@ -90,9 +89,9 @@ class Register extends Controller
 
         try {
             $validatedData['plain_password'] = $this->generateRandomNumber();
-            //$validatedData['plain_password'] = $validatedData['password'];
-            $validatedData['password'] = md5($validatedData['password']);
+            $validatedData['password'] = md5($validatedData['plain_password']);
             MdlRegister::insert($validatedData);
+            //Account Activation and Verification Underway.  Expect Confirmation Within 24 Hours. We will share you Username & Password.
             return redirect('/login')->with("success", "Thank You for Submitting Your Registration Form! Account Activation and Verification Underway.  Expect Confirmation Within 24 Hours. We will share you Username & Password.");
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -141,7 +140,7 @@ class Register extends Controller
 
                 return redirect('/dashbord')->with('success', 'Welcome ' . $MdlRegister[0]->first_name);
             } else {
-                return redirect('/login')->with("failed", "Your Account is Not Activated OR Verified !");
+                return redirect('/login')->with("failed", "Your Account is Not Activated!");
             }
         } else {
             return redirect('/login')->with("failed", "Mobile number OR Password is Wrong!");
