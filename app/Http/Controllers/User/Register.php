@@ -39,14 +39,14 @@ class Register extends Controller
         return view('User/register', ['religion' => $religion, 'states' => $states, 'marriage_status' => $marriage_status]);
     }
 
-    /*
+    
     public function generateRandomNumber()
     {
         $min = 1000; // Minimum 4-digit number
         $max = 9999; // Maximum 4-digit number
         return mt_rand($min, $max);
     }
-    */
+    
 
 
     public function submitform(Request $request)
@@ -63,7 +63,8 @@ class Register extends Controller
             'countries_id' => 'required|numeric',
             'states_id' => 'required|numeric',
             'marriage_status_id' => 'required|numeric',
-            'password' => 'required',
+            'active' => 1,
+            //'password' => 'required',
         ]);
 
         $validatedData['dob'] = $validatedData['year_id'] . '-' . $validatedData['month_id'] . '-' . $validatedData['day_id'];
@@ -88,11 +89,11 @@ class Register extends Controller
         }
 
         try {
-            $validatedData['plain_password'] = $validatedData['password'];
+            $validatedData['plain_password'] = $this->generateRandomNumber();
+            //$validatedData['plain_password'] = $validatedData['password'];
             $validatedData['password'] = md5($validatedData['password']);
             MdlRegister::insert($validatedData);
-            //Account Activation and Verification Underway.  Expect Confirmation Within 24 Hours. We will share you Username & Password.
-            return redirect('/login')->with("success", "Thank You for Submitting Your Registration Form! You can login now.");
+            return redirect('/login')->with("success", "Thank You for Submitting Your Registration Form! Account Activation and Verification Underway.  Expect Confirmation Within 24 Hours. We will share you Username & Password.");
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return redirect('/register')->with('failed', 'Registration Form submission failed. Somwthing went wrong!.');
@@ -116,7 +117,7 @@ class Register extends Controller
         $MdlRegister = MdlRegister::where($validatedData)->get();
 
         if ($MdlRegister->count() > 0) {
-            if ($MdlRegister[0]->active == 1) {
+            if ($MdlRegister[0]->active == 1 && $MdlRegister[0]->verify == 1) {
                 Session::start();
                 //SELECT `id`, `first_name`, `last_name`, `mobile`, `password`, `religion`, `created_at`, `updated_at`, `active`, `role_id`, `gender` FROM `register` WHERE 1
 
@@ -140,7 +141,7 @@ class Register extends Controller
 
                 return redirect('/dashbord')->with('success', 'Welcome ' . $MdlRegister[0]->first_name);
             } else {
-                return redirect('/login')->with("failed", "Your Account is Not Activated!");
+                return redirect('/login')->with("failed", "Your Account is Not Activated OR Verified !");
             }
         } else {
             return redirect('/login')->with("failed", "Mobile number OR Password is Wrong!");

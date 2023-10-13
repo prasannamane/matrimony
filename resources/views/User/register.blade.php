@@ -151,11 +151,11 @@
                         @endforeach
                     </select>
                 </div>
-
+<!-- 
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
-
+-->
                 <div class="form-group">
                     <div class="checkbox i-checks">
                         <label> <input type="checkbox" required checked="true"><a href="{{ url('/term_condition') }}" target="_blank"> Agree the terms and policy </a></label>
