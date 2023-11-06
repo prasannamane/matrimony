@@ -71,15 +71,15 @@
 
                                         <hr>
                                         <h4>Family</h4>
-                                        <h5>Father: {{ $item->father_name }}</h5>
+                                        <h5>Father Name: {{ $item->father_name }}</h5>
                                         <h5>Father Work/ Job: {{ $item->father_job }}</h5>
                                         <h5>Father Mobiler Number: {{ $item->father_mobile }}</h5>
-                                        <h5>Mother: {{ $item->mother_name }}</h5>
+                                        <h5>Mother Name: {{ $item->mother_name }}</h5>
                                         <h5>Mother Work/ Job: {{ $item->mother_job }}</h5>
                                         <h5>Mother Mobile Number: {{ $item->mother_mobile }}</h5>
-                                        <h5>Brother: {{ $item->brother_name }}</h5>
+                                        <h5>Brother Name: {{ $item->brother_name }}</h5>
                                         <h5>Number of Brother: {{ $item->brother_count }}</h5>
-                                        <h5>Brother: {{ $item->brother_name }}</h5>
+                                        <h5>Sister Name: {{ $item->sister_name }}</h5>
                                         <h5>Number of Sister: {{ $item->sister_count }}</h5>
 
                                         <hr>
