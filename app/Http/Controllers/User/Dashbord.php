@@ -51,6 +51,14 @@ class Dashbord extends Controller
             $condition['register.religion_id'] = $request->input('religion_id');
         }
 
+        if ($request->input('cast_id') !== null) {
+            $condition['register.cast_id'] = $request->input('cast_id');
+        }
+
+        if ($request->input('districts_id') !== null) {
+            $condition['register.districts_id'] = $request->input('districts_id');
+        }
+
         if ($request->input('states_id') !== null) {
             $condition['register.states_id'] = $request->input('states_id');
         }
@@ -101,18 +109,35 @@ class Dashbord extends Controller
             $condition['register.religion_id'] = 0;
         }
 
+        if (isset($condition['register.cast_id']) == 0) {
+            $condition['register.cast_id'] = 0;
+        }
+
+        if (isset($condition['register.districts_id']) == 0) {
+            $condition['register.districts_id'] = 0;
+        }
+
         if (isset($condition['register.states_id']) == 0) {
             $condition['register.states_id'] = 0;
         }
 
         $religion = Religion::all();
+        $cast = Cast::all();
         $states = States::all();
+        $districts = Districts::all();
 
         return view('User/dashbord', [
             'title' => 'Dashbord | Matrimony | Perfect Place',
-            'register' => $register, 'user_session' => $user_session, 'from_age' => $from_age, 'to_age' => $to_age,
+            'register' => $register,
+            'user_session' => $user_session,
+            'from_age' => $from_age,
+            'to_age' => $to_age,
             'religion' => $religion,
+            'cast' => $cast,
+            'districts' => $districts,
             'religion_select' => $condition['register.religion_id'],
+            'cast_select' => $condition['register.cast_id'],
+            'districts_select' => $condition['register.districts_id'],
             'state' => $states,
             'state_select' => $condition['register.states_id'],
             'dashbord' => 'active',
@@ -480,5 +505,18 @@ class Dashbord extends Controller
         $condition['id'] = $user_session['id'];
         MdlRegister::where($condition)->update($validatedData);
         return back()->with('success', 'Your Profile Deactivated Successfully Updated Successfully!');
+    }
+
+    public function getCastByReligionApi(Request $request)
+    {
+
+        if ($request->input('cast_id') !== null) {
+            $condition['register.religion_id'] = $request->input('cast_id');
+        }
+
+        $cast = Cast::where($condition)->get();
+
+        return response()->json(['message' => 'POST request received', 'data' => $cast], 200);
+
     }
 }

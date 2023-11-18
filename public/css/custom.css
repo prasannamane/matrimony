@@ -228,3 +228,9 @@ form.row.m-serch {
     color: red;
     font-style: italic;
 }
+
+@media (max-width: 767px) {
+    .border-left {
+        border-left: 0px solid #dee2e6!important;
+    }
+}

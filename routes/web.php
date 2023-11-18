@@ -88,8 +88,5 @@ Route::post('/dashbord_admin', [Dashbord::class, 'index']);
 
 Route::get('/non_active', [DashbordAdmin::class, 'non_active']);
 
-Route::get('/active/{id}', [DashbordAdmin::class, 'active']);
-
-
-
+Route::get('/active/{id}', [DashbordAdmin::class, 'active']);   
 /** Admin End */

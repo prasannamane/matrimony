@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\DashbordApi;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/get-cast-by-religion', [DashbordApi::class, 'getCastByReligionApi']);   
+Route::post('/get-districts-by-state', [DashbordApi::class, 'getDistrictsByStateApi']);   
+
+
