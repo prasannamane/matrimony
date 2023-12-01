@@ -1,9 +1,8 @@
 .carousel-image.wow.zoomIn.animated img {
-    border: 1px solid #260c0c;
-    background: #0000004d;
+    border: 5px solid #e6657e;
+    background: #eafff9;
     border-radius: 30px;
 }
-
 
 .container a.navbar-brand {
     background: #fb7e3a !important;
@@ -101,7 +100,7 @@
 }
 
 .carousel-caption {
-    background: #00000070;
+    background: #000000c2;
     border: 2px solid #000000;
     padding: 15px;
 }
@@ -233,4 +232,24 @@ form.row.m-serch {
     .border-left {
         border-left: 0px solid #dee2e6!important;
     }
+}
+
+.landing-page .carousel-caption {
+    padding: 40px;
+    border-radius: 40px;
+}
+
+
+.grrom-brid-count hr {
+    color: blue;
+    font-size: 37px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 6;
+    border-top: 1px solid rgb(251 126 58);
+}
+
+.grrom-brid-count span {
+    font-size: 18px;
+    font-family: cursive;
 }

@@ -128,6 +128,9 @@ class Dashbord extends Controller
 
         return view('User/dashbord', [
             'title' => 'Dashbord | Matrimony | Perfect Place',
+            'description' => 'Welcome to the Perfect Place Matrimony - where dreams meet reality. Find your perfect match and begin your journey towards a lifetime of happiness. Explore our features and profiles today.',
+            'url' => 'matrimony',
+            'image'=> 'matrimony/img/landing/laptop.png',
             'register' => $register,
             'user_session' => $user_session,
             'from_age' => $from_age,

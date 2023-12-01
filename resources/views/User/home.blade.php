@@ -5,10 +5,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Perfect Place Matrimony is dedicated to helping you find your perfect life partner. Our matrimonial services connect individuals based on love, understanding, and compatibility. Join us today and start your journey to a lifelong partnership.">
-    
-    <meta name="author" content="">
+
+    <!-- Add a concise and meaningful description for better SEO -->
+    <meta name="description" content="Perfect Place Matrimony - Connecting hearts for a lifetime of happiness. Join us and find your perfect life partner based on love, understanding, and compatibility.">
+
+    <!-- Open Graph meta tags for better social media sharing -->
+    <meta property="og:url" content="http://perfectplace.in/matrimony">
+    <meta property="og:title" content="Matrimony | Perfect Place">
+    <meta property="og:description" content="Welcome to Perfect Place Matrimony, where dreams meet reality. Find your ideal match and embark on a journey towards a lifetime of happiness. Explore our features and profiles today.">
+    <meta property="og:image" content="https://perfectplace.in/matrimony/img/landing/laptop.png">
+    <meta property="og:image:secure_url" content="https://perfectplace.in/matrimony/img/landing/laptop.png">
+    <meta property="og:image:alt" content="Perfect Place Matrimony">
+
+    <!-- Specify the author if known -->
+    <!-- <meta name="author" content=""> -->
+
     <title>Matrimony | Perfect Place</title>
+
+    <!-- Favicon link -->
     <link rel="icon" type="image/x-icon" href="/img/web/fevic.png">
 
     <!-- Bootstrap core CSS -->
@@ -16,19 +30,21 @@
 
     <!-- Animation CSS -->
     <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-
 </head>
+
 
 <body id="page-top" class="landing-page no-skin-config">
     <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/login') }}">MATRIMONY Login</a>
+                <a class="navbar-brand" href="{{ url('/register') }}">MATRIMONY</a>
                 <div class="navbar-header page-scroll">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
                         <i class="fa fa-bars"></i>
@@ -38,6 +54,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-link page-scroll" href="#page-top">Home</a></li>
                         <li><a class="nav-link page-scroll" href="{{ url('/register') }}">Register</a></li>
+                        <li><a class="nav-link page-scroll" href="{{ url('/login') }}">Login</a></li>
                         <!--<li><a class="nav-link page-scroll" href="#team">Brides</a></li>
                         <li><a class="nav-link page-scroll" href="#testimonials">Grooms</a></li>
                         <li><a class="nav-link page-scroll" href="#pricing">Pricing</a></li> -->
@@ -56,14 +73,16 @@
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>Welcome to Eternal Bonds,<br />
+                        <h2 class="grrom-brid-count">
+                            <span>Bride Count (वधू)</span> - {{ $femaleCount }} <hr>
+                            <span>Groom Count (वर)</span> - {{ $maleCount }} <hr>
+                        </h2> 
+                        
+                        <h3>Welcome to Eternal Bonds,<br />
                             Find Your Perfect Match,<br />
-                            Where Love Lasts Forever</h1>
-                        <p>Love is the foundation of every beautiful relationship.</p>
-                        <p>
-                            <a class="btn btn-lg btn-primary" href="{{ url('/register') }}" role="button">Register</a>
-                            <a class="caption-link" href="https://perfectplace.in" role="button">Perfect Place</a>
-                        </p>
+                            Where Love Lasts Forever</h3>
+                        <h4>Love is the foundation of every beautiful relationship.</h4>
+                       
                     </div>
                     <div class="carousel-image wow zoomIn">
                         <img src="img/landing/laptop.png" alt="laptop" />
@@ -77,13 +96,12 @@
                 <div class="container">
                     <div class="carousel-caption blank">
                         <h2>Discover Your Soul Mate</h2>
-                        <p>At Eternal Bonds, we believe in helping you find your soul mate, someone who completes you and shares your journey through life. Our platform is designed to connect individuals who are seeking a lifelong partnership based on love, understanding, and compatibility.</p>
-                        <p>With our advanced matching algorithms and comprehensive profiles, you can explore potential matches that align with your values, interests, and aspirations. We provide a safe and secure environment where you can connect and get to know each other at your own pace.</p>
+                        <h3>At Eternal Bonds, we believe in helping you find your soul mate, someone who completes you
+                            and shares your journey through life. Our platform is designed to connect individuals who
+                            are seeking a lifelong partnership based on love, understanding, and compatibility.</h3>
+                    
 
-                        <p>
-                            <a class="btn btn-lg btn-primary" href="{{ url('/login') }}" role="button">Login</a>
-                            <a class="caption-link" href="https://perfectplace.in" role="button">Perfect Place</a>
-                        </p>
+                        
                     </div>
                 </div>
                 <!-- Set background for slide in css -->
@@ -100,33 +118,33 @@
         </a>
     </div>
 
-    <!--
+
 <section id="features" class="container services">
     <div class="row">
         <div class="col-sm-3">
-            <h2>Popular Categories</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-            <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
+            <h2>Advanced Search Filters</h2>
+            <p>Implement robust search filters to allow users to narrow down their search based on specific criteria such as age, education, profession, location, and more. This feature makes it easier for members to find potential matches that align with their preferences.</p>
+            <p><a class="navy-link" href="{{ url('/login') }}" role="button">Know More</a></p>
         </div>
         <div class="col-sm-3">
-            <h2>LESS/SASS Files</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-            <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
+            <h2>Compatibility Matching Algorithm</h2>
+            <p>Develop a sophisticated matching algorithm that considers multiple factors such as personality traits, interests, and values to provide users with highly compatible matches. This can significantly improve the chances of successful and long-lasting connections.</p>
+            <p><a class="navy-link" href="{{ url('/login') }}" role="button">Know More</a></p>
         </div>
         <div class="col-sm-3">
-            <h2>6 Charts Library</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-            <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
+            <h2>Secure Communication Channels</h2>
+            <p>Ensure the privacy and security of user communications by providing encrypted messaging and chat features. Include options for video calls and voice messages to allow members to interact and get to know each other better within the safety of the platform.</p>
+            <p><a class="navy-link" href="{{ url('/login') }}" role="button">Know More</a></p>
         </div>
         <div class="col-sm-3">
-            <h2>Advanced Forms</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-            <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
+            <h2>User Verification and Profile Authenticity</h2>
+            <p>Incorporate a robust user verification system to enhance trust and credibility on your platform. This can include identity verification through official documents, social media integration, or other methods to ensure that users are genuine and serious about finding a life partner.</p>
+            <p><a class="navy-link" href="{{ url('/login') }}" role="button">Know More</a></p>
         </div>
     </div>
 </section>
-
-<section  class="container features"> 
+<!--
+<section  class="container features">
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
@@ -708,7 +726,7 @@
         new WOW().init();
     </script>
 
-<script type="application/ld+json">
+    <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "Organization",

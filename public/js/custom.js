@@ -5,7 +5,7 @@ $(document).ready(function() {
         var religion = $(this).val();
 
         var settings = {
-            "url": "/api/get-cast-by-religion",
+            "url": "/matrimony/api/get-cast-by-religion",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -33,7 +33,7 @@ $(document).ready(function() {
         var state = $(this).val();
 
         var settings = {
-            "url": "/api/get-districts-by-state",
+            "url": "/matrimony/api/get-districts-by-state",
             "method": "POST",
             "timeout": 0,
             "headers": {
